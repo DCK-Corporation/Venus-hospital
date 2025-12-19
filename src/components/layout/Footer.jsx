@@ -1,0 +1,134 @@
+import { Link } from "react-router-dom";
+import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import logo from "@/assets/venus-hospital-logo.png";
+
+const quickLinks = [
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+  { name: "Services", path: "/services" },
+  { name: "Book Appointment", path: "/appointments" },
+  { name: "Contact Us", path: "/contact" },
+];
+
+const services = [
+  { name: "24/7 OPD Services", path: "/services" },
+  { name: "Eye Care Unit", path: "/eye-care" },
+  { name: "Diagnostic Services", path: "/services#diagnostics" },
+  { name: "Laboratory", path: "/services#laboratory" },
+  { name: "Dental Care", path: "/services#dental" },
+];
+
+const socialLinks = [
+  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Linkedin, href: "#", label: "LinkedIn" },
+];
+
+export function Footer() {
+  return (
+    <footer className="bg-foreground text-background">
+      {/* Main Footer */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Logo & About */}
+          <div className="space-y-4">
+            <img src={logo} alt="Venus Hospital" className="h-16 w-auto bg-white p-2 rounded-lg" />
+            <p className="text-sm text-background/70 leading-relaxed">
+              Venus Hospital is your reliable first point of contact for quality healthcare
+              in Avissawella—providing round-the-clock OPD services supported by experienced
+              doctors and modern medical facilities.
+            </p>
+            <div className="flex items-center gap-3">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  aria-label={social.label}
+                  className="p-2 bg-background/10 rounded-full hover:bg-primary transition-colors"
+                >
+                  <social.icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-heading font-semibold text-lg mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.path}
+                    className="text-sm text-background/70 hover:text-primary transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="font-heading font-semibold text-lg mb-4">Our Services</h3>
+            <ul className="space-y-2">
+              {services.map((service) => (
+                <li key={service.name}>
+                  <Link
+                    to={service.path}
+                    className="text-sm text-background/70 hover:text-primary transition-colors"
+                  >
+                    {service.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="font-heading font-semibold text-lg mb-4">Contact Us</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <span className="text-sm text-background/70">
+                  123 Hospital Road, Avissawella,<br />Colombo, Sri Lanka
+                </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="h-5 w-5 text-primary shrink-0" />
+                <a href="tel:+94112345678" className="text-sm text-background/70 hover:text-primary transition-colors">
+                  +94 11 234 5678
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="h-5 w-5 text-primary shrink-0" />
+                <a href="mailto:info@venushospital.lk" className="text-sm text-background/70 hover:text-primary transition-colors">
+                  info@venushospital.lk
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Clock className="h-5 w-5 text-primary shrink-0" />
+                <span className="text-sm text-background/70">
+                  Open 24/7 - Emergency & OPD
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-background/10">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-background/60">
+            <p>© {new Date().getFullYear()} Venus Hospital (Pvt) Ltd. All rights reserved.</p>
+            <p className="font-medium text-primary">Trusted Care. Compassionate Healing.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
