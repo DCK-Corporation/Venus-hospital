@@ -6,6 +6,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import OPDServices from "./pages/Services/OPDServices";
+import OperationTheatre from "./pages/Services/OperationTheatre";
+import EyeCareServices from "./pages/Services/EyeCareServices";
+import HearingCare from "./pages/Services/HearingCare";
+import Laboratory from "./pages/Services/Laboratory";
+import Diagnostics from "./pages/Services/Diagnostics";
+import RoomsWards from "./pages/Services/RoomsWards";
+import DentalCare from "./pages/Services/DentalCare";
+import Pharmacy from "./pages/Services/Pharmacy";
+import AccessibilityServices from "./pages/Services/AccessibilityServices";
 import EyeCare from "./pages/EyeCare";
 import Appointments from "./pages/Appointments";
 import Contact from "./pages/Contact";
@@ -25,6 +35,16 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/opd" element={<OPDServices />} />
+          <Route path="/services/surgery" element={<OperationTheatre />} />
+          <Route path="/services/eye-care" element={<EyeCareServices />} />
+          <Route path="/services/hearing" element={<HearingCare />} />
+          <Route path="/services/laboratory" element={<Laboratory />} />
+          <Route path="/services/diagnostics" element={<Diagnostics />} />
+          <Route path="/services/rooms" element={<RoomsWards />} />
+          <Route path="/services/dental" element={<DentalCare />} />
+          <Route path="/services/pharmacy" element={<Pharmacy />} />
+          <Route path="/services/accessibility" element={<AccessibilityServices />} />
           <Route path="/eye-care" element={<EyeCare />} />
           <Route path="/appointments" element={<Appointments />} />
           <Route path="/contact" element={<Contact />} />

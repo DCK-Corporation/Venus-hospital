@@ -19,12 +19,12 @@ const navItems = [
     label: "MEDICAL SERVICES",
     href: "/services",
     children: [
-      { label: "Doctor Channeling & OPD", href: "/services#opd" },
-      { label: "Operation Theatre", href: "/services#surgery" },
-      { label: "Eye Care Unit", href: "/services#eye-care" },
-      { label: "Hearing Care", href: "/services#hearing" },
-      { label: "Laboratory Services", href: "/services#laboratory" },
       { label: "View All Services", href: "/services" },
+      { label: "Doctor Channeling & OPD", href: "/services/opd" },
+      { label: "Operation Theatre", href: "/services/surgery" },
+      { label: "Eye Care Unit", href: "/services/eye-care" },
+      { label: "Hearing Care", href: "/services/hearing" },
+      { label: "Laboratory Services", href: "/services/laboratory" },
     ],
   },
   {
