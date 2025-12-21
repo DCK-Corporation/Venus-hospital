@@ -52,7 +52,7 @@ const MainNav = () => {
   };
 
   return (
-    <nav className="bg-secondary">
+    <nav className="bg-blue-900">
       <div className="container mx-auto px-4">
         {/* Desktop Navigation */}
         <div className="hidden xl:flex items-center justify-center">
