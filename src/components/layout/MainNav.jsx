@@ -55,7 +55,7 @@ const MainNav = () => {
     <nav className="bg-blue-900">
       <div className="container mx-auto px-4">
         {/* Desktop Navigation */}
-        <div className="hidden xl:flex items-center justify-center">
+        <div className="hidden xl:flex items-center justify-center gap-1.5">
           {navItems.map((item) => (
             <div key={item.label} className="relative group">
               {item.children ? (
