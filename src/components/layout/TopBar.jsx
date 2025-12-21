@@ -18,7 +18,7 @@ const TopBar = () => {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <Clock className="w-4 h-4" />
-            <span className="font-semibold">24/7 Emergency</span>
+            <span className="font-semibold">Mon-Sat 24/7</span>
           </div>
           <span className="hidden sm:inline">|</span>
           <div className="hidden sm:flex items-center gap-2">
@@ -28,7 +28,7 @@ const TopBar = () => {
           <span className="hidden md:inline">|</span>
           <div className="hidden md:flex items-center gap-2">
             <Mail className="w-4 h-4" />
-            <a href="mailto:info@venushospital.lk" className="hover:underline">info@venushospital.lk</a>
+            <a href="mailto:venushospitals@gmail.com" className="hover:underline">venushospitals@gmail.com</a>
           </div>
           <span className="hidden lg:inline">|</span>
           <div className="hidden lg:flex items-center gap-3">
@@ -38,8 +38,9 @@ const TopBar = () => {
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80">
               <Youtube className="w-4 h-4" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80">
-              <Linkedin className="w-4 h-4" />
+           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80">
+              <Linkedin className="w-4 h-4" /> 
+
             </a>
           </div>
         </div>
