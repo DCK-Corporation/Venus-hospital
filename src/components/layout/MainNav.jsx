@@ -61,7 +61,7 @@ const MainNav = () => {
               {item.children ? (
                 <button
                   onClick={() => handleDropdownClick(item.label)}
-                  className="flex items-center gap-1 px-3 py-4 text-xs font-semibold text-secondary-foreground hover:bg-primary/20 transition-colors"
+                  className="flex items-center gap-1 px-3 py-4 text-xs font-bold text-secondary-foreground hover:bg-primary/20 transition-colors"
                 >
                   {item.label}
                   <ChevronDown className={cn(
