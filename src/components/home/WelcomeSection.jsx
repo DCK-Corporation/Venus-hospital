@@ -20,7 +20,7 @@ const features = [
 
 export function WelcomeSection() {
   return (
-    <section className="py-16 md:py-20 bg-gradient-to-b from-background via-muted/30 to-background">
+    <section className="py-16 -mt-16 md:py-20 bg-gradient-to-b from-background via-muted/30 to-background">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
