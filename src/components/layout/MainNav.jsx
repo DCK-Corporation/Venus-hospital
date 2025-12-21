@@ -38,9 +38,9 @@ const navItems = [
     ],
   },
   { label: "BOOK APPOINTMENT", href: "/appointments" },
-  { label: "CAREERS", href: "/careers" },
   { label: "INSURANCE", href: "/insurance" },
   { label: "CONTACT US", href: "/contact" },
+  { label: "CAREERS", href: "/careers" },
 ];
 
 const MainNav = () => {
