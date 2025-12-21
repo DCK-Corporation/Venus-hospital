@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 const TopBar = () => {
   return (
-    <div className="bg-primary text-primary-foreground py-2 text-sm">
+
+
+    <div className="bg-blue-900 text-primary-foreground py-2 text-sm">
       <div className="container mx-auto px-4 flex flex-wrap items-center justify-between">
         <div className="flex items-center gap-4 flex-wrap">
           <Link to="/about" className="hover:underline">About</Link>
@@ -38,8 +40,8 @@ const TopBar = () => {
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80">
               <Youtube className="w-4 h-4" />
             </a>
-           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80">
-              <Linkedin className="w-4 h-4" /> 
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80">
+              <Linkedin className="w-4 h-4" />
 
             </a>
           </div>
