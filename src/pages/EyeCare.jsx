@@ -118,35 +118,43 @@ const EyeCare = () => {
               <span>Home</span> / <span className="text-white">Eye Care & Optical</span>
             </nav>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              Eye Care & Optical Store
+              Visual Eye Optical Services
             </h1>
             <p className="text-lg text-white/90">
-              Quality eyewear solutions at Venus Hospital's in-house optical center
+              Wholly affiliated entity to Venus Hospital with branches across neighboring cities, offering world famous brands at international quality standards
             </p>
           </div>
         </div>
       </section>
 
-      {/* Eye Care Services Info */}
+      {/* Visual Eye Optical Services Info */}
       <section className="py-12 bg-muted">
         <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto mb-8 text-center">
+            <h2 className="text-2xl font-heading font-bold text-foreground mb-3">
+              About Visual Eye Optical Services
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Visual Eye Optical Services is a wholly affiliated entity to Venus Hospital (Pvt) Ltd with a number of branches in the neighboring cities, with its main branch located within the Venus Hospital premises. Our totally computerized Automated Optical Processing Workshop is ready to provide a range of world famous brands of optical products including frames, lenses, contact lenses, Sunglasses etc, at international quality and standards with a guarantee of continuous service.
+            </p>
+          </div>
           <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-card p-6 rounded-xl border border-border flex items-start gap-4">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                <MapPin className="h-6 w-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-heading font-semibold mb-1">Multiple Branches</h3>
+                <p className="text-sm text-muted-foreground">Main branch at Venus Hospital with branches in neighboring cities</p>
+              </div>
+            </div>
             <div className="bg-card p-6 rounded-xl border border-border flex items-start gap-4">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
                 <Eye className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-heading font-semibold mb-1">Eye Examinations</h3>
-                <p className="text-sm text-muted-foreground">Complete eye check-ups before eyewear selection</p>
-              </div>
-            </div>
-            <div className="bg-card p-6 rounded-xl border border-border flex items-start gap-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                <Clock className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-heading font-semibold mb-1">Quick Service</h3>
-                <p className="text-sm text-muted-foreground">Same-day lens fitting for most prescriptions</p>
+                <h3 className="font-heading font-semibold mb-1">Computerized Workshop</h3>
+                <p className="text-sm text-muted-foreground">Totally computerized Automated Optical Processing Workshop</p>
               </div>
             </div>
             <div className="bg-card p-6 rounded-xl border border-border flex items-start gap-4">
@@ -154,8 +162,8 @@ const EyeCare = () => {
                 <Star className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-heading font-semibold mb-1">Quality Guaranteed</h3>
-                <p className="text-sm text-muted-foreground">Warranty on all frames and lenses</p>
+                <h3 className="font-heading font-semibold mb-1">International Quality</h3>
+                <p className="text-sm text-muted-foreground">World famous brands at international standards with service guarantee</p>
               </div>
             </div>
           </div>

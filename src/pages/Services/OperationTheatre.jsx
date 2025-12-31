@@ -7,21 +7,25 @@ const OperationTheatre = () => {
       title="Operation Theatre"
       subtitle="Modern surgical facilities for various procedures"
       icon={Scissors}
-      description="Venus Hospital features a fully equipped, modern operation theatre designed to meet strict medical and safety standards. Our surgical team follows internationally accepted protocols, supported by advanced equipment and a sterile environment. We perform a wide range of surgical procedures with utmost precision and care, ensuring patient safety and successful outcomes."
+      description="We take pride in possessing the highest standard and sterilized modern operation theatre in the area constructed with ultra modern Japanese and German Technology. Our surgical team follows internationally accepted protocols, supported by advanced equipment and a sterile environment. We perform a wide range of surgical procedures with utmost precision and care, ensuring patient safety and successful outcomes."
       features={[
-        "Modern surgical equipment",
-        "Sterile and safe environment",
-        "Experienced surgical team",
+        "Ultra modern Japanese and German Technology",
+        "Highest standard sterilized operation theatre",
+        "Highly skilled and experienced nursing staff",
         "Cataract surgeries",
-        "Cesarean sections",
-        "General surgical procedures",
-        "Minor surgical procedures",
+        "Cesarean sections with Consultant Obstetricians & Gynaecologists",
+        "Paediatrician assistance for maternity care",
+        "OMF (Oral, Maxillofacial & Facial) surgical operations",
         "Post-operative care",
       ]}
       additionalInfo={[
         {
-          title: "Our Surgical Standards",
-          content: "Our operation theatre adheres to international safety and hygiene standards. All surgical instruments are properly sterilized, and our team follows strict protocols to minimize any risk of complications. Patient safety is our top priority.",
+          title: "Advanced Technology & Expert Team",
+          content: "Our operation theatre is constructed with ultra modern Japanese and German Technology, representing the highest standards in the area. We have highly skilled and experienced nursing staff available to assist the veteran medical professionals, ensuring optimal surgical outcomes and patient safety.",
+        },
+        {
+          title: "Cesarean Surgery Excellence",
+          content: "Cesarean Surgeries are performed personally by Skilled Consultant Obstetricians and Gynaecologists and assisted by an experienced consultant paediatrician and a medical officer together with a specially trained nursing staff. The mother can decide on a convenient day under the advice of the Consultant Obstetrician and Gynaecologist and will receive an optimum service for a very reasonable charge.",
         },
         {
           title: "Pre & Post Surgery Care",

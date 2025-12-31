@@ -4,11 +4,14 @@ import { Smile } from "lucide-react";
 const DentalCare = () => {
   return (
     <ServicePageLayout
-      title="Dental Care"
-      subtitle="Complete dental health services"
+      title="Dental Care & OMF Surgery"
+      subtitle="Complete dental health and advanced surgical services"
       icon={Smile}
-      description="Venus Hospital offers comprehensive dental services delivered by qualified dental professionals. Our dental care focuses on both preventive and restorative treatments to maintain oral health. From routine check-ups to dental treatments, we provide quality care in a comfortable and hygienic environment."
+      description="Ours is the only private hospital in Avissawella that performs Oral, Maxillofacial and Facial surgical operations. Our totally sterilized Dental surgery and the general operation theatres are available for all kinds of surgical procedures. Venus Hospital offers comprehensive dental services delivered by qualified dental professionals, from routine check-ups to advanced surgical treatments."
       features={[
+        "Oral, Maxillofacial & Facial (OMF) surgical operations",
+        "Only private hospital in Avissawella offering OMF surgery",
+        "Totally sterilized Dental surgery theatre",
         "Routine dental check-ups",
         "Teeth cleaning and scaling",
         "Dental fillings",
@@ -17,8 +20,13 @@ const DentalCare = () => {
         "Oral hygiene education",
         "Gum disease treatment",
         "Dental consultations",
+        "Advanced surgical procedures",
       ]}
       additionalInfo={[
+        {
+          title: "Advanced OMF Surgical Services",
+          content: "Venus Hospital is proud to be the only private hospital in Avissawella that performs Oral, Maxillofacial and Facial (OMF) surgical operations. Our totally sterilized dental surgery theatre and general operation theatres are equipped to handle all kinds of surgical procedures, ensuring the highest standards of safety and care.",
+        },
         {
           title: "Preventive Dental Care",
           content: "Regular dental check-ups are essential for maintaining oral health. Our dental team provides thorough examinations, professional cleaning, and guidance on proper oral hygiene practices to prevent dental problems before they develop.",
@@ -29,9 +37,9 @@ const DentalCare = () => {
         },
       ]}
       relatedServices={[
+        { name: "Operation Theatre", link: "/services/surgery" },
         { name: "OPD Services", link: "/services/opd" },
         { name: "Pharmacy", link: "/services/pharmacy" },
-        { name: "Diagnostic Services", link: "/services/diagnostics" },
       ]}
     />
   );

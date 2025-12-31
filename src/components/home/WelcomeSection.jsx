@@ -26,7 +26,7 @@ export function WelcomeSection() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold text-primary mb-4">
             <Heart className="h-4 w-4" />
-            <span>Since 1995</span>
+            <span>Since 1999</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 font-heading">
            Trusted Care, Compassionate Healing.

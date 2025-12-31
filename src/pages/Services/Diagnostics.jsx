@@ -7,21 +7,19 @@ const Diagnostics = () => {
       title="Diagnostic Services"
       subtitle="X-ray, ECG, and 2D Echo services"
       icon={Activity}
-      description="Venus Hospital offers reliable diagnostic facilities to support accurate medical evaluations. Our diagnostic services assist doctors in early detection, monitoring, and effective treatment planning. With modern equipment and trained technicians, we provide essential imaging and cardiac diagnostic services to help identify and manage various health conditions."
+      description="We possess a Digital X-ray Machine powered by Japanese Toshiba and Fuji technology that provides you crystal clear X-ray reports. Our dental X-Ray facilities render a tremendous service to our own Dental Surgery and other dental surgeons in the area. With modern equipment and trained technicians, we provide essential imaging and cardiac diagnostic services to help identify and manage various health conditions."
       features={[
-        "Digital X-ray imaging",
+        "Digital X-ray powered by Japanese Toshiba and Fuji technology",
+        "Crystal clear X-ray reports",
+        "Dental X-ray facilities",
+        "Service to dental surgeons in the area",
         "ECG (Electrocardiogram)",
         "2D Echocardiography",
-        "Cardiac monitoring",
-        "Fast result delivery",
-        "Experienced technicians",
-        "Modern equipment",
-        "OPD and inpatient services",
       ]}
       additionalInfo={[
         {
-          title: "Digital X-Ray Services",
-          content: "Our digital X-ray facility provides high-quality imaging with reduced radiation exposure. Digital technology allows for quick image processing and easy sharing with referring physicians, enabling faster diagnosis and treatment decisions.",
+          title: "Advanced Digital X-Ray Technology",
+          content: "We possess a Digital X-ray Machine powered by Japanese Toshiba and Fuji technology that provides you crystal clear X-ray reports. Our dental X-Ray facilities render a tremendous service to our own Dental Surgery and other dental surgeons in the area. Digital technology allows for quick image processing and easy sharing with referring physicians, enabling faster diagnosis and treatment decisions.",
         },
         {
           title: "Cardiac Diagnostics",

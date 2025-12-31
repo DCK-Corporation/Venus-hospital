@@ -7,25 +7,26 @@ const RoomsWards = () => {
       title="Rooms & Wards"
       subtitle="Comfortable inpatient care facilities"
       icon={Bed}
-      description="Patient comfort and recovery are at the heart of our inpatient care. Venus Hospital provides clean, well-maintained rooms and wards designed to create a calm and healing environment. Our nursing staff ensures round-the-clock care and attention to help patients recover comfortably and safely."
+      description="Patient comfort and recovery are at the heart of our inpatient care. Venus Hospital provides clean, well-maintained rooms and wards designed to create a calm and healing environment. The perpetual vigilance and the diligence of a cadre of specially trained and highly skilled nursing staff backed, supervised and trained by government experienced senior nursing staff is delivering a kindhearted and friendly service till you become totally healthy."
       features={[
-        "Clean and comfortable rooms",
-        "Well-maintained wards",
-        "24/7 nursing care",
-        "Regular housekeeping",
-        "Visitor-friendly hours",
-        "Patient call systems",
-        "Comfortable bedding",
-        "Hygienic environment",
+        "Spaciously furnished comfortable rooms",
+        "Tailor made to protect your privacy",
+        "Historic Verdha Mountain Range views",
+        "Scenic tranquility of appealing environs",
+        "Natural healing environment",
+        "Specially trained and highly skilled nursing staff",
+        "Supervised by government experienced senior nurses",
+        "Kindhearted and friendly service",
+        "24/7 nursing care with perpetual vigilance",
       ]}
       additionalInfo={[
         {
-          title: "Room Facilities",
-          content: "Our rooms are designed with patient comfort in mind. Each room is equipped with essential amenities and maintained to high cleanliness standards. We ensure a peaceful environment conducive to rest and recovery.",
+          title: "Scenic Comfort & Natural Healing",
+          content: "Our spaciously furnished comfortable rooms are tailor made to protect your privacy, facing the Historic Verdha Mountain Range touching your eyes right at your front of Kingdom of Seethawaka. These rooms will cure you with the blessings of Nature. While being mingled with the scenic tranquility of the appealing environs, you will certainly be cured with a shorter time, accompanied by the kindest hospitality of our medical and nursing staff.",
         },
         {
-          title: "Nursing Care",
-          content: "Our dedicated nursing team provides compassionate care around the clock. They monitor patient progress, administer medications, assist with daily needs, and ensure communication with attending physicians for optimal recovery.",
+          title: "Exceptional Nursing Care",
+          content: "The perpetual vigilance and the diligence of a cadre of specially trained and highly skilled nursing staff backed, supervised and trained by government experienced senior nursing staff is delivering a kindhearted and friendly service till you become totally healthy. Our nursing care creates memorable experiences that will not fade away from the minds of your family members and your relatives.",
         },
       ]}
       relatedServices={[

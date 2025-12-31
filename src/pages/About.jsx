@@ -34,7 +34,7 @@ const About = () => {
               About Venus Hospital
             </h1>
             <p className="text-lg text-white/90">
-              Your trusted healthcare partner in Avissawella since day one
+              Your trusted healthcare partner in Avissawella since 1999
             </p>
           </div>
         </div>
@@ -46,30 +46,31 @@ const About = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
-                Our Story
+                Our History
               </span>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mt-4">
-                About Venus Hospital
+              <h2 className="text-3xl md:text-1xl font-heading font-bold text-foreground mt-4">
+                From Vision to Reality
               </h2>
             </div>
 
-            <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
+            <div className="prose prose-lg max-w-none text-muted-foreground space-y-3">
+              <h3 className="text-3xl font-heading font-bold text-primary mb-2">Then</h3>
               <p className="text-lg leading-relaxed">
-                Venus Hospital is a private healthcare facility located in Avissawella,
-                Colombo, Sri Lanka, committed to delivering trusted, compassionate, and
-                patient-centered medical care. As a leading first-contact healthcare provider
-                in the region, our Outpatient Department (OPD) operates 24 hours a day,
-                ensuring that patients receive timely medical attention whenever it is needed.
+                An optometric service by the name of Visual Eye Optical Services was inaugurated in the city of Avissawella as far back as 1999. The present chairman Mr. Sanjeewa Koralage, a young entrepreneur had wits and guts to take this optical service to a chain of service centers in the outskirt cities within a decade or less.
               </p>
               <p className="text-lg leading-relaxed">
-                Our hospital is designed with patient comfort, safety, and convenience in mind.
-                Supported by skilled doctors, experienced nurses, and dedicated support staff,
-                we combine modern medical technology with personalized care to ensure the best
-                possible outcomes for our community.
+                This young entrepreneur having his personal chemistry of business in heart, steps upon establishing the Venus Hospital (Pvt) Ltd in March 2014. The hospital was nursed, nurtured and cherished with the blessings of the active participation of highly qualified medical professionals from Avissawella Base Hospital and major hospitals in the island.
+              </p>
+              
+              <h3 className="text-3xl font-heading font-bold text-secondary mb-2 !mt-10">And Now</h3>
+              <p className="text-lg leading-relaxed">
+                Today, Venus Hospital (Pvt) Ltd stands as a Monolith Landmark Healthcare Service Provider in delivering a wider range of medical facilities to tens of thousands of patients in this district borderline city and parts of Kegalle and Ratnapura districts.
+              </p>
+              <p className="text-lg leading-relaxed">
+                The Hospital is in the verge of expansion in near future with a lot more space facilities, continuing our commitment to provide compassionate and patient-centered medical care.
               </p>
               <p className="text-lg leading-relaxed font-medium text-foreground">
-                At Venus Hospital, we believe healthcare should be accessible, reliable, and
-                delivered with empathy—because every patient deserves care they can trust.
+                At Venus Hospital, we believe healthcare should be accessible, reliable, and delivered with empathy—because every patient deserves care they can trust.
               </p>
             </div>
           </div>
@@ -89,8 +90,7 @@ const About = () => {
                 <h3 className="text-2xl font-heading font-bold">Our Vision</h3>
               </div>
               <p className="text-white/90 leading-relaxed text-lg">
-                To be the most trusted community hospital in the region, delivering
-                high-quality healthcare with compassion and integrity.
+                To make this citadal of Hospitality, a front-line health care delivering facility within its community, with the prime goal of serving them to uplift the maximum health benefits with affinity to the bonds of rationality and ethical considerations.
               </p>
             </div>
 
@@ -103,8 +103,7 @@ const About = () => {
                 <h3 className="text-2xl font-heading font-bold">Our Mission</h3>
               </div>
               <p className="text-white/90 leading-relaxed text-lg">
-                To provide accessible, affordable, and comprehensive medical services
-                through skilled professionals, modern facilities, and patient-focused care.
+                To provide competenet, compassionate and caring health services within a friendly and caring health services within a friendly and comfortable atmosphere by dedicated healthcare team to a optimum limits without breaching the golden rule of High quality that has been cherished by this corporate citizen.
               </p>
             </div>
           </div>
