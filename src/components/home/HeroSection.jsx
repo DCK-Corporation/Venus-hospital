@@ -5,7 +5,7 @@ import { Calendar, ChevronLeft, ChevronRight, Eye, Stethoscope, Heart } from "lu
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop",
+    image: "src/assets/Hospital Front Image.jpeg",
     title: "Welcome to Venus Hospital",
     subtitle: "Trusted Healthcare in Avissawella",
     description: "Providing round-the-clock medical care with experienced doctors and modern facilities since 1995.",
@@ -154,8 +154,8 @@ export function HeroSection() {
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-2 h-2 rounded-full transition-all ${index === currentSlide
-                ? "bg-white w-8"
-                : "bg-white/50 hover:bg-white/75"
+              ? "bg-white w-8"
+              : "bg-white/50 hover:bg-white/75"
               }`}
             aria-label={`Go to slide ${index + 1}`}
           />

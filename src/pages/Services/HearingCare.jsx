@@ -1,12 +1,13 @@
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import { Ear } from "lucide-react";
+import hospitalImage from "@/assets/IMG_5616.jpg";
 
 const HearingCare = () => {
   return (
     <ServicePageLayout
       title="Hearing Care Unit"
       subtitle="Professional hearing assessments and support"
-      icon={Ear}
+      image={hospitalImage}
       description="The Hearing Care Unit at Venus Hospital provides professional hearing assessments and support services. We assist patients in identifying hearing-related conditions and guide them toward appropriate treatment. Our team uses modern diagnostic equipment to evaluate hearing health and provide personalized recommendations for hearing improvement."
       features={[
         "Comprehensive hearing assessments",

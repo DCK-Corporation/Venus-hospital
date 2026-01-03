@@ -8,6 +8,7 @@ const ServicePageLayout = ({
   subtitle,
   description,
   icon: Icon,
+  image,
   features = [],
   additionalInfo = [],
   imagePlaceholder,
@@ -50,8 +51,18 @@ const ServicePageLayout = ({
             {/* Content Area */}
             <div className="lg:col-span-2 space-y-8">
               {/* Image/Visual */}
-              <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-12 flex items-center justify-center min-h-[300px]">
-                {Icon && <Icon className="h-32 w-32 text-primary/30" />}
+              <div className="rounded-2xl overflow-hidden">
+                {image ? (
+                  <img
+                    src={image}
+                    alt={title}
+                    className="w-full h-auto object-cover rounded-2xl"
+                  />
+                ) : Icon ? (
+                  <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-12 flex items-center justify-center min-h-[300px]">
+                    <Icon className="h-32 w-32 text-primary/30" />
+                  </div>
+                ) : null}
               </div>
 
               {/* Description */}

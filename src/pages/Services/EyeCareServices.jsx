@@ -1,11 +1,13 @@
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import { Eye } from "lucide-react";
+import eyeCareImage from "@/assets/IMG_5603.jpg";
 
 const EyeCareServices = () => {
   return (
     <ServicePageLayout
       title="Eye Care Unit"
       subtitle="Comprehensive eye diagnostics and treatments"
+      image={eyeCareImage}
       icon={Eye}
       description="We are proud to host the exceptional services of Consultant Eye Surgeons from Colombo National Eye Hospital and the Kandy Teaching Hospital and that of famous Eye surgeons in the whole island are available to you at Venus Hospital. Adding to the veterans, there is an expert team of specially trained nursing staff to provide the ever best possible service to the patients who patronize our services with regard to eye operations. An unmatched dedicated service is rendered to you in providing the state of the art methods of eye testing, providing visual aids and hearing aids to the general public."
       features={[

@@ -1,5 +1,6 @@
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import { Scissors } from "lucide-react";
+import operationTheatreImage from "@/assets/IMG_5616.jpg";
 
 const OperationTheatre = () => {
   return (
@@ -40,5 +41,4 @@ const OperationTheatre = () => {
     />
   );
 };
-
 export default OperationTheatre;

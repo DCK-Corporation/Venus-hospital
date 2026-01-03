@@ -23,13 +23,13 @@ export function InternationalSection() {
             </div>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 font-heading leading-tight">
-              International Patient Care
+              Indoor Patient Care
             </h2>
 
             <p className="text-lg md:text-xl mb-8 opacity-95 leading-relaxed">
               Venus Hospital proudly welcomes patients from around the world. Our dedicated
-              International Patient Care team provides comprehensive support including visa assistance,
-              airport transfers, accommodation arrangements, and personalized medical coordination.
+              Indoor Patient Care team provides comprehensive support including Medical assistance,
+              Accommodation arrangements, and personalized medical coordination.
             </p>
 
             {/* Features Grid */}
@@ -88,7 +88,7 @@ export function InternationalSection() {
           <div className="relative order-1 lg:order-2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl transform lg:rotate-2 hover:rotate-0 transition-transform duration-500">
               <img
-                src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2064&auto=format&fit=crop"
+                src="src/assets/IMG_5974.jpg"
                 alt="International Patient Care at Venus Hospital"
                 className="w-full h-full object-cover"
               />

@@ -1,13 +1,16 @@
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import { FlaskConical } from "lucide-react";
-
+import laboratoryImage from "@/assets/IMG_5764.jpg";
 const Laboratory = () => {
   return (
     <ServicePageLayout
       title="Laboratory Services"
-      subtitle="International standard laboratory with world-class equipment"
+      subtitle="Wide range of medical tests with accuracy"
+
       icon={FlaskConical}
-      description="Bio-chemistry equipment available with us are of most sophisticated world class brands of highest standards, used by the major government hospitals and top class private hospitals in the island. Laboratory tests are personally Quality Controlled by a qualified specialist chemical pathologist. The most accurate reports are delivered to you under the perpetual supervision of government experienced laboratory technicians."
+      image={laboratoryImage}
+      description="Our fully equipped laboratory provides a wide range of medical tests with accuracy and efficiency. We adhere to strict quality standards to ensure reliable test results that support timely clinical decisions. From routine blood tests to specialized investigations, our laboratory is staffed by experienced technicians committed to delivering precise results."
+
       features={[
         "Most sophisticated world class brands equipment",
         "Highest standards used by major government hospitals",
