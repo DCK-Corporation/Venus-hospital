@@ -26,10 +26,8 @@ export function InternationalSection() {
               Indoor Patient Care
             </h2>
 
-            <p className="text-lg md:text-xl mb-8 opacity-95 leading-relaxed">
-              Venus Hospital proudly welcomes patients from around the world. Our dedicated
-              Indoor Patient Care team provides comprehensive support including Medical assistance,
-              Accommodation arrangements, and personalized medical coordination.
+            <p className="text-lg md:text-xl mb-8 opacity-95 leading-relaxed">Venus Hospital offers spacious, comfortably furnished rooms designed to ensure complete privacy and relaxation for every patient. Set against the breathtaking backdrop of the Historic Verdant Mountain Range of the Kingdom of Seethawaka, our hospital environment promotes natural healing and peace of mind. The calming views and serene surroundings create the ideal atmosphere for a faster and more comfortable recovery.
+              
             </p>
 
             {/* Features Grid */}
@@ -37,8 +35,8 @@ export function InternationalSection() {
               <div className="flex items-start gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 transition-colors">
                 <Globe className="w-6 h-6 flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold mb-1">Global Patients</h4>
-                  <p className="text-sm opacity-90">Serving 40+ countries worldwide</p>
+                  <h4 className="font-semibold mb-1">VIP Rooms</h4>
+                  <p className="text-sm opacity-90">Best Stays for VIP guests</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 transition-colors">
@@ -71,13 +69,13 @@ export function InternationalSection() {
                 size="lg"
                 className="bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all shadow-lg"
               >
-                <Link to="/contact">Contact International Desk</Link>
+                <Link to="/contact">Contact Reception</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary transition-all"
+                className="border-2 bg-white text-primary hover:bg-white/90 hover:scale-105 transition-all shadow-lg"
               >
                 <Link to="/services">View Services</Link>
               </Button>
@@ -100,8 +98,8 @@ export function InternationalSection() {
               <div className="flex items-center gap-3">
                 <Award className="w-8 h-8 text-primary" />
                 <div>
-                  <p className="text-3xl font-bold">40+</p>
-                  <p className="text-sm text-muted-foreground font-semibold">Countries Served</p>
+                  <p className="text-3xl font-bold">10+</p>
+                  <p className="text-sm text-muted-foreground font-semibold">Fully Equipped Facilities</p>
                 </div>
               </div>
             </div>
@@ -110,8 +108,8 @@ export function InternationalSection() {
               <div className="flex items-center gap-3">
                 <Heart className="w-8 h-8 text-primary" />
                 <div>
-                  <p className="text-3xl font-bold">5000+</p>
-                  <p className="text-sm text-muted-foreground font-semibold">International Patients</p>
+                  <p className="text-3xl font-bold">10+</p>
+                  <p className="text-sm text-muted-foreground font-semibold">Indoor Treatment Rooms</p>
                 </div>
               </div>
             </div>

@@ -15,7 +15,7 @@ export function ContactCTA() {
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium">
             <Clock className="h-4 w-4" />
-            <span>We're Here 24/7</span>
+            <span>We're Here 6 A.M to 10 P.M OPD 8 a.m to 8 p.m </span>
           </div>
 
           <h2 className="text-3xl md:text-4xl font-heading font-bold">
@@ -23,7 +23,7 @@ export function ContactCTA() {
           </h2>
           <p className="text-lg text-white/90 max-w-xl mx-auto">
             Visit Venus Hospital or contact us for OPD services, doctor channeling,
-            diagnostics, and comprehensive medical care—all in one trusted location.
+            diagnostics and comprehensive medical care—all in one trusted location.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
@@ -34,7 +34,7 @@ export function ContactCTA() {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white/20 font-semibold">
-              <a href="tel:+94112345678">
+              <a href="tel:+9436 2222 096">
                 <Phone className="mr-2 h-5 w-5" />
                 Call Now
               </a>

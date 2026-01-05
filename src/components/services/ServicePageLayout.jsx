@@ -53,11 +53,16 @@ const ServicePageLayout = ({
               {/* Image/Visual */}
               <div className="rounded-2xl overflow-hidden">
                 {image ? (
-                  <img
-                    src={image}
-                    alt={title}
-                    className="w-full h-auto object-cover rounded-2xl"
-                  />
+                  typeof image === 'string' ? (
+                    <img
+                      src={image}
+                      alt={title}
+                      className="w-full h-auto object-cover rounded-2xl"
+                    />
+                  ) : (
+                    // Render as React component (e.g., ImageCarousel)
+                    image
+                  )
                 ) : Icon ? (
                   <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-12 flex items-center justify-center min-h-[300px]">
                     <Icon className="h-32 w-32 text-primary/30" />

@@ -5,7 +5,7 @@ import { Calendar, ChevronLeft, ChevronRight, Eye, Stethoscope, Heart } from "lu
 
 const slides = [
   {
-    image: "src/assets/Hospital Front Image.jpeg",
+    image: "src/assets/IMG_5476.jpg",
     title: "Welcome to Venus Hospital",
     subtitle: "Trusted Healthcare in Avissawella",
     description: "Providing round-the-clock medical care with experienced doctors and modern facilities since 1995.",
@@ -14,16 +14,16 @@ const slides = [
     secondaryBtn: { text: "Explore Services", link: "/services" },
   },
   {
-    image: "https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2064&auto=format&fit=crop",
+    image: "src/assets/IMG_5449.jpg",
     title: "Expert Eye Care Services",
-    subtitle: "Complete Vision Solutions",
+    subtitle: "Complete Vision Solutions",  
     description: "State-of-the-art eye examinations, optical services, and a wide range of frames and sunglasses for all ages.",
     icon: Eye,
     primaryBtn: { text: "Visit Eye Care Center", link: "/eye-care", icon: Eye },
     secondaryBtn: { text: "View Eyewear Collection", link: "/eye-care" },
   },
   {
-    image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=2091&auto=format&fit=crop",
+    image: "src/assets/IMG_5778.jpg",
     title: "24/7 Medical Services",
     subtitle: "Always Here for You",
     description: "Round-the-clock doctor channeling, OPD services, and emergency care with experienced medical professionals.",
@@ -32,7 +32,7 @@ const slides = [
     secondaryBtn: { text: "Our Medical Team", link: "/about#team" },
   },
   {
-    image: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=2128&auto=format&fit=crop",
+    image: "src/assets/IMG_5764.jpg",
     title: "Advanced Laboratory Services",
     subtitle: "Accurate Diagnostics",
     description: "Comprehensive laboratory testing with modern equipment and quick results for accurate diagnosis and treatment.",
@@ -75,6 +75,7 @@ export function HeroSection() {
   const Icon = slide.icon;
   const PrimaryIcon = slide.primaryBtn.icon;
 
+
   return (
     <section className="relative h-[500px] md:h-[600px] overflow-hidden">
       {/* Slides */}
@@ -116,13 +117,13 @@ export function HeroSection() {
             {slide.description}
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button asChild size="lg" className="bg-white text-blue-900 hover:bg-white/90 font-semibold px-8">
+            <Button asChild size="lg" className="bg-white text-blue-900 hover:bg-white/90 font-extralight px-8">
               <Link to={slide.primaryBtn.link}>
                 <PrimaryIcon className="mr-2 h-5 w-5" />
                 {slide.primaryBtn.text}
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white/10 font-semibold px-8">
+            <Button asChild variant="outline" size="lg" className="border-2 border-white bg-white/10 text-white hover:bg-white/20 font-sans px-8">
               <Link to={slide.secondaryBtn.link}>
                 {slide.secondaryBtn.text}
               </Link>
@@ -134,14 +135,14 @@ export function HeroSection() {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all"
+        className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all"
+        className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all"
         aria-label="Next slide"
       >
         <ChevronRight className="w-6 h-6" />

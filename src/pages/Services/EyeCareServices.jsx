@@ -1,13 +1,35 @@
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import { Eye } from "lucide-react";
-import eyeCareImage from "@/assets/IMG_5603.jpg";
+import { ImageCarousel } from "@/components/ui/ImageCarousel";
+import eyeCareImage1 from "@/assets/IMG_5603.jpg";
+import eyeCareImage2 from "@/assets/IMG_5616.jpg";
+import eyeCareImage3 from "@/assets/IMG_5764.jpg";
 
 const EyeCareServices = () => {
+  // Carousel images for Eye Care Unit
+  const carouselImages = [
+    {
+      src: eyeCareImage1,
+      alt: "Eye Care Unit - Diagnostic Equipment",
+      caption: "Advanced diagnostic equipment for comprehensive eye examinations"
+    },
+    {
+      src: eyeCareImage2,
+      alt: "Eye Care Unit - Treatment Room",
+      caption: "Modern treatment facilities with state-of-the-art technology"
+    },
+    {
+      src: eyeCareImage3,
+      alt: "Eye Care Unit - Consultation Area",
+      caption: "Comfortable consultation rooms for personalized care"
+    }
+  ];
+
   return (
     <ServicePageLayout
       title="Eye Care Unit"
       subtitle="Comprehensive eye diagnostics and treatments"
-      image={eyeCareImage}
+      image={<ImageCarousel images={carouselImages} autoPlayInterval={2000} />}
       icon={Eye}
       description="We are proud to host the exceptional services of Consultant Eye Surgeons from Colombo National Eye Hospital and the Kandy Teaching Hospital and that of famous Eye surgeons in the whole island are available to you at Venus Hospital. Adding to the veterans, there is an expert team of specially trained nursing staff to provide the ever best possible service to the patients who patronize our services with regard to eye operations. An unmatched dedicated service is rendered to you in providing the state of the art methods of eye testing, providing visual aids and hearing aids to the general public."
       features={[

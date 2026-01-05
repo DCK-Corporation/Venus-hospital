@@ -8,15 +8,15 @@ const newsArticles = [
     title: "New Eye Care Unit Expansion Complete",
     excerpt: "Venus Hospital expands optical services with advanced diagnostic equipment and larger product showroom.",
     date: "December 15, 2024",
-    image: "https://images.unsplash.com/photo-1551601651-bc60f254d532?q=80&w=2069&auto=format&fit=crop",
+    image: "src/assets/IMG_5603.jpg",
     category: "Facilities",
   },
   {
     id: 2,
-    title: "24/7 Emergency Services Enhanced",
+    title: "Dental Facilities Available",
     excerpt: "Upgraded emergency department with faster response times and expanded medical staff availability.",
     date: "December 10, 2024",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop",
+    image: "src/assets/IMG_5778.jpg",
     category: "Services",
   },
   {
@@ -24,7 +24,7 @@ const newsArticles = [
     title: "Free Health Camp This Weekend",
     excerpt: "Join us for complimentary health screenings, consultations, and wellness education for the community.",
     date: "December 5, 2024",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?q=80&w=2070&auto=format&fit=crop",
+    image: "src/assets/IMG_6052.jpg",
     category: "Community",
   },
 ];
@@ -43,7 +43,7 @@ export function NewsSection() {
             Latest News & Updates
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Stay informed about our latest developments, services, and community initiatives
+            Stay informed about our latest treatments, services, and community initiatives
           </p>
         </div>
 

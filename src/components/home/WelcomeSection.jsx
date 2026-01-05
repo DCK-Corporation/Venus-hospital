@@ -64,7 +64,7 @@ export function WelcomeSection() {
           <div className="flex flex-wrap items-center justify-center gap-8 text-sm md:text-base">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/50" />
-              <span className="font-medium text-foreground">24/7 Emergency Available</span>
+              <span className="font-medium text-foreground">We are available 6 A.M to 10 P.M</span>
             </div>
             <div className="hidden sm:block w-px h-6 bg-border" />
             <div className="flex items-center gap-2 text-foreground">
