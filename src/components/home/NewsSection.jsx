@@ -8,7 +8,7 @@ const newsArticles = [
     title: "New Eye Care Unit Expansion Complete",
     excerpt: "Venus Hospital expands optical services with advanced diagnostic equipment and larger product showroom.",
     date: "December 15, 2024",
-    image: "src/assets/IMG_5603.jpg",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678730/IMG_5603_gwk6xh.jpg",
     category: "Facilities",
   },
   {
@@ -16,7 +16,7 @@ const newsArticles = [
     title: "Dental Facilities Available",
     excerpt: "Upgraded emergency department with faster response times and expanded medical staff availability.",
     date: "December 10, 2024",
-    image: "src/assets/IMG_5778.jpg",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678732/IMG_5778_h08sjs.jpg",
     category: "Services",
   },
   {
@@ -24,7 +24,7 @@ const newsArticles = [
     title: "Free Health Camp This Weekend",
     excerpt: "Join us for complimentary health screenings, consultations, and wellness education for the community.",
     date: "December 5, 2024",
-    image: "src/assets/IMG_6052.jpg",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_6052_csduat.jpg",
     category: "Community",
   },
 ];

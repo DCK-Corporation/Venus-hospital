@@ -5,7 +5,7 @@ import { Calendar, ChevronLeft, ChevronRight, Eye, Stethoscope, Heart } from "lu
 
 const slides = [
   {
-    image: "src/assets/IMG_5476.jpg",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678731/IMG_5476_hagamm.jpg",
     title: "Welcome to Venus Hospital",
     subtitle: "Trusted Healthcare in Avissawella",
     description: "Providing round-the-clock medical care with experienced doctors and modern facilities since 1995.",
@@ -14,7 +14,7 @@ const slides = [
     secondaryBtn: { text: "Explore Services", link: "/services" },
   },
   {
-    image: "src/assets/IMG_5449.jpg",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678616/IMG_5449_tnchy2.jpg",
     title: "Expert Eye Care Services",
     subtitle: "Complete Vision Solutions",  
     description: "State-of-the-art eye examinations, optical services, and a wide range of frames and sunglasses for all ages.",
@@ -23,7 +23,7 @@ const slides = [
     secondaryBtn: { text: "View Eyewear Collection", link: "/eye-care" },
   },
   {
-    image: "src/assets/IMG_5778.jpg",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678732/IMG_5778_h08sjs.jpg",
     title: "24/7 Medical Services",
     subtitle: "Always Here for You",
     description: "Round-the-clock doctor channeling, OPD services, and emergency care with experienced medical professionals.",
@@ -32,7 +32,7 @@ const slides = [
     secondaryBtn: { text: "Our Medical Team", link: "/about#team" },
   },
   {
-    image: "src/assets/IMG_5764.jpg",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678731/IMG_5764_bmwnho.jpg",
     title: "Advanced Laboratory Services",
     subtitle: "Accurate Diagnostics",
     description: "Comprehensive laboratory testing with modern equipment and quick results for accurate diagnosis and treatment.",

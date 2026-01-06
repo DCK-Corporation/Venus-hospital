@@ -86,7 +86,7 @@ export function InternationalSection() {
           <div className="relative order-1 lg:order-2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl transform lg:rotate-2 hover:rotate-0 transition-transform duration-500">
               <img
-                src="src/assets/IMG_5974.jpg"
+                src="https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_5974_xmhbb5.jpg"
                 alt="International Patient Care at Venus Hospital"
                 className="w-full h-full object-cover"
               />
