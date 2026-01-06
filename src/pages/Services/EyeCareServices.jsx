@@ -1,9 +1,7 @@
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import { Eye } from "lucide-react";
 import { ImageCarousel } from "@/components/ui/ImageCarousel";
-import eyeCareImage1 from "@/assets/IMG_5603.jpg";
-import eyeCareImage2 from "@/assets/IMG_5616.jpg";
-import eyeCareImage3 from "@/assets/IMG_5764.jpg";
+
 
 const EyeCareServices = () => {
   // Carousel images for Eye Care Unit

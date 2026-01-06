@@ -1,6 +1,6 @@
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import { Ear } from "lucide-react";
-import hospitalImage from "@/assets/IMG_5616.jpg";
+
 
 const HearingCare = () => {
   return (

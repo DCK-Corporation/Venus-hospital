@@ -1,6 +1,7 @@
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import { FlaskConical } from "lucide-react";
-import laboratoryImage from "@/assets/IMG_5764.jpg";
+
+const laboratoryImage = undefined;
 const Laboratory = () => {
   return (
     <ServicePageLayout
@@ -12,6 +13,7 @@ const Laboratory = () => {
       description="Our fully equipped laboratory provides a wide range of medical tests with accuracy and efficiency. We adhere to strict quality standards to ensure reliable test results that support timely clinical decisions. From routine blood tests to specialized investigations, our laboratory is staffed by experienced technicians committed to delivering precise results."
 
       features={[
+
         "Most sophisticated world class brands equipment",
         "Highest standards used by major government hospitals",
         "Quality Controlled by qualified specialist chemical pathologist",
@@ -25,6 +27,7 @@ const Laboratory = () => {
         "Liver and kidney function tests",
         "Urine analysis",
         "Quick turnaround time",
+
       ]}
       additionalInfo={[
         {
