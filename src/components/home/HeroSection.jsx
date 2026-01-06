@@ -16,7 +16,7 @@ const slides = [
   {
     image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678616/IMG_5449_tnchy2.jpg",
     title: "Expert Eye Care Services",
-    subtitle: "Complete Vision Solutions",  
+    subtitle: "Complete Vision Solutions",
     description: "State-of-the-art eye examinations, optical services, and a wide range of frames and sunglasses for all ages.",
     icon: Eye,
     primaryBtn: { text: "Visit Eye Care Center", link: "/eye-care", icon: Eye },
@@ -77,7 +77,7 @@ export function HeroSection() {
 
 
   return (
-    <section className="relative h-[500px] md:h-[600px] overflow-hidden">
+    <section className="relative h-[600px] md:h-[650px] lg:h-[700px] overflow-hidden">
       {/* Slides */}
       {slides.map((s, index) => (
         <div
@@ -104,27 +104,43 @@ export function HeroSection() {
       ))}
 
       {/* Content */}
-      <div className="relative container mx-auto px-4 h-full flex items-center z-10">
-        <div className="max-w-2xl text-white">
-          <div className="mb-4 inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-            <Icon className="w-5 h-5" />
-            <span className="text-sm font-semibold">{slide.subtitle}</span>
+      <div className="relative container mx-auto px-4 md:px-6 h-full flex items-center z-10">
+        <div className="max-w-2xl text-white w-full">
+          {/* Badge */}
+          <div className="mb-3 md:mb-4 inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 md:px-4 md:py-2 rounded-full">
+            <Icon className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="text-xs md:text-sm font-semibold">{slide.subtitle}</span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-heading animate-fade-in">
+
+          {/* Title */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 font-heading animate-fade-in leading-tight">
             {slide.title}
           </h1>
-          <p className="text-base md:text-lg mb-8 opacity-90 max-w-xl">
+
+          {/* Description */}
+          <p className="text-sm sm:text-base md:text-lg mb-6 md:mb-8 opacity-90 max-w-xl leading-relaxed">
             {slide.description}
           </p>
-          <div className="flex flex-wrap gap-4">
-            <Button asChild size="lg" className="bg-white text-blue-900 hover:bg-white/90 font-extralight px-8">
-              <Link to={slide.primaryBtn.link}>
-                <PrimaryIcon className="mr-2 h-5 w-5" />
-                {slide.primaryBtn.text}
+
+          {/* Buttons - Stacked on mobile, side-by-side on larger screens */}
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+            <Button
+              asChild
+              size="lg"
+              className="bg-white text-blue-900 hover:bg-white/90 font-semibold px-6 md:px-8 w-full sm:w-auto justify-center"
+            >
+              <Link to={slide.primaryBtn.link} className="flex items-center justify-center gap-2">
+                <PrimaryIcon className="h-5 w-5" />
+                <span>{slide.primaryBtn.text}</span>
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-2 border-white bg-white/10 text-white hover:bg-white/20 font-sans px-8">
-              <Link to={slide.secondaryBtn.link}>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-2 border-white bg-white/10 text-white hover:bg-white/20 font-semibold px-6 md:px-8 w-full sm:w-auto justify-center"
+            >
+              <Link to={slide.secondaryBtn.link} className="flex items-center justify-center">
                 {slide.secondaryBtn.text}
               </Link>
             </Button>
@@ -149,14 +165,14 @@ export function HeroSection() {
       </button>
 
       {/* Dot Indicators */}
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-2 h-2 rounded-full transition-all ${index === currentSlide
-              ? "bg-white w-8"
-              : "bg-white/50 hover:bg-white/75"
+                ? "bg-white w-8"
+                : "bg-white/50 hover:bg-white/75"
               }`}
             aria-label={`Go to slide ${index + 1}`}
           />
