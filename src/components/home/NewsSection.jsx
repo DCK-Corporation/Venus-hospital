@@ -1,33 +1,7 @@
 import { Link } from "react-router-dom";
 import { Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const newsArticles = [
-  {
-    id: 1,
-    title: "New Eye Care Unit Expansion Complete",
-    excerpt: "Venus Hospital expands optical services with advanced diagnostic equipment and larger product showroom.",
-    date: "December 15, 2024",
-    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678730/IMG_5603_gwk6xh.jpg",
-    category: "Facilities",
-  },
-  {
-    id: 2,
-    title: "Dental Facilities Available",
-    excerpt: "Upgraded emergency department with faster response times and expanded medical staff availability.",
-    date: "December 10, 2024",
-    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678732/IMG_5778_h08sjs.jpg",
-    category: "Services",
-  },
-  {
-    id: 3,
-    title: "Free Health Camp This Weekend",
-    excerpt: "Join us for complimentary health screenings, consultations, and wellness education for the community.",
-    date: "December 5, 2024",
-    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_6052_csduat.jpg",
-    category: "Community",
-  },
-];
+import { newsArticles } from "@/data/newsData";
 
 export function NewsSection() {
   return (
@@ -77,8 +51,7 @@ export function NewsSection() {
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   {article.excerpt}
                 </p>
-                <Link
-                  to={`/news/${article.id}`}
+                <Link to={`/news/${article.id}`}
                   className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
                 >
                   Read More
@@ -92,7 +65,7 @@ export function NewsSection() {
         {/* View All Button */}
         <div className="text-center mt-12">
           <Button asChild size="lg" variant="outline" className="group">
-            <Link to="/about">
+            <Link to="/news">
               View All News & Updates
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>

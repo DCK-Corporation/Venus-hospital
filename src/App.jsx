@@ -21,6 +21,8 @@ import Appointments from "./pages/Appointments";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import Insurance from "./pages/Insurance";
+import News from "./pages/News";
+import NewsArticle from "./pages/NewsArticle";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -50,6 +52,8 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/insurance" element={<Insurance />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/news/:id" element={<NewsArticle />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
