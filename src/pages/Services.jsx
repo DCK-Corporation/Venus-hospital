@@ -2,98 +2,83 @@ import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
-  Stethoscope,
-  Eye,
-  Ear,
-  Glasses,
-  Activity,
-  FlaskConical,
-  Pill,
-  Bed,
-  Scissors,
-  Accessibility,
-  Smile,
   Calendar,
   ArrowRight,
 } from "lucide-react";
 
 const services = [
   {
-    icon: Stethoscope,
     title: "8 a.m - 8 p.m OPD Services",
     description: "Round-the-clock outpatient care with qualified doctors",
     link: "/services/opd",
     image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_6030_ibrvko.jpg",
   },
   {
-    icon: Scissors,
     title: "Operation Theatre",
     description: "Modern surgical facilities for various procedures",
     link: "/services/surgery",
     image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&q=80",
   },
   {
-    icon: Bed,
     title: "Rooms & Wards",
     description: "Comfortable inpatient care facilities",
     link: "/services/rooms",
     image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767677162/IMG_5988_xixvdk.jpg",
   },
   {
-    icon: Eye,
     title: "Eye Care Unit",
     description: "Comprehensive eye diagnostics and treatments",
     link: "/services/eye-care",
     image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678731/IMG_5709_nkjcnb.jpg",
   },
   {
-    icon: Ear,
     title: "Hearing Unit",
     description: "Professional hearing assessments and support",
     link: "/services/hearing",
     image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678730/IMG_5616_c8o4pt.jpg",
   },
   {
-    icon: Glasses,
     title: "Optical Services",
     description: "Vision correction and eyewear solutions",
     link: "/eye-care",
     image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678739/IMG_6062_bext85.jpg",
   },
   {
-    icon: Activity,
     title: "Diagnostics",
     description: "X-ray, ECG, and 2D Echo services",
     link: "/services/diagnostics",
     image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678731/IMG_5728_qguyl3.jpg",
   },
   {
-    icon: FlaskConical,
     title: "Laboratory",
     description: "Wide range of medical tests with accuracy",
     link: "/services/laboratory",
     image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678731/IMG_5764_bmwnho.jpg",
   },
   {
-    icon: Smile,
     title: "Dental Care",
     description: "Complete dental health services",
     link: "/services/dental",
     image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678732/IMG_5778_h08sjs.jpg",
   },
   {
-    icon: Pill,
     title: "Pharmacy",
     description: "On-site pharmacy for prescribed medications",
     link: "/services/pharmacy",
     image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678733/IMG_5876_xjlmsd.jpg",
   },
   {
-    icon: Accessibility,
     title: "Accessibility",
     description: "Wheelchair access and dedicated parking",
     link: "/services/accessibility",
     image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678739/IMG_6006_qtowem.jpg",
+  },
+
+   {
+    title: "Skin Clinic",
+    description: "The best skin care services in Avissawella",
+    link: "/services/skinclinic",
+    image: "",
   },
 ];
 
@@ -152,9 +137,6 @@ const Services = () => {
 
                 {/* Content */}
                 <div className="relative z-10 p-6">
-                  <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                    <service.icon className="h-7 w-7 text-white" />
-                  </div>
                   <h3 className="font-heading font-bold text-xl text-white mb-2">
                     {service.title}
                   </h3>

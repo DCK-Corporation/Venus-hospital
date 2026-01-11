@@ -20,17 +20,17 @@ const TopBar = () => {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <Clock className="w-4 h-4" />
-            <span className="font-semibold">Mon-Sat 24/7</span>
+            <span className="font-semibold">6am-10pm Daily</span>
           </div>
           <span className="hidden sm:inline">|</span>
           <div className="hidden sm:flex items-center gap-2">
             <Phone className="w-4 h-4" />
-            <a href="tel:+94112345678" className="hover:underline font-semibold">011 234 5678</a>
+            <a href="tel:+94362222096" className="hover:underline font-semibold">036 2222 096</a>
           </div>
           <span className="hidden md:inline">|</span>
           <div className="hidden md:flex items-center gap-2">
             <Mail className="w-4 h-4" />
-            <a href="mailto:venushospitals@gmail.com" className="hover:underline">venushospitals@gmail.com</a>
+            <a href="mailto:Venusprivatehospital@gmail.com" className="hover:underline">Venusprivatehospital@gmail.com</a>
           </div>
           <span className="hidden lg:inline">|</span>
           <div className="hidden lg:flex items-center gap-3">

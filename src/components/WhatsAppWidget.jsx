@@ -4,8 +4,8 @@ import { MessageCircle, X } from "lucide-react";
 export function WhatsAppWidget() {
     const [isHovered, setIsHovered] = useState(false);
 
-    // Hospital WhatsApp number - update this with your actual number
-    const phoneNumber = "+94771234567";
+    // Hospital WhatsApp number
+    const phoneNumber = "+94362222096";
 
     // Pre-filled message
     const message = "Hello! I would like to inquire about your medical services.";
@@ -20,8 +20,8 @@ export function WhatsAppWidget() {
                 {/* Message Bubble - shows on hover */}
                 <div
                     className={`transition-all duration-300 transform ${isHovered
-                            ? "opacity-100 translate-y-0 scale-100"
-                            : "opacity-0 translate-y-2 scale-95 pointer-events-none"
+                        ? "opacity-100 translate-y-0 scale-100"
+                        : "opacity-0 translate-y-2 scale-95 pointer-events-none"
                         }`}
                 >
                     <div className="bg-white rounded-lg shadow-lg p-4 max-w-xs relative">

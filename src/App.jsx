@@ -15,6 +15,7 @@ import Diagnostics from "./pages/Services/Diagnostics";
 import RoomsWards from "./pages/Services/RoomsWards";
 import DentalCare from "./pages/Services/DentalCare";
 import Pharmacy from "./pages/Services/Pharmacy";
+import SkinClinic from "./pages/Services/SkinClinic";
 import AccessibilityServices from "./pages/Services/AccessibilityServices";
 import EyeCare from "./pages/EyeCare";
 import Appointments from "./pages/Appointments";
@@ -24,6 +25,7 @@ import Insurance from "./pages/Insurance";
 import News from "./pages/News";
 import NewsArticle from "./pages/NewsArticle";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +35,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
@@ -46,6 +49,7 @@ const App = () => (
           <Route path="/services/rooms" element={<RoomsWards />} />
           <Route path="/services/dental" element={<DentalCare />} />
           <Route path="/services/pharmacy" element={<Pharmacy />} />
+          <Route path="/services/skinclinic" element={<SkinClinic />} />
           <Route path="/services/accessibility" element={<AccessibilityServices />} />
           <Route path="/eye-care" element={<EyeCare />} />
           <Route path="/appointments" element={<Appointments />} />

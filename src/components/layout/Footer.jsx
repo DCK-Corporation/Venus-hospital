@@ -94,25 +94,25 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                 <span className="text-sm text-background/70">
-                  123 Hospital Road, Avissawella,<br />Colombo, Sri Lanka
+                  55A Colombo Road,<br />Avissawella, Sri Lanka
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-primary shrink-0" />
-                <a href="tel:+94112345678" className="text-sm text-background/70 hover:text-primary transition-colors">
-                  +94 11 234 5678
+                <a href="tel:+94362222096" className="text-sm text-background/70 hover:text-primary transition-colors">
+                  036 2222 096
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary shrink-0" />
-                <a href="mailto:info@venushospital.lk" className="text-sm text-background/70 hover:text-primary transition-colors">
-                  info@venushospital.lk
+                <a href="mailto:Venusprivatehospital@gmail.com" className="text-sm text-background/70 hover:text-primary transition-colors">
+                  Venusprivatehospital@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Clock className="h-5 w-5 text-primary shrink-0" />
                 <span className="text-sm text-background/70">
-                  Open 24/7 - Emergency & OPD
+                  Hospital: 6am-10pm | OPD: 8am-8pm
                 </span>
               </li>
             </ul>

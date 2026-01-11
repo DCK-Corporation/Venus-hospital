@@ -15,7 +15,7 @@ export function ContactCTA() {
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium">
             <Clock className="h-4 w-4" />
-            <span>We're Here 6 A.M to 10 P.M OPD 8 a.m to 8 p.m </span>
+            <span>Hospital: 6am-10pm | OPD: 8am-8pm</span>
           </div>
 
           <h2 className="text-3xl md:text-4xl font-heading font-bold">
@@ -34,7 +34,7 @@ export function ContactCTA() {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-white text-white bg-white/10 hover:bg-white/20 font-semibold">
-              <a href="tel:+9436 2222 096">
+              <a href="tel:+94362222096">
                 <Phone className="mr-2 h-5 w-5" />
                 Call Now
               </a>

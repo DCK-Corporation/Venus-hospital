@@ -21,25 +21,49 @@ import {
 const contactInfo = [
   {
     icon: Phone,
-    title: "Phone",
-    details: ["+94 11 234 5678", "+94 11 234 5679"],
-    action: "tel:+94112345678",
+    title: "Reception",
+    details: ["036 2222 096", "036 2222 064"],
+    action: "tel:+94362222096",
+  },
+  {
+    icon: Phone,
+    title: "Optical",
+    details: ["075 3222 096", "075 3222 099"],
+    action: "tel:+94753222096",
+  },
+  {
+    icon: Phone,
+    title: "Laboratory",
+    details: ["075 322 2101"],
+    action: "tel:+94753222101",
+  },
+  {
+    icon: Phone,
+    title: "Hearing Aids",
+    details: ["077 189 9611"],
+    action: "tel:+94771899611",
+  },
+  {
+    icon: Phone,
+    title: "Ward",
+    details: ["071 071 0007"],
+    action: "tel:+94710710007",
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["info@venushospital.lk", "appointments@venushospital.lk"],
-    action: "mailto:info@venushospital.lk",
+    details: ["Venusprivatehospital@gmail.com"],
+    action: "mailto:Venusprivatehospital@gmail.com",
   },
   {
     icon: MapPin,
     title: "Address",
-    details: ["123 Hospital Road", "Avissawella, Colombo", "Sri Lanka"],
+    details: ["55A Colombo Road", "Avissawella", "Sri Lanka"],
   },
   {
     icon: Clock,
     title: "Operating Hours",
-    details: ["Emergency & OPD: 24/7", "Optical: Mon-Sat 8AM-8PM", "Admin: Mon-Fri 9AM-5PM"],
+    details: ["Hospital: 6:00 AM - 10:00 PM", "OPD: 8:00 AM - 8:00 PM"],
   },
 ];
 

@@ -1,85 +1,8 @@
 import { Link } from "react-router-dom";
-import {
-  Stethoscope,
-  Eye,
-  Ear,
-  Glasses,
-  Activity,
-  FlaskConical,
-  Pill,
-  Bed,
-  Scissors,
-  Accessibility,
-  Smile
-} from "lucide-react";
+
 
 const services = [
-  {
-    icon: Stethoscope,
-    title: "24/7 OPD Services",
-    description: "Round-the-clock outpatient care with qualified doctors",
-    link: "/services/opd",
-  },
-  {
-    icon: Scissors,
-    title: "Operation Theatre",
-    description: "Modern surgical facilities for various procedures",
-    link: "/services/surgery",
-  },
-  {
-    icon: Bed,
-    title: "Rooms & Wards",
-    description: "Comfortable inpatient care facilities",
-    link: "/services/rooms",
-  },
-  {
-    icon: Eye,
-    title: "Eye Care Unit",
-    description: "Comprehensive eye diagnostics and treatments",
-    link: "/services/eye-care",
-  },
-  {
-    icon: Ear,
-    title: "Hearing Unit",
-    description: "Professional hearing assessments and support",
-    link: "/services/hearing",
-  },
-  {
-    icon: Glasses,
-    title: "Optical Services",
-    description: "Vision correction and eyewear solutions",
-    link: "/eye-care",
-  },
-  {
-    icon: Activity,
-    title: "Diagnostics",
-    description: "X-ray, ECG, and 2D Echo services",
-    link: "/services/diagnostics",
-  },
-  {
-    icon: FlaskConical,
-    title: "Laboratory",
-    description: "Wide range of medical tests with accuracy",
-    link: "/services/laboratory",
-  },
-  {
-    icon: Smile,
-    title: "Dental Care",
-    description: "Complete dental health services",
-    link: "/services/dental",
-  },
-  {
-    icon: Pill,
-    title: "Pharmacy",
-    description: "On-site pharmacy for prescribed medications",
-    link: "/services/pharmacy",
-  },
-  {
-    icon: Accessibility,
-    title: "Accessibility",
-    description: "Wheelchair access and dedicated parking",
-    link: "/services/accessibility",
-  },
+
 ];
 
 export function ServicesGrid() {
@@ -94,7 +17,7 @@ export function ServicesGrid() {
             Our Medical Services
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Venus Hospital offers a wide range of medical services under one roof—designed
+            check chek chek. offers a wide range of medical services under one roof—designed
             to meet everyday healthcare needs as well as specialized medical care.
           </p>
         </div>
