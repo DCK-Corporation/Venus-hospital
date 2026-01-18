@@ -1,161 +1,150 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { BookingModal } from "@/components/BookingModal";
-import { Phone, Stethoscope, Bed, Clock, MapPin, Heart, Award, Star } from "lucide-react";
+import { Phone, Stethoscope, Bed, Clock, MapPin, Heart, Users, Shield, Award } from "lucide-react";
 
 export function InternationalSection() {
   return (
-    <section className="relative py-12 md:py-20 bg-gradient-to-b from-background to-muted/30 overflow-hidden">
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+    <section className="relative py-16 md:py-24 bg-gradient-to-br from-primary via-primary/90 to-primary overflow-hidden">
+      {/* Animated Decorative Elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse delay-1000" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl" />
+
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, hsl(var(--primary)) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
+          backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+          backgroundSize: '50px 50px',
+          animation: 'float 20s ease-in-out infinite'
         }} />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
-          <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-sm font-semibold text-primary mb-4">
+        <div className="text-center mb-12 md:mb-16 animate-fade-in">
+          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-5 py-2.5 rounded-full text-sm font-semibold text-white mb-5 hover:bg-white/30 transition-all">
             <Heart className="h-4 w-4" />
-            <span>Quality Healthcare Services</span>
+            <span>Compassionate Healthcare in Avissawella</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-heading text-foreground">
-            Indoor Patient Care
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 font-heading text-white">
+            Premium Indoor Patient Care
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Spacious, comfortably furnished rooms with complete privacy and relaxation. Set against the breathtaking backdrop of the Historic Verdant Mountain Range.
+          <p className="text-base md:text-lg text-white/90 max-w-3xl mx-auto leading-relaxed">
+            Experience healing in comfort with our modern facilities set against the scenic beauty of the Verdha Mountain Range
           </p>
         </div>
 
-        {/* Quick Action Buttons - Prominent on Mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 max-w-2xl mx-auto">
-          <BookingModal
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 md:h-20 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105"
-            triggerText="Channel a Doctor"
-          />
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="border-2 border-primary text-primary hover:bg-primary/10 h-16 md:h-20 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105"
-          >
-            <a href="tel:+94362222096" className="flex items-center justify-center gap-3">
-              <Phone className="h-6 w-6 md:h-7 md:w-7" />
-              <span>Call Now</span>
-            </a>
-          </Button>
-        </div>
-
-        {/* Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {/* VIP Rooms Card */}
-          <div className="bg-card border border-border rounded-xl p-6 shadow-md hover:shadow-xl transition-all hover:scale-105 group">
-            <div className="flex items-start gap-4">
-              <div className="bg-primary/10 p-3 rounded-lg group-hover:bg-primary/20 transition-colors">
-                <Bed className="w-7 h-7 text-primary" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-lg mb-2 text-foreground">VIP Rooms</h3>
-                <p className="text-sm text-muted-foreground mb-3">Premium accommodation with modern amenities and scenic mountain views</p>
-                <Button asChild variant="link" className="p-0 h-auto text-primary font-semibold">
-                  <Link to="/services">Learn More →</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          {/* 24/7 Care Card */}
-          <div className="bg-card border border-border rounded-xl p-6 shadow-md hover:shadow-xl transition-all hover:scale-105 group">
-            <div className="flex items-start gap-4">
-              <div className="bg-secondary/10 p-3 rounded-lg group-hover:bg-secondary/20 transition-colors">
-                <Clock className="w-7 h-7 text-secondary" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-lg mb-2 text-foreground">24/7 Medical Care</h3>
-                <p className="text-sm text-muted-foreground mb-3">Round-the-clock doctor availability and emergency services</p>
-                <BookingModal
-                  variant="link"
-                  className="p-0 h-auto text-secondary font-semibold justify-start"
-                  triggerText="Book Now →"
-                  showIcon={false}
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Expert Doctors Card */}
-          <div className="bg-card border border-border rounded-xl p-6 shadow-md hover:shadow-xl transition-all hover:scale-105 group">
-            <div className="flex items-start gap-4">
-              <div className="bg-primary/10 p-3 rounded-lg group-hover:bg-primary/20 transition-colors">
-                <Stethoscope className="w-7 h-7 text-primary" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-lg mb-2 text-foreground">Expert Doctors</h3>
-                <p className="text-sm text-muted-foreground mb-3">Experienced medical professionals across multiple specialties</p>
-                <Button asChild variant="link" className="p-0 h-auto text-primary font-semibold">
-                  <Link to="/about#team">Meet Our Team →</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Image and Stats Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Image */}
-          <div className="relative order-2 lg:order-1">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
+          {/* Image with Overlay Card */}
+          <div className="relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
               <img
                 src="https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_5974_xmhbb5.jpg"
                 alt="Indoor Patient Care at Venus Hospital"
-                className="w-full h-[300px] md:h-[400px] object-cover"
+                className="w-full h-[400px] md:h-[500px] object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            </div>
+          </div>
 
-              {/* Floating Badge */}
-              <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm text-primary px-4 py-3 rounded-lg shadow-lg">
-                <div className="flex items-center gap-2">
-                  <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                  <div>
-                    <p className="text-sm font-bold">Trusted Since 1995</p>
-                    <p className="text-xs text-muted-foreground">30+ Years of Excellence</p>
+          {/* Content Side */}
+          <div className="space-y-6">
+            {/* Feature Cards */}
+            <div className="grid gap-4">
+              {/* Comfortable Rooms */}
+              <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary/30 group-hover:rotate-6 transition-all duration-300">
+                    <Bed className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-lg mb-1.5 text-gray-900">Comfortable Rooms & Wards</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      Spaciously furnished rooms with complete privacy, facing the Historic Verdha Mountain Range for natural healing
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Expert Care */}
+              <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:shadow-2xl hover:scale-105 transition-all duration-300 group delay-100">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary/30 group-hover:rotate-6 transition-all duration-300">
+                    <Stethoscope className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-lg mb-1.5 text-gray-900">Expert Medical Team</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      Highly skilled nursing staff supervised by government-experienced senior nurses providing kindhearted service
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Extended Hours */}
+              <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:shadow-2xl hover:scale-105 transition-all duration-300 group delay-200">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary/30 group-hover:rotate-6 transition-all duration-300">
+                    <Clock className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-lg mb-1.5 text-gray-900">Extended Operating Hours</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      Hospital services available from 6 AM to 10 PM daily, OPD services from 8 AM to 8 PM
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* CTA Buttons */}
+            <div className="grid sm:grid-cols-2 gap-4 pt-4">
+              <BookingModal
+                size="lg"
+                className="bg-white text-primary hover:bg-white/90 h-14 text-base font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                triggerText="Book Appointment"
+              />
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-primary hover:bg-white hover:text-primary h-14 text-base font-semibold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+              >
+                <a href="tel:+94362222096" className="flex items-center justify-center gap-2">
+                  <Phone className="h-5 w-5" />
+                  <span>036 2222 096</span>
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center hover:scale-110 hover:rotate-2 transition-all duration-300 hover:shadow-2xl">
+            <Users className="w-8 h-8 text-primary mx-auto mb-3" />
+            <p className="text-3xl md:text-4xl font-bold text-primary mb-1">1000+</p>
+            <p className="text-sm text-gray-600 font-medium">Happy Patients</p>
           </div>
 
-          {/* Stats and Info */}
-          <div className="order-1 lg:order-2 space-y-6">
-            <div className="grid grid-cols-2 gap-4">
-              {/* Stat Card 1 */}
-              <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 text-center">
-                <Award className="w-8 h-8 text-primary mx-auto mb-2" />
-                <p className="text-3xl md:text-4xl font-bold text-primary mb-1">10+</p>
-                <p className="text-sm text-muted-foreground font-medium">Equipped Facilities</p>
-              </div>
+          <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center hover:scale-110 hover:rotate-2 transition-all duration-300 hover:shadow-2xl delay-100">
+            <Stethoscope className="w-8 h-8 text-primary mx-auto mb-3" />
+            <p className="text-3xl md:text-4xl font-bold text-primary mb-1">15+</p>
+            <p className="text-sm text-gray-600 font-medium">Specialist Doctors</p>
+          </div>
 
-              {/* Stat Card 2 */}
-              <div className="bg-secondary/5 border border-secondary/20 rounded-xl p-6 text-center">
-                <Heart className="w-8 h-8 text-secondary mx-auto mb-2" />
-                <p className="text-3xl md:text-4xl font-bold text-secondary mb-1">10+</p>
-                <p className="text-sm text-muted-foreground font-medium">Treatment Rooms</p>
-              </div>
-            </div>
+          <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center hover:scale-110 hover:rotate-2 transition-all duration-300 hover:shadow-2xl delay-200">
+            <Bed className="w-8 h-8 text-primary mx-auto mb-3" />
+            <p className="text-3xl md:text-4xl font-bold text-primary mb-1">20+</p>
+            <p className="text-sm text-gray-600 font-medium">Patient Rooms</p>
+          </div>
 
-            {/* Additional Info */}
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="font-bold text-xl mb-4 text-foreground flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-primary" />
-                Scenic Location
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Our hospital is uniquely positioned against the Historic Verdant Mountain Range of the Kingdom of Seethawaka, providing a serene healing environment that promotes natural recovery and peace of mind.
-              </p>
-            </div>
+          <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center hover:scale-110 hover:rotate-2 transition-all duration-300 hover:shadow-2xl delay-300">
+            <Shield className="w-8 h-8 text-primary mx-auto mb-3" />
+            <p className="text-3xl md:text-4xl font-bold text-primary mb-1">10+</p>
+            <p className="text-sm text-gray-600 font-medium">Years Experience</p>
           </div>
         </div>
       </div>

@@ -240,10 +240,10 @@ const EyeCare = () => {
                   </div>
                   <div className="flex items-center justify-between pt-2">
                     <div>
-                      <span className="text-lg font-bold text-primary">{product.price}</span>
+                      <span className="text-lg font-bold text-primary">{}</span>
                       {product.originalPrice && (
                         <span className="text-sm text-muted-foreground line-through ml-2">
-                          {product.originalPrice}
+                          {}
                         </span>
                       )}
                     </div>
