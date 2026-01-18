@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Calendar, ChevronLeft, ChevronRight, Eye, Stethoscope, Heart } from "lucide-react";
+import { BookingModal } from "@/components/BookingModal";
+import { ChevronLeft, ChevronRight, Eye, Stethoscope, Heart } from "lucide-react";
 
 const slides = [
   {
@@ -10,7 +11,7 @@ const slides = [
     subtitle: "Trusted Healthcare in Avissawella",
     description: "Providing round-the-clock medical care with experienced doctors and modern facilities since 1995.",
     icon: Heart,
-    primaryBtn: { text: "Book an Appointment", link: "/appointments", icon: Calendar },
+    primaryBtn: { text: "Book an Appointment", useModal: true },
     secondaryBtn: { text: "Explore Services", link: "/services" },
   },
   {
@@ -28,7 +29,7 @@ const slides = [
     subtitle: "Always Here for You",
     description: "Round-the-clock doctor channeling, OPD services, and emergency care with experienced medical professionals.",
     icon: Stethoscope,
-    primaryBtn: { text: "Channel a Doctor", link: "/appointments", icon: Calendar },
+    primaryBtn: { text: "Channel a Doctor", useModal: true },
     secondaryBtn: { text: "Our Medical Team", link: "/about#team" },
   },
   {
@@ -37,7 +38,7 @@ const slides = [
     subtitle: "Accurate Diagnostics",
     description: "Comprehensive laboratory testing with modern equipment and quick results for accurate diagnosis and treatment.",
     icon: Heart,
-    primaryBtn: { text: "Book Lab Test", link: "/appointments", icon: Calendar },
+    primaryBtn: { text: "Book Lab Test", useModal: true },
     secondaryBtn: { text: "View All Services", link: "/services" },
   },
 ];
@@ -73,7 +74,6 @@ export function HeroSection() {
 
   const slide = slides[currentSlide];
   const Icon = slide.icon;
-  const PrimaryIcon = slide.primaryBtn.icon;
 
 
   return (
@@ -124,16 +124,23 @@ export function HeroSection() {
 
           {/* Buttons - Stacked on mobile, side-by-side on larger screens */}
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-            <Button
-              asChild
-              size="lg"
-              className="bg-white text-blue-900 hover:bg-white/90 font-semibold px-6 md:px-8 w-full sm:w-auto justify-center"
-            >
-              <Link to={slide.primaryBtn.link} className="flex items-center justify-center gap-2">
-                <PrimaryIcon className="h-5 w-5" />
-                <span>{slide.primaryBtn.text}</span>
-              </Link>
-            </Button>
+            {slide.primaryBtn.useModal ? (
+              <BookingModal
+                size="lg"
+                className="bg-white text-blue-900 hover:bg-white/90 font-semibold px-6 md:px-8 w-full sm:w-auto justify-center"
+                triggerText={slide.primaryBtn.text}
+              />
+            ) : (
+              <Button
+                asChild
+                size="lg"
+                className="bg-white text-blue-900 hover:bg-white/90 font-semibold px-6 md:px-8 w-full sm:w-auto justify-center"
+              >
+                <Link to={slide.primaryBtn.link} className="flex items-center justify-center gap-2">
+                  <span>{slide.primaryBtn.text}</span>
+                </Link>
+              </Button>
+            )}
             <Button
               asChild
               variant="outline"
@@ -171,8 +178,8 @@ export function HeroSection() {
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-2 h-2 rounded-full transition-all ${index === currentSlide
-                ? "bg-white w-8"
-                : "bg-white/50 hover:bg-white/75"
+              ? "bg-white w-8"
+              : "bg-white/50 hover:bg-white/75"
               }`}
             aria-label={`Go to slide ${index + 1}`}
           />

@@ -1,5 +1,6 @@
 import { Phone, Mail, Clock, Facebook, Youtube, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { BookingModal } from "@/components/BookingModal";
 
 const TopBar = () => {
   return (
@@ -14,7 +15,14 @@ const TopBar = () => {
           <span className="hidden sm:inline">|</span>
           <Link to="/services" className="hover:underline hidden sm:inline">Services</Link>
           <span className="hidden md:inline">|</span>
-          <Link to="/appointments" className="hover:underline hidden md:inline">Book Appointment</Link>
+          <div className="hidden md:inline">
+            <BookingModal
+              variant="link"
+              className="p-0 h-auto text-primary-foreground hover:underline font-normal text-sm"
+              triggerText="Book Appointment"
+              showIcon={false}
+            />
+          </div>
         </div>
 
         <div className="flex items-center gap-4">

@@ -1,7 +1,8 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Calendar, CheckCircle, Phone, ArrowLeft } from "lucide-react";
+import { BookingModal } from "@/components/BookingModal";
+import { CheckCircle, Phone, ArrowLeft } from "lucide-react";
 
 const ServicePageLayout = ({
   title,
@@ -129,12 +130,7 @@ const ServicePageLayout = ({
                 </p>
 
                 <div className="space-y-3 mb-6">
-                  <Button asChild className="w-full">
-                    <Link to="/appointments">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      Book Appointment
-                    </Link>
-                  </Button>
+                  <BookingModal className="w-full" />
                   <Button asChild variant="outline" className="w-full">
                     <a href="tel:+94362222963">
                       <Phone className="w-4 h-4 mr-2" />

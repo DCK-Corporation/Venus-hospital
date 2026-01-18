@@ -13,8 +13,8 @@ const features = [
   },
   {
     icon: Clock,
-    title: "24/7 Availability",
-    description: "Round-the-clock emergency and OPD services",
+    title: "Extended Hours",
+    description: "Open daily from 6 AM to 10 PM for your convenience",
   },
 ];
 
@@ -26,10 +26,10 @@ export function WelcomeSection() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold text-primary mb-4">
             <Heart className="h-4 w-4" />
-            <span>Since 1999</span>
+            <span>Since 2014</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 font-heading">
-           Trusted Care, Compassionate Healing.
+            Trusted Care, Compassionate Healing.
           </h2>
           <div className="max-w-3xl mx-auto">
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">

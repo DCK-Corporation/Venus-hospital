@@ -1,9 +1,10 @@
 import { Calendar, Stethoscope, Eye, FlaskConical, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { BookingModal } from "@/components/BookingModal";
 import logo from "@/assets/venus-hospital-logo.png";
 
 const quickLinks = [
-  { icon: Calendar, label: "Book Appointments", href: "/appointments" },
+  { icon: Calendar, label: "Book Appointments", isModal: true },
   { icon: Stethoscope, label: "Our Services", href: "/services" },
   { icon: Eye, label: "Eye Care Center", href: "/eye-care" },
   { icon: FlaskConical, label: "Laboratory Services", href: "/services#laboratory" },
@@ -21,14 +22,26 @@ const MiddleNav = () => {
         {/* Quick Links */}
         <div className="hidden lg:flex items-center gap-3">
           {quickLinks.map((link) => (
-            <Link
-              key={link.label}
-              to={link.href}
-              className="flex items-center gap-2 px-5 py-3 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors shadow-sm hover:shadow-md"
-            >
-              <link.icon className="w-6 h-6 text-primary" />
-              <span className="whitespace-nowrap">{link.label}</span>
-            </Link>
+            link.isModal ? (
+              <div key={link.label} className="flex items-center gap-2 px-5 py-3 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors shadow-sm hover:shadow-md">
+                <link.icon className="w-6 h-6 text-primary" />
+                <BookingModal
+                  variant="ghost"
+                  className="p-0 h-auto font-medium hover:bg-transparent"
+                  triggerText={link.label}
+                  showIcon={false}
+                />
+              </div>
+            ) : (
+              <Link
+                key={link.label}
+                to={link.href}
+                className="flex items-center gap-2 px-5 py-3 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors shadow-sm hover:shadow-md"
+              >
+                <link.icon className="w-6 h-6 text-primary" />
+                <span className="whitespace-nowrap">{link.label}</span>
+              </Link>
+            )
           ))}
         </div>
 

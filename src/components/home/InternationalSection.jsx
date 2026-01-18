@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Calendar, Phone, Stethoscope, Bed, Clock, MapPin, Heart, Award, Star } from "lucide-react";
+import { BookingModal } from "@/components/BookingModal";
+import { Phone, Stethoscope, Bed, Clock, MapPin, Heart, Award, Star } from "lucide-react";
 
 export function InternationalSection() {
   return (
@@ -30,16 +31,11 @@ export function InternationalSection() {
 
         {/* Quick Action Buttons - Prominent on Mobile */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 max-w-2xl mx-auto">
-          <Button
-            asChild
+          <BookingModal
             size="lg"
             className="bg-primary text-primary-foreground hover:bg-primary/90 h-16 md:h-20 text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105"
-          >
-            <Link to="/appointments" className="flex items-center justify-center gap-3">
-              <Calendar className="h-6 w-6 md:h-7 md:w-7" />
-              <span>Channel a Doctor</span>
-            </Link>
-          </Button>
+            triggerText="Channel a Doctor"
+          />
           <Button
             asChild
             size="lg"
@@ -80,9 +76,12 @@ export function InternationalSection() {
               <div className="flex-1">
                 <h3 className="font-bold text-lg mb-2 text-foreground">24/7 Medical Care</h3>
                 <p className="text-sm text-muted-foreground mb-3">Round-the-clock doctor availability and emergency services</p>
-                <Button asChild variant="link" className="p-0 h-auto text-secondary font-semibold">
-                  <Link to="/appointments">Book Now →</Link>
-                </Button>
+                <BookingModal
+                  variant="link"
+                  className="p-0 h-auto text-secondary font-semibold justify-start"
+                  triggerText="Book Now →"
+                  showIcon={false}
+                />
               </div>
             </div>
           </div>

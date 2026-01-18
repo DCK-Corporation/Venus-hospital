@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { BookingModal } from "@/components/BookingModal";
 import logo from "@/assets/venus-hospital-logo.png";
 
 const quickLinks = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
   { name: "Services", path: "/services" },
-  { name: "Book Appointment", path: "/appointments" },
+  { name: "Book Appointment", isModal: true },
   { name: "Contact Us", path: "/contact" },
 ];
 
@@ -59,12 +60,21 @@ export function Footer() {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-sm text-background/70 hover:text-primary transition-colors"
-                  >
-                    {link.name}
-                  </Link>
+                  {link.isModal ? (
+                    <BookingModal
+                      variant="link"
+                      className="p-0 h-auto text-sm text-background/70 hover:text-primary font-normal justify-start"
+                      triggerText={link.name}
+                      showIcon={false}
+                    />
+                  ) : (
+                    <Link
+                      to={link.path}
+                      className="text-sm text-background/70 hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -125,7 +135,7 @@ export function Footer() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-background/60">
             <p>© {new Date().getFullYear()} Venus Hospital (Pvt) Ltd. All rights reserved.</p>
-            <p className="font-medium text-primary">Trusted Care. Compassionate Healing.</p>
+            <p className="text-background/60 shrink-0">Trusted Care. Compassionate Healing.</p>
           </div>
         </div>
       </div>

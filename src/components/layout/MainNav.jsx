@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { BookingModal } from "@/components/BookingModal";
 
 const navItems = [
   { label: "HOME", href: "/" },
@@ -37,7 +38,7 @@ const navItems = [
       { label: "Kids Eyewear", href: "/eye-care" },
     ],
   },
-  { label: "BOOK APPOINTMENT", href: "/appointments" },
+  { label: "BOOK APPOINTMENT", isModal: true },
   { label: "INSURANCE", href: "/insurance" },
   { label: "CONTACT US", href: "/contact" },
   { label: "CAREERS", href: "/careers" },
@@ -58,7 +59,14 @@ const MainNav = () => {
         <div className="hidden xl:flex items-center justify-center gap-1.5">
           {navItems.map((item) => (
             <div key={item.label} className="relative group">
-              {item.children ? (
+              {item.isModal ? (
+                <BookingModal
+                  variant="ghost"
+                  className="flex items-center gap-1 px-3 py-4 text-xs font-bold text-secondary-foreground hover:bg-primary/20 transition-colors"
+                  triggerText={item.label}
+                  showIcon={false}
+                />
+              ) : item.children ? (
                 <button
                   onClick={() => handleDropdownClick(item.label)}
                   className="flex items-center gap-1 px-3 py-4 text-xs font-bold text-secondary-foreground hover:bg-primary/20 transition-colors"
@@ -113,7 +121,16 @@ const MainNav = () => {
           <div className="xl:hidden bg-secondary border-t border-primary/20 animate-slide-down">
             {navItems.map((item) => (
               <div key={item.label}>
-                {item.children ? (
+                {item.isModal ? (
+                  <div className="px-4 py-3 border-b border-primary/20">
+                    <BookingModal
+                      variant="ghost"
+                      className="w-full justify-start text-sm font-semibold text-secondary-foreground h-auto p-0"
+                      triggerText={item.label}
+                      showIcon={false}
+                    />
+                  </div>
+                ) : item.children ? (
                   <>
                     <button
                       onClick={() => handleDropdownClick(item.label)}

@@ -1,5 +1,21 @@
 import ServicePageLayout from "@/components/services/ServicePageLayout";
+import { ImageCarousel } from "@/components/ImageCarousel";
 import { Bed } from "lucide-react";
+
+const roomImages = [
+  {
+    url: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767677162/IMG_5988_xixvdk.jpg",
+    alt: "Comfortable patient room with mountain view",
+  },
+  {
+    url: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_5974_xmhbb5.jpg",
+    alt: "Patient ward with modern facilities",
+  },
+  {
+    url: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678739/IMG_6006_qtowem.jpg",
+    alt: "Hospital corridor and facilities",
+  },
+];
 
 const RoomsWards = () => {
   return (
@@ -7,6 +23,7 @@ const RoomsWards = () => {
       title="Rooms & Wards"
       subtitle="Comfortable inpatient care facilities"
       icon={Bed}
+      image={<ImageCarousel images={roomImages} />}
       description="Patient comfort and recovery are at the heart of our inpatient care. Venus Hospital provides clean, well-maintained rooms and wards designed to create a calm and healing environment. The perpetual vigilance and the diligence of a cadre of specially trained and highly skilled nursing staff backed, supervised and trained by government experienced senior nursing staff is delivering a kindhearted and friendly service till you become totally healthy."
       features={[
         "Spaciously furnished comfortable rooms",

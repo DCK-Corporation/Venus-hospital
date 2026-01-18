@@ -1,8 +1,8 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { BookingModal } from "@/components/BookingModal";
 import {
-  Calendar,
   ArrowRight,
 } from "lucide-react";
 
@@ -74,7 +74,7 @@ const services = [
     image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678739/IMG_6006_qtowem.jpg",
   },
 
-   {
+  {
     title: "Skin Clinic",
     description: "The best skin care services in Avissawella",
     link: "/services/skinclinic",
@@ -193,12 +193,7 @@ const Services = () => {
             Book an appointment or visit our 24/7 OPD for immediate assistance.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button asChild size="lg">
-              <Link to="/appointments">
-                <Calendar className="mr-2 h-5 w-5" />
-                Book Appointment
-              </Link>
-            </Button>
+            <BookingModal size="lg" />
             <Button asChild variant="outline" size="lg">
               <Link to="/contact">
                 Contact Us
