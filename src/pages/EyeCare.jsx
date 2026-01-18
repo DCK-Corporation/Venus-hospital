@@ -21,7 +21,7 @@ const products = [
     category: "frames",
     price: "Rs. 4,500",
     originalPrice: "Rs. 5,500",
-    image: "📐",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735968/Classic_Rectangle_Frame_fz2xor.webp",
     rating: 4.8,
     description: "Timeless rectangular design suitable for all face shapes",
     features: ["Lightweight", "Anti-scratch coating", "UV protection ready"],
@@ -32,7 +32,7 @@ const products = [
     name: "Modern Round Frame",
     category: "frames",
     price: "Rs. 5,200",
-    image: "⭕",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735967/Modern_Round_Frame_lxqf8v.avif",
     rating: 4.6,
     description: "Contemporary round design with premium materials",
     features: ["Flexible hinges", "Hypoallergenic", "Durable"],
@@ -42,7 +42,7 @@ const products = [
     name: "Aviator Sunglasses",
     category: "sunglasses",
     price: "Rs. 6,800",
-    image: "🕶️",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735970/Aviator_Sunglasses_yuo3uh.jpg",
     rating: 4.9,
     description: "Classic aviator style with polarized lenses",
     features: ["Polarized", "100% UV protection", "Metal frame"],
@@ -53,7 +53,7 @@ const products = [
     name: "Sporty Wrap Sunglasses",
     category: "sunglasses",
     price: "Rs. 5,500",
-    image: "🏃",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735968/Sporty_Wrap_Sunglasses_tg6ae7.avif",
     rating: 4.7,
     description: "Perfect for outdoor activities and sports",
     features: ["Impact resistant", "Non-slip grip", "Wraparound design"],
@@ -63,7 +63,7 @@ const products = [
     name: "Premium Reading Glasses",
     category: "reading",
     price: "Rs. 3,200",
-    image: "📖",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735968/Premium_Reading_Glasses_ngerfl.webp",
     rating: 4.5,
     description: "Comfortable reading glasses for extended use",
     features: ["Blue light filter", "Spring hinges", "Multiple powers"],
@@ -73,7 +73,7 @@ const products = [
     name: "Compact Folding Readers",
     category: "reading",
     price: "Rs. 2,800",
-    image: "🔍",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735968/Framesvista-Classic-Rectangle-Eyeglasses-For-Men-Gray-2_agvvsm.png",
     rating: 4.4,
     description: "Portable folding design with protective case",
     features: ["Foldable", "Includes case", "Lightweight"],
@@ -83,7 +83,7 @@ const products = [
     name: "Kids Fun Frames",
     category: "kids",
     price: "Rs. 3,500",
-    image: "🎨",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735967/Kids_Fun_Frames_ozjuhj.webp",
     rating: 4.8,
     description: "Colorful and durable frames designed for children",
     features: ["Flexible", "Impact resistant", "Fun colors"],
@@ -94,7 +94,7 @@ const products = [
     name: "Teen Style Frame",
     category: "kids",
     price: "Rs. 4,000",
-    image: "✨",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735969/Teen_Style_Frame_ciq0w6.jpg",
     rating: 4.6,
     description: "Trendy designs perfect for teenagers",
     features: ["Trendy", "Durable", "Comfortable fit"],
@@ -200,8 +200,12 @@ const EyeCare = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredProducts.map((product) => (
               <Card key={product.id} className="group overflow-hidden">
-                <div className="relative bg-muted p-8 flex items-center justify-center text-6xl">
-                  {product.image}
+                <div className="relative bg-muted aspect-square flex items-center justify-center overflow-hidden p-4">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
                   <div className="absolute top-3 left-3 flex gap-2">
                     {product.isNew && (
                       <Badge className="bg-primary">New</Badge>
