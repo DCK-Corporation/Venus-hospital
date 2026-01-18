@@ -46,7 +46,7 @@ const MiddleNav = () => {
         </div>
 
         {/* Emergency Contact */}
-        <div className="flex items-center gap-3 bg-destructive text-destructive-foreground px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+        <div className="hidden md:flex items-center gap-3 bg-destructive text-destructive-foreground px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
           <Phone className="w-7 h-7" />
           <div>
             <p className="font-semibold text-base">6am-10pm Daily</p>
