@@ -9,8 +9,7 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { Calendar, ExternalLink } from "lucide-react";
-import doc990Logo from "@/assets/doc990-logo.jpg";
-import echannelingLogo from "@/assets/echanneling-logo.png";
+
 
 export function BookingModal({
     trigger,
@@ -27,13 +26,13 @@ export function BookingModal({
             name: "eChanneling",
             url: "https://www.echannelling.com/doctor-search?hospital_code=H350&hospital_name=Venus%20Hospital%20%28Private%29%20Limited-Avissawella&isSpec=true",
             description: "Book your appointment through eChanneling platform",
-            logo: echannelingLogo
+            logo: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768743082/eChannelling-removebg-preview.png_zeo5o6.webp",
         },
         {
             name: "Doc990",
             url: "https://www.doc.lk/",
             description: "Book your appointment through Doc990 platform",
-            logo: doc990Logo
+            logo: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768743082/doc990_y26yjh.jpg",
         }
     ];
 

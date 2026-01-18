@@ -11,8 +11,29 @@ const roomImages = [
     url: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_5974_xmhbb5.jpg",
     alt: "Patient ward with modern facilities",
   },
+  
   {
-    url: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678739/IMG_6006_qtowem.jpg",
+   url: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678735/IMG_5929_as8uj2.jpg",
+   alt: "Modern rooms",
+  },
+
+   {
+   url: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678735/IMG_5952_pswdbd.jpg",
+   alt: "Modern rooms",
+  },
+
+   {
+   url: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678736/IMG_5982_j3jypu.jpg",
+   alt: "Modern rooms",
+  },
+
+   {
+   url: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678734/IMG_5956_vd7j8c.jpg",
+   alt: "Modern rooms",
+  },
+
+  {
+    url: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678735/IMG_5925_dthfmc.jpg",
     alt: "Hospital corridor and facilities",
   },
 ];
