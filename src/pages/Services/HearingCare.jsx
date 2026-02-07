@@ -7,7 +7,7 @@ const HearingCare = () => {
     <ServicePageLayout
       title="Hearing Care Unit"
       subtitle="Professional hearing assessments and support"
-      image={hospitalImage}
+      image="https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_5974_xmhbb5.jpg"
       description="The Hearing Care Unit at Venus Hospital provides professional hearing assessments and support services. We assist patients in identifying hearing-related conditions and guide them toward appropriate treatment. Our team uses modern diagnostic equipment to evaluate hearing health and provide personalized recommendations for hearing improvement."
       features={[
         "Comprehensive hearing assessments",

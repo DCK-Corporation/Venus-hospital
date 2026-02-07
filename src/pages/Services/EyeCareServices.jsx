@@ -7,17 +7,17 @@ const EyeCareServices = () => {
   // Carousel images for Eye Care Unit
   const carouselImages = [
     {
-      src: eyeCareImage1,
+      src: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678730/IMG_5603_gwk6xh.jpg",
       alt: "Eye Care Unit - Diagnostic Equipment",
       caption: "Advanced diagnostic equipment for comprehensive eye examinations"
     },
     {
-      src: eyeCareImage2,
-      alt: "Eye Care Unit - Treatment Room",
+      src: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_5974_xmhbb5.jpg",
+      alt: "Eye Care Unit - Treatment Facilities",
       caption: "Modern treatment facilities with state-of-the-art technology"
     },
     {
-      src: eyeCareImage3,
+      src: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_6052_csduat.jpg",
       alt: "Eye Care Unit - Consultation Area",
       caption: "Comfortable consultation rooms for personalized care"
     }

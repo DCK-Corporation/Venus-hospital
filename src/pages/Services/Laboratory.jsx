@@ -32,7 +32,7 @@ const Laboratory = () => {
       additionalInfo={[
         {
           title: "International Quality Standards",
-          content: "Bio-chemistry equipment available with us are of most sophisticated world class brands of highest standards, used by the major government hospitals and top class private hospitals in the island. Laboratory tests are personally Quality Controlled by a qualified specialist chemical pathologist. The most accurate reports are delivered to you under the perpetual supervision of government experienced laboratory technicians.",
+          content: "Bio-chemistry equipment available with us are of most sophisticated world class brands of highest standards, used by the major government hospitals and top class private hospitals in the island. Laboratory tests are personally Quality Controlled by a qualified specialist chemical pathologist. The most accurate reports are delivered to you under the perpetual supervision of skilled laboratory technicians.",
         },
         {
           title: "Convenient Service",

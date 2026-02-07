@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { BookingModal } from "@/components/BookingModal";
-import { Phone, Stethoscope, Bed, Clock, MapPin, Heart, Users, Shield, Award } from "lucide-react";
+import { Phone, Stethoscope, Bed, Eye, MapPin, Heart, Users, Shield, Award } from "lucide-react";
 
 export function InternationalSection() {
   return (
@@ -52,47 +52,47 @@ export function InternationalSection() {
           {/* Content Side */}
           <div className="space-y-6">
             {/* Feature Cards */}
-            <div className="grid gap-4">
+            <div className="grid gap-5">
               {/* Comfortable Rooms */}
-              <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary/30 group-hover:rotate-6 transition-all duration-300">
+              <div className="bg-white/95 backdrop-blur-sm border border-white/40 rounded-lg p-6 hover:shadow-xl transition-all duration-300 group">
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-all duration-300">
                     <Bed className="w-6 h-6 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-lg mb-1.5 text-gray-900">Comfortable Rooms & Wards</h3>
+                    <h3 className="font-semibold text-lg mb-2 text-gray-900">Comfortable Rooms & Wards</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">
-                      Spaciously furnished rooms with complete privacy, facing the Historic Verdha Mountain Range for natural healing
+                      Spaciously furnished rooms with complete privacy, beautiful view of town to Sri Pada mountain range
                     </p>
                   </div>
                 </div>
               </div>
-
+            
               {/* Expert Care */}
-              <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:shadow-2xl hover:scale-105 transition-all duration-300 group delay-100">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary/30 group-hover:rotate-6 transition-all duration-300">
+              <div className="bg-white/95 backdrop-blur-sm border border-white/40 rounded-lg p-6 hover:shadow-xl transition-all duration-300 group">
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-all duration-300">
                     <Stethoscope className="w-6 h-6 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-lg mb-1.5 text-gray-900">Expert Medical Team</h3>
+                    <h3 className="font-semibold text-lg mb-2 text-gray-900">Expert Medical Team</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">
-                      Highly skilled nursing staff supervised by government-experienced senior nurses providing kindhearted service
+                      Highly skilled nursing staff supervised by skill fully qualified senior nurses providing kindhearted service
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Extended Hours */}
-              <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-5 hover:shadow-2xl hover:scale-105 transition-all duration-300 group delay-200">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary/30 group-hover:rotate-6 transition-all duration-300">
-                    <Clock className="w-6 h-6 text-primary" />
+              {/* Eye Care Excellence */}
+              <div className="bg-white/95 backdrop-blur-sm border border-white/40 rounded-lg p-6 hover:shadow-xl transition-all duration-300 group">
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-all duration-300">
+                    <Eye className="w-6 h-6 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-lg mb-1.5 text-gray-900">Extended Operating Hours</h3>
+                    <h3 className="font-semibold text-lg mb-2 text-gray-900">Eye Care Excellence</h3>
                     <p className="text-sm text-gray-600 leading-relaxed">
-                      Hospital services available from 6 AM to 10 PM daily, OPD services from 8 AM to 8 PM
+                      <span className="font-semibold text-primary">5,000+</span> successful cataract and other eye surgeries performed with precision and care
                     </p>
                   </div>
                 </div>
@@ -125,13 +125,13 @@ export function InternationalSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center hover:scale-110 hover:rotate-2 transition-all duration-300 hover:shadow-2xl">
             <Users className="w-8 h-8 text-primary mx-auto mb-3" />
-            <p className="text-3xl md:text-4xl font-bold text-primary mb-1">1000+</p>
-            <p className="text-sm text-gray-600 font-medium">Happy Patients</p>
+            <p className="text-3xl md:text-4xl font-bold text-primary mb-1">20 000+</p>
+            <p className="text-sm text-gray-600 font-medium">Patients</p>
           </div>
 
           <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center hover:scale-110 hover:rotate-2 transition-all duration-300 hover:shadow-2xl delay-100">
             <Stethoscope className="w-8 h-8 text-primary mx-auto mb-3" />
-            <p className="text-3xl md:text-4xl font-bold text-primary mb-1">15+</p>
+            <p className="text-3xl md:text-4xl font-bold text-primary mb-1">40+</p>
             <p className="text-sm text-gray-600 font-medium">Specialist Doctors</p>
           </div>
 
@@ -143,7 +143,7 @@ export function InternationalSection() {
 
           <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center hover:scale-110 hover:rotate-2 transition-all duration-300 hover:shadow-2xl delay-300">
             <Shield className="w-8 h-8 text-primary mx-auto mb-3" />
-            <p className="text-3xl md:text-4xl font-bold text-primary mb-1">10+</p>
+            <p className="text-3xl md:text-4xl font-bold text-primary mb-1">14+</p>
             <p className="text-sm text-gray-600 font-medium">Years Experience</p>
           </div>
         </div>
