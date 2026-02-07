@@ -4,9 +4,9 @@ export const newsArticles = [
     title: "New Eye Care Unit Expansion Complete",
     excerpt: "Venus Hospital expands optical services with advanced diagnostic equipment and larger product showroom.",
     date: "December 15, 2024",
-    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678730/IMG_5603_gwk6xh.jpg",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678731/IMG_5709_nkjcnb.jpg",
     category: "Facilities",
-    author: "Dr. Sarah Johnson",
+    author: "Venus Hospital",
     content: `
       <p>We are thrilled to announce the completion of our state-of-the-art Eye Care Unit expansion at Venus Hospital. This significant milestone represents our commitment to providing world-class optical services to our community.</p>
       
@@ -64,11 +64,18 @@ export const newsArticles = [
     title: "Free Health Camp This Weekend",
     excerpt: "Join us for complimentary health screenings, consultations, and wellness education for the community.",
     date: "December 5, 2024",
-    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_6052_csduat.jpg",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1770487328/WhatsApp_Image_2026-01-25_at_8.53.43_PM_gewebw.jpg",
     category: "Community",
     author: "Community Outreach Team",
     content: `
       <p>Venus Hospital is organizing a Free Health Camp this weekend as part of our ongoing commitment to community health and wellness. This event is open to all community members and their families.</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 30px 0;">
+        <img src="https://res.cloudinary.com/doqyzcyl5/image/upload/v1770491467/WhatsApp_Image_2026-01-25_at_8.56.39_PM_vwb7d5.jpg" alt="Health Camp Event" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+        <img src="https://res.cloudinary.com/doqyzcyl5/image/upload/v1770487327/WhatsApp_Image_2026-01-25_at_8.56.40_PM_2_p1xjcy.jpg" alt="Eye Care Services" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+        <img src="https://res.cloudinary.com/doqyzcyl5/image/upload/v1770487327/WhatsApp_Image_2026-01-25_at_8.56.40_PM_cz90xu.jpg" alt="Medical Consultation" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+        <img src="https://res.cloudinary.com/doqyzcyl5/image/upload/v1770487327/Medical_camp_Image_gtrpcw.jpg" alt="Hospital Facilities" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+      </div>
       
       <h3>Event Details</h3>
       <p><strong>Date:</strong> Saturday & Sunday, December 7-8, 2024<br>

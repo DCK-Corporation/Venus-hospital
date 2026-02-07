@@ -6,6 +6,7 @@ const DentalCare = () => {
     <ServicePageLayout
       title="Dental Care & OMF Surgery"
       subtitle="Complete dental health and advanced surgical services"
+      image="https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678732/IMG_5778_h08sjs.jpg"
       icon={Smile}
       description="Ours is the only private hospital in Avissawella that performs Oral, Maxillofacial and Facial surgical operations. Our totally sterilized Dental surgery and the general operation theatres are available for all kinds of surgical procedures. Venus Hospital offers comprehensive dental services delivered by qualified dental professionals, from routine check-ups to advanced surgical treatments."
       features={[

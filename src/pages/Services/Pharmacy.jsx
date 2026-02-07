@@ -6,6 +6,7 @@ const Pharmacy = () => {
     <ServicePageLayout
       title="In-House Pharmacy"
       subtitle="On-site pharmacy for prescribed medications"
+      image="https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678733/IMG_5876_xjlmsd.jpg"
       icon={Pill}
       description="Our on-site pharmacy ensures easy access to prescribed medications for both OPD and inpatient care. The pharmacy is managed by trained professionals and stocked with essential medicines. We provide convenient access to quality medications right within the hospital premises, making it easier for patients to obtain their prescriptions."
       features={[

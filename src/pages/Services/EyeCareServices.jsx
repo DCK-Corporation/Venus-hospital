@@ -17,12 +17,12 @@ const EyeCareServices = () => {
       caption: "Advanced diagnostic equipment for comprehensive eye examinations"
     },
     {
-      src: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_5974_xmhbb5.jpg",
+      src: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678730/IMG_5652_i8ivji.jpg",
       alt: "Eye Care Unit - Treatment Facilities",
       caption: "Modern treatment facilities with state-of-the-art technology"
     },
     {
-      src: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_6052_csduat.jpg",
+      src: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678731/IMG_5709_nkjcnb.jpg",
       alt: "Eye Care Unit - Consultation Area",
       caption: "Comfortable consultation rooms for personalized care"
     }

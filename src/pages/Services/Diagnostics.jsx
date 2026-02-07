@@ -6,6 +6,7 @@ const Diagnostics = () => {
     <ServicePageLayout
       title="Diagnostic Services"
       subtitle="Advanced imaging and cardiac diagnostics"
+      image="https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678734/IMG_5871_wafnxm.jpg"
       icon={Activity}
       description="We possess a Digital X-ray Machine powered by Japanese Toshiba and Fuji technology that provides you crystal clear X-ray reports. Our dental X-Ray facilities render a tremendous service to our own Dental Surgery and other dental surgeons in the area. We have upgraded our cardiac department with the most advanced, high-definition ECG machines in the Seethawakapura area to ensure faster, more accurate results. With modern equipment and trained technicians, we provide essential imaging and cardiac diagnostic services to help identify and manage various health conditions."
       features={[

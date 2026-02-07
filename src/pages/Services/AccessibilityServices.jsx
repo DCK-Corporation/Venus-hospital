@@ -6,6 +6,7 @@ const AccessibilityServices = () => {
     <ServicePageLayout
       title="Accessibility"
       subtitle="Accessible facilities for all patients including elevator access"
+      image="https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678739/IMG_6006_qtowem.jpg"
       icon={Accessibility}
       description="Venus Hospital is designed to be accessible and convenient for all patients. We have provided elevator facilities for those in need, ensuring easy access for the elderly and disabled. Along with wheelchair access throughout the hospital and dedicated parking facilities, our commitment to accessibility ensures that patients of all abilities can receive quality healthcare in a comfortable and welcoming environment."
       features={[

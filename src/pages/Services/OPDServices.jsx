@@ -6,6 +6,7 @@ const OPDServices = () => {
     <ServicePageLayout
       title="Doctor Channeling & OPD"
       subtitle="Round-the-clock outpatient care with qualified doctors"
+      image="https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_6030_ibrvko.jpg"
       icon={Stethoscope}
       description="Our Outpatient Department (OPD) operates 24 hours a day, 7 days a week, making Venus Hospital a dependable first point of contact for medical care in Avissawella. All the Medical Consultants from Avissawella Base Hospital and a number of famous & popular consultants in the island are covering the entire channelling service. Whether you need routine check-ups, specialist consultations, or urgent care, our dedicated team is always ready to assist you."
       features={[
