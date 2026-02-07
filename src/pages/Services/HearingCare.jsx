@@ -8,16 +8,17 @@ const HearingCare = () => {
       title="Hearing Care Unit"
       subtitle="Professional hearing assessments and support"
       image="https://res.cloudinary.com/doqyzcyl5/image/upload/v1770487879/AdobeStock_1822017679_lzxzjx.jpg"
-      description="The Hearing Care Unit at Venus Hospital provides professional hearing assessments and support services. We assist patients in identifying hearing-related conditions and guide them toward appropriate treatment. Our team uses modern diagnostic equipment to evaluate hearing health and provide personalized recommendations for hearing improvement."
+      description="The Hearing Care Unit at Venus Hospital provides professional hearing assessments and support services. We assist patients in identifying hearing-related conditions and guide them toward appropriate treatment. Our team uses modern diagnostic equipment to evaluate hearing health and provide personalized recommendations for hearing improvement. Our hearing unit offers advanced digital hearing aids from trusted international brands."
       features={[
         "Comprehensive hearing assessments",
         "Audiometry testing",
         "Professional consultation",
+        "Advanced digital hearing aids from trusted international brands",
         "Hearing aid guidance",
-        "Tinnitus evaluation",
+        "Tympanometry testing",
         "Ear health examinations",
         "Treatment guidance",
-        "All age groups welcome",
+        "Services available for patients of all age groups",
       ]}
       additionalInfo={[
         {

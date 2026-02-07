@@ -8,11 +8,12 @@ const OPDServices = () => {
       subtitle="Round-the-clock outpatient care with qualified doctors"
       image="https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_6030_ibrvko.jpg"
       icon={Stethoscope}
-      description="Our Outpatient Department (OPD) operates 24 hours a day, 7 days a week, making Venus Hospital a dependable first point of contact for medical care in Avissawella. All the Medical Consultants from Avissawella Base Hospital and a number of famous & popular consultants in the island are covering the entire channelling service. Whether you need routine check-ups, specialist consultations, or urgent care, our dedicated team is always ready to assist you."
+      description="Our Outpatient Department (OPD) operates 24 hours a day, 7 days a week, making Venus Hospital a dependable first point of contact for medical care in Avissawella. We have government certified medical professionals including consultants from Avissawella Base Hospital and renowned specialists from across the island covering the entire channelling service. Whether you need routine check-ups, specialist consultations, or urgent care, our dedicated team is always ready to assist you."
       features={[
         "24/7 availability for emergencies",
+        "Government certified medical professionals",
         "Medical Consultants from Avissawella Base Hospital",
-        "Famous & popular consultants from across the island",
+        "Renowned specialists from across the island",
         "Wound dressing and treatment",
       ]}
       additionalInfo={[
@@ -22,7 +23,7 @@ const OPDServices = () => {
         },
         {
           title: "Highly Qualified Medical Consultants",
-          content: "All the Medical Consultants from Avissawella Base Hospital and a number of famous & popular consultants in the island are covering the entire channelling service. We offer consultations with specialists in various fields including general medicine, pediatrics, gynecology, orthopedics, and more, ensuring you receive expert care from highly qualified professionals.",
+          content: "We have government certified medical professionals including all the Medical Consultants from Avissawella Base Hospital and renowned specialists from across the island covering the entire channelling service. We offer consultations with specialists in various fields including general medicine, pediatrics, gynecology, orthopedics, and more, ensuring you receive expert care from highly qualified professionals.",
         },
       ]}
       relatedServices={[
