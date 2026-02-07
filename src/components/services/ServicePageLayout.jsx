@@ -2,7 +2,8 @@ import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BookingModal } from "@/components/BookingModal";
-import { CheckCircle, Phone, ArrowLeft } from "lucide-react";
+import { CheckCircle, Phone, ArrowLeft, ExternalLink } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const ServicePageLayout = ({
   title,
@@ -14,7 +15,20 @@ const ServicePageLayout = ({
   additionalInfo = [],
   imagePlaceholder,
   relatedServices = [],
+  banners = [],
+  brandAffiliation = null,
 }) => {
+  const [currentBanner, setCurrentBanner] = useState(0);
+
+  // Auto-advance banner slideshow
+  useEffect(() => {
+    if (banners.length > 0) {
+      const timer = setInterval(() => {
+        setCurrentBanner((prev) => (prev + 1) % banners.length);
+      }, 4000);
+      return () => clearInterval(timer);
+    }
+  }, [banners.length]);
   return (
     <Layout>
       {/* Hero Banner */}
@@ -119,67 +133,152 @@ const ServicePageLayout = ({
             </div>
 
             {/* Sidebar */}
-            <div className="lg:col-span-1 space-y-6">
-              {/* Quick Contact Card */}
-              <div className="bg-card border border-border rounded-xl p-6 sticky top-24">
-                <h3 className="text-lg font-heading font-bold text-foreground mb-4">
-                  Need This Service?
-                </h3>
-                <p className="text-sm text-muted-foreground mb-6">
-                  Book an appointment or contact us for more information about our {title.toLowerCase()} services.
-                </p>
-
-                <div className="space-y-3 mb-6">
-                  <BookingModal className="w-full" />
-                  <Button asChild variant="outline" className="w-full">
-                    <a href="tel:+94362222963">
-                      <Phone className="w-4 h-4 mr-2" />
-                      Call: 036 2222 963
-                    </a>
-                  </Button>
-                </div>
-
-                <div className="border-t border-border pt-4">
-                  <p className="text-xs text-muted-foreground text-center">
-                    Available 24/7 for emergencies
-                  </p>
-                </div>
-              </div>
-
-              {/* Related Services */}
-              {relatedServices.length > 0 && (
-                <div className="bg-muted/30 rounded-xl p-6">
+            <div className="lg:col-span-1">
+              <div className="sticky top-24 space-y-6">
+                {/* Quick Contact Card */}
+                <div className="bg-card border border-border rounded-xl p-6">
                   <h3 className="text-lg font-heading font-bold text-foreground mb-4">
-                    Related Services
+                    Need This Service?
                   </h3>
-                  <ul className="space-y-2">
-                    {relatedServices.map((service, index) => (
-                      <li key={index}>
-                        <Link
-                          to={service.link}
-                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors py-2"
-                        >
-                          <CheckCircle className="w-4 h-4" />
-                          {service.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+                  <p className="text-sm text-muted-foreground mb-6">
+                    Book an appointment or contact us for more information about our {title.toLowerCase()} services.
+                  </p>
 
-              {/* Back to Services */}
-              <Link
-                to="/services"
-                className="flex items-center gap-2 text-sm text-primary hover:underline"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                View All Services
-              </Link>
+                  <div className="space-y-3 mb-6">
+                    <BookingModal className="w-full" />
+                    <Button asChild variant="outline" className="w-full">
+                      <a href="tel:+94362222963">
+                        <Phone className="w-4 h-4 mr-2" />
+                        Call: 036 2222 963
+                      </a>
+                    </Button>
+                  </div>
+
+                  <div className="border-t border-border pt-4">
+                    <p className="text-xs text-muted-foreground text-center">
+                      Available 24/7 for emergencies
+                    </p>
+                  </div>
+                </div>
+
+                {/* Related Services */}
+                {relatedServices.length > 0 && (
+                  <div className="bg-muted/30 rounded-xl p-6">
+                    <h3 className="text-lg font-heading font-bold text-foreground mb-4">
+                      Related Services
+                    </h3>
+                    <ul className="space-y-2">
+                      {relatedServices.map((service, index) => (
+                        <li key={index}>
+                          {service.external ? (
+                            <a
+                              href={service.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors py-2"
+                            >
+                              <ExternalLink className="w-4 h-4" />
+                              {service.name}
+                            </a>
+                          ) : (
+                            <Link
+                              to={service.link}
+                              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors py-2"
+                            >
+                              <CheckCircle className="w-4 h-4" />
+                              {service.name}
+                            </Link>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Back to Services */}
+                <Link
+                  to="/services"
+                  className="flex items-center gap-2 text-sm text-primary hover:underline"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  View All Services
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Promotional Banner Slideshow */}
+      {banners.length > 0 && (
+        <section className="py-12 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="relative w-full max-w-7xl mx-auto overflow-hidden rounded-xl md:rounded-2xl shadow-xl bg-gray-100">
+              {/* Banner Images */}
+              <div className="relative aspect-[16/9] md:aspect-[21/9]">
+                {banners.map((banner, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ${index === currentBanner ? 'opacity-100' : 'opacity-0'
+                      }`}
+                  >
+                    <img
+                      src={banner}
+                      alt={`${title} Promotion ${index + 1}`}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Dots Indicator */}
+              <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                {banners.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentBanner(index)}
+                    className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all ${index === currentBanner
+                      ? 'bg-white w-10 md:w-12'
+                      : 'bg-white/60 hover:bg-white/80'
+                      }`}
+                    aria-label={`Go to banner ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Brand Affiliation / Partnership Section */}
+      {brandAffiliation && (
+        <section className="py-12 bg-gradient-to-br from-primary/5 to-secondary/5">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-3">
+                  Our Trusted Partner
+                </h2>
+                <p className="text-muted-foreground">
+                  Proudly affiliated with leading healthcare providers
+                </p>
+              </div>
+              <a
+                href={brandAffiliation.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] bg-white"
+              >
+                <img
+                  src={brandAffiliation.image}
+                  alt={brandAffiliation.alt}
+                  className="w-full h-auto object-contain"
+                />
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="py-12 bg-muted/50">

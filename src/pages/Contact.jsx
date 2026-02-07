@@ -302,7 +302,7 @@ const Contact = () => {
           </div>
           <div className="rounded-xl overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31686.57076856736!2d80.19694!3d6.9533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3a0d5e6f8f1d7%3A0x5e3f9c4d7c8e1a2b!2sAvissawella!5e0!3m2!1sen!2slk!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.4686626049424!2d80.2097051!3d6.9539118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3a998a9cb5517%3A0x7626755bc958c0e2!2sVenus%20Hospital%2C%20Colombo%20-%20Batticaloa%20Hwy%2C%20Avissawella!5e0!3m2!1sen!2slk!4v1770467374561!5m2!1sen!2slk"
               width="100%"
               height="450"
               style={{ border: 0 }}

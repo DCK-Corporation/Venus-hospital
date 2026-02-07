@@ -5,7 +5,7 @@ export function WhatsAppWidget() {
     const [isHovered, setIsHovered] = useState(false);
 
     // Hospital WhatsApp number
-    const phoneNumber = "+94362222096";
+    const phoneNumber = "+94702222096";
 
     // Pre-filled message
     const message = "Hello! I would like to inquire about your medical services.";

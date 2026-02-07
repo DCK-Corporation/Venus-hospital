@@ -1,7 +1,12 @@
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import { Eye } from "lucide-react";
 import { ImageCarousel } from "@/components/ui/ImageCarousel";
+import { useState, useEffect } from "react";
 
+const bannerImages = [
+  "https://res.cloudinary.com/doqyzcyl5/image/upload/v1770469321/Venus_Hospital_Banner_2_lji3e2.jpg",
+  "https://res.cloudinary.com/doqyzcyl5/image/upload/v1770469320/Venus_Hospital_eye_care_banner_1_nthsrr.jpg"
+];
 
 const EyeCareServices = () => {
   // Carousel images for Eye Care Unit
@@ -87,6 +92,7 @@ const EyeCareServices = () => {
         { name: "Operation Theatre", link: "/services/surgery" },
         { name: "OPD Services", link: "/services/opd" },
       ]}
+      banners={bannerImages}
     />
   );
 };

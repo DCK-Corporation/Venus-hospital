@@ -4,14 +4,19 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const insurancePartners = [
-  "Ceylinco Life Insurance",
-  "Sri Lanka Insurance",
-  "Union Assurance",
-  "AIA Insurance",
   "Softlogic Life Insurance",
-  "Allianz Insurance",
-  "Janashakthi Insurance",
-  "HNB Assurance",
+  "SLIC (Sri Lanka Insurance Corporation)",
+  "Sanasa Life Insurance",
+  "Fairfirst Insurance",
+  "Agrahara Insurance",
+  "Suraksha Insurance",
+  "Allianz Insurance Lanka Ltd. (Medilink)",
+  "Ceylinco Insurance (Medilink)",
+  "Continental Insurance Lanka Ltd. (Medilink)",
+  "Janashakthi Insurance PLC (Medilink)",
+  "HNB Assurance PLC (Medilink)",
+  "AIA Insurance",
+  "Union Assurance",
 ];
 
 const Insurance = () => {
@@ -109,18 +114,25 @@ const Insurance = () => {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
                 <a
-                  href="tel:+94362222963"
+                  href="tel:+94362222096"
                   className="flex items-center gap-2 text-primary hover:underline"
                 >
                   <Phone className="w-4 h-4" />
-                  036 2222 963
+                  036 2222 096
                 </a>
                 <a
-                  href="mailto:insurance@venushospital.lk"
+                  href="tel:+94362222064"
+                  className="flex items-center gap-2 text-primary hover:underline"
+                >
+                  <Phone className="w-4 h-4" />
+                  036 2222 064
+                </a>
+                <a
+                  href="mailto:venushospitalward@gmail.com"
                   className="flex items-center gap-2 text-primary hover:underline"
                 >
                   <Mail className="w-4 h-4" />
-                  insurance@venushospital.lk
+                  venushospitalward@gmail.com
                 </a>
               </div>
               <Button asChild>

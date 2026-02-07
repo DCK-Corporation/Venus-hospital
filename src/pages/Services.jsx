@@ -17,7 +17,7 @@ const services = [
     title: "Operation Theatre",
     description: "Modern surgical facilities for various procedures",
     link: "/services/surgery",
-    image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&q=80",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1770487301/Operation_T_2_gclq2x.jpg",
   },
   {
     title: "Rooms & Wards",
@@ -35,7 +35,7 @@ const services = [
     title: "Hearing Unit",
     description: "Professional hearing assessments and support",
     link: "/services/hearing",
-    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678730/IMG_5616_c8o4pt.jpg",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1770487879/AdobeStock_1822017679_lzxzjx.jpg",
   },
   {
     title: "Optical Services",
@@ -78,7 +78,7 @@ const services = [
     title: "Skin Clinic",
     description: "The best skin care services in Avissawella",
     link: "/services/skinclinic",
-    image: "",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1770487300/skin-care-routine-2-scaled_pvntyt.webp",
   },
 ];
 

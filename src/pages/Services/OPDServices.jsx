@@ -12,6 +12,7 @@ const OPDServices = () => {
         "24/7 availability for emergencies",
         "Medical Consultants from Avissawella Base Hospital",
         "Famous & popular consultants from across the island",
+        "Wound dressing and treatment",
       ]}
       additionalInfo={[
         {

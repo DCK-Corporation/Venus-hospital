@@ -13,21 +13,37 @@ const Laboratory = () => {
       description="Our fully equipped laboratory provides a wide range of medical tests with accuracy and efficiency. We adhere to strict quality standards to ensure reliable test results that support timely clinical decisions. From routine blood tests to specialized investigations, our laboratory is staffed by experienced technicians committed to delivering precise results."
 
       features={[
-
         "Most sophisticated world class brands equipment",
         "Highest standards used by major government hospitals",
         "Quality Controlled by qualified specialist chemical pathologist",
         "Government experienced laboratory technicians",
         "Perpetual supervision for accuracy",
-        "Complete blood count (CBC)",
-        "Blood chemistry panels",
-        "Lipid profile testing",
-        "Thyroid function tests",
-        "Diabetes monitoring (HbA1c)",
-        "Liver and kidney function tests",
-        "Urine analysis",
+        "Fasting Blood Sugar (FBS)",
+        "Post Prandial Blood Sugar (PPBS)",
+        "Full Blood Count (FBC)",
+        "ESR (Erythrocyte Sedimentation Rate)",
+        "Lipid Profile",
+        "Liver Function Test",
+        "Renal Profile",
+        "Thyroid Profile",
+        "TSH (Thyroid Stimulating Hormone)",
+        "Uric Acid",
+        "Stool Occult Blood Test",
+        "Pap Smear",
+        "Vitamin D Level",
+        "PSA (Prostate-Specific Antigen)",
+        "Serum Electrolytes",
+        "Vitamin B12",
+        "Serum Calcium",
+        "Bone Profile",
+        "Urine Full Report",
+        "HbA1c (Glycated Hemoglobin)",
+        "Urine Microalbumin",
+        "SGPT (Serum Glutamic Pyruvic Transaminase)",
+        "SGOT (Serum Glutamic Oxaloacetic Transaminase)",
+        "Serum Creatinine & GFR",
+        "And many more tests available",
         "Quick turnaround time",
-
       ]}
       additionalInfo={[
         {

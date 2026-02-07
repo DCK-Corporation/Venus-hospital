@@ -4,7 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Eye, Phone, MapPin, Clock, Star } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const bannerImages = [
+  "https://res.cloudinary.com/doqyzcyl5/image/upload/v1770469321/Venus_Hospital_Banner_2_lji3e2.jpg",
+  "https://res.cloudinary.com/doqyzcyl5/image/upload/v1770469320/Venus_Hospital_eye_care_banner_1_nthsrr.jpg"
+];
 
 const categories = [
   { id: "all", label: "All" },
@@ -103,6 +108,15 @@ const products = [
 
 const EyeCare = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [currentBanner, setCurrentBanner] = useState(0);
+
+  // Auto-advance banner slideshow
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentBanner((prev) => (prev + 1) % bannerImages.length);
+    }, 4000); // Change banner every 4 seconds
+    return () => clearInterval(timer);
+  }, []);
 
   const filteredProducts = selectedCategory === "all"
     ? products
@@ -123,6 +137,45 @@ const EyeCare = () => {
             <p className="text-lg text-white/90">
               Wholly affiliated entity to Venus Hospital with branches across neighboring cities, offering world famous brands at international quality standards
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Promotional Banner Slideshow */}
+      <section className="py-8 md:py-12 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="relative w-full max-w-7xl mx-auto overflow-hidden rounded-xl md:rounded-2xl shadow-xl bg-gray-100">
+            {/* Banner Images */}
+            <div className="relative aspect-[16/9] md:aspect-[21/9]">
+              {bannerImages.map((banner, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ${index === currentBanner ? 'opacity-100' : 'opacity-0'
+                    }`}
+                >
+                  <img
+                    src={banner}
+                    alt={`Eye Care Promotion ${index + 1}`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+              {bannerImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentBanner(index)}
+                  className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all ${index === currentBanner
+                    ? 'bg-white w-10 md:w-12'
+                    : 'bg-white/60 hover:bg-white/80'
+                    }`}
+                  aria-label={`Go to banner ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -240,10 +293,10 @@ const EyeCare = () => {
                   </div>
                   <div className="flex items-center justify-between pt-2">
                     <div>
-                      <span className="text-lg font-bold text-primary">{}</span>
+                      <span className="text-lg font-bold text-primary">{ }</span>
                       {product.originalPrice && (
                         <span className="text-sm text-muted-foreground line-through ml-2">
-                          {}
+                          { }
                         </span>
                       )}
                     </div>
