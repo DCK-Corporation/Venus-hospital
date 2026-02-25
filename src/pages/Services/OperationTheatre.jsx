@@ -47,6 +47,10 @@ const OperationTheatre = () => {
           content: "Our operation theatre is constructed with ultra modern Japanese and German Technology, representing the highest standards in the area. We have highly skilled and experienced nursing staff available to assist the veteran medical professionals, ensuring optimal surgical outcomes and patient safety.",
         },
         {
+          title: "General Surgeries",
+          content: "Our operation theatre is fully equipped to handle a wide range of general surgical procedures performed by experienced consultant surgeons. From abdominal surgeries and hernia repairs to appendectomies and other elective or emergency procedures, our team ensures each patient receives high-quality surgical care in a safe and sterile environment.",
+        },
+        {
           title: "Cesarean Surgery Excellence",
           content: "Cesarean Surgeries are performed personally by Skilled Consultant Obstetricians and Gynaecologists and assisted by an experienced consultant paediatrician and a medical officer together with a specially trained nursing staff. The mother can decide on a convenient day under the advice of the Consultant Obstetrician and Gynaecologist and will receive an optimum service for a very reasonable charge.",
         },

@@ -184,9 +184,12 @@ const EyeCare = () => {
       <section className="py-12 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mb-8 text-center">
-            <h2 className="text-2xl font-heading font-bold text-foreground mb-3">
+            <h2 className="text-2xl font-heading font-bold text-foreground mb-2">
               About Visual Eye Optical Services
             </h2>
+            <p className="text-primary font-semibold italic mb-3">
+              Bringing You Clear Vision with 25 Years of Trusted Care and Service.
+            </p>
             <p className="text-muted-foreground leading-relaxed">
               Visual Eye Optical Services is a wholly affiliated entity to Venus Hospital (Pvt) Ltd with a number of branches in the neighboring cities, with its main branch located within the Venus Hospital premises. Our totally computerized Automated Optical Processing Workshop is ready to provide a range of world famous brands of optical products including frames, lenses, contact lenses, Sunglasses etc, at international quality and standards with a guarantee of continuous service.
             </p>
