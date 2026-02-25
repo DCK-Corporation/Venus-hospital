@@ -1,7 +1,10 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "venus-hospital-website",
+  "description": "Official website for Venus Hospital (Pvt) Ltd",
+  "version": "1.0.0",
+  "author": "Venus Hospital (Pvt) Ltd",
+  "license": "UNLICENSED",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
