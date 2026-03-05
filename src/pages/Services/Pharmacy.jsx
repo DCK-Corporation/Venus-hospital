@@ -34,6 +34,12 @@ const Pharmacy = () => {
         { name: "Laboratory Services", link: "/services/laboratory" },
         { name: "Rooms & Wards", link: "/services/rooms" },
       ]}
+      faqs={[
+        {
+          question: "How can I check if a medicine is available?",
+          answer: "For all pharmacy-related inquiries and drug availability, please call our pharmacy directly at 075-3222090.",
+        },
+      ]}
     />
   );
 };

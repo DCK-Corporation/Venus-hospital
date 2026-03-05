@@ -35,6 +35,16 @@ const HearingCare = () => {
         { name: "Diagnostic Services", link: "/services/diagnostics" },
         { name: "Laboratory Services", link: "/services/laboratory" },
       ]}
+      faqs={[
+        {
+          question: "What hearing services are available?",
+          answer: "Through Venus Hearing Solutions, we provide routine hearing checkups and specialist ENT consultations.",
+        },
+        {
+          question: "Can I buy or service hearing aids here?",
+          answer: "Yes. We sell renowned international brands of hearing aids and accessories. We also provide professional servicing and maintenance for your devices.\n\nHearing Unit Contact: +94 77 189 9611 (Call or WhatsApp)",
+        },
+      ]}
     />
   );
 };

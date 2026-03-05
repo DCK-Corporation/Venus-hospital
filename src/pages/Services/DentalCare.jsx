@@ -42,6 +42,16 @@ const DentalCare = () => {
         { name: "OPD Services", link: "/services/opd" },
         { name: "Pharmacy", link: "/services/pharmacy" },
       ]}
+      faqs={[
+        {
+          question: "What are the X-ray department's working hours?",
+          answer: "The unit is open daily from 8:00 AM to 5:00 PM, offering both Digital X-rays and Dental X-rays.",
+        },
+        {
+          question: "Do I need an appointment for Dental services?",
+          answer: "For dental checkups or procedures, we recommend calling the main reception (036-2222096) to check the dentist's availability and secure a time slot.",
+        },
+      ]}
     />
   );
 };

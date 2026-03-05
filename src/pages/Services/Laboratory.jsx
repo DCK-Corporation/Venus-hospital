@@ -52,6 +52,16 @@ const Laboratory = () => {
         { name: "Diagnostic Services", link: "/services/diagnostics" },
         { name: "Pharmacy", link: "/services/pharmacy" },
       ]}
+      faqs={[
+        {
+          question: "How do I book Laboratory tests?",
+          answer: "To ensure your samples are collected promptly and to avoid queues, please pre-book your lab appointment at +94 75 322 2101.",
+        },
+        {
+          question: "When will my lab reports be ready?",
+          answer: "Most routine reports are available within the same day. Our staff will inform you of the exact pickup time during your visit.",
+        },
+      ]}
     />
   );
 };

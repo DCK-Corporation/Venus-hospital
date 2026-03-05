@@ -31,6 +31,16 @@ const OPDServices = () => {
         { name: "Diagnostic Services", link: "/services/diagnostics" },
         { name: "Pharmacy", link: "/services/pharmacy" },
       ]}
+      faqs={[
+        {
+          question: "How do I book an appointment with a Specialist Consultant?",
+          answer: "To book a visiting consultant, please call our reception at 036-2222096 or 036-2222064. To ensure your slot is reserved and to minimize waiting time, we highly recommend pre-booking via our dedicated booking line: +94 75 322 2101.",
+        },
+        {
+          question: "Is the hospital accessible for elderly or disabled patients?",
+          answer: "Yes. We have dedicated private parking on-site and the facility is equipped with elevator (lift) access to all floors for your convenience.",
+        },
+      ]}
     />
   );
 };

@@ -27,20 +27,26 @@ const contactInfo = [
   },
   {
     icon: Phone,
-    title: "Optical",
-    details: ["075 3222 096", "075 3222 099"],
+    title: "Optical & WhatsApp",
+    details: ["075 3222 096"],
     action: "tel:+94753222096",
   },
   {
     icon: Phone,
-    title: "Laboratory",
-    details: ["075 322 2101"],
+    title: "Appointment Bookings",
+    details: ["+94 75 322 2101"],
     action: "tel:+94753222101",
   },
   {
     icon: Phone,
-    title: "Hearing Aids",
-    details: ["077 189 9611"],
+    title: "Pharmacy",
+    details: ["075 3222 090"],
+    action: "tel:+94753222090",
+  },
+  {
+    icon: Phone,
+    title: "Hearing Unit",
+    details: ["+94 77 189 9611"],
     action: "tel:+94771899611",
   },
   {

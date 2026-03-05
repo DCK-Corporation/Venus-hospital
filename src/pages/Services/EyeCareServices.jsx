@@ -87,6 +87,32 @@ const EyeCareServices = () => {
         { name: "OPD Services", link: "/services/opd" },
       ]}
       banners={bannerImages}
+      faqs={[
+        {
+          question: "Which Eye Surgeons are available and when?",
+          answer: "We host renowned surgeons from the Avissawella General Hospital, including Dr. Damayanthi Samarasinghe and Dr. Dayawansha. They are generally available on weekdays from 4:00 PM onwards. Please call reception to confirm the exact dates and times.",
+        },
+        {
+          question: "Do I need an appointment for a routine eye checkup?",
+          answer: "No appointment is necessary. You can visit us during working hours for an eye examination by our SLOA-registered Optometrists free of charge.",
+        },
+        {
+          question: "Where are my spectacles prepared?",
+          answer: "We have our own in-house Optical Laboratory. While we source high-quality frames (including our own signature brand), all lens cutting, fitting, and assembly are done on-site by our technicians for perfect accuracy.",
+        },
+        {
+          question: "What after-sales services do you provide for spectacles?",
+          answer: "Since we have an on-site lab, we provide repairs, lens fitting, and frame adjustments free of charge. We recommend calling 075-3222096 before you arrive to ensure a technician is available.",
+        },
+        {
+          question: "What advanced eye scans do you offer?",
+          answer: "Our unit is equipped for OCT (Optical Coherence Tomography), Biometry, Visual Field Tests, and CCT. When coming for a scan, please bring your current spectacles and previous medical reports.",
+        },
+        {
+          question: "Can I send my prescription via WhatsApp?",
+          answer: "Yes, you can message your prescriptions or inquiries to 075-3222096. However, for urgent matters, please call us directly as we receive a high volume of messages.",
+        },
+      ]}
     />
   );
 };

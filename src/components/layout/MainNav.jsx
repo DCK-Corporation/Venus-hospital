@@ -11,7 +11,8 @@ import {
   Eye,
   Shield,
   Phone,
-  Briefcase
+  Briefcase,
+  HelpCircle
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookingModal } from "@/components/BookingModal";
@@ -55,6 +56,7 @@ const navItems = [
   },
   { label: "BOOK APPOINTMENT", isModal: true, icon: Calendar },
   { label: "INSURANCE", href: "/insurance", icon: Shield },
+  { label: "FAQ", href: "/faq", icon: HelpCircle },
   { label: "CONTACT US", href: "/contact", icon: Phone },
   { label: "CAREERS", href: "/careers", icon: Briefcase },
 ];

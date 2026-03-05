@@ -24,6 +24,7 @@ import Careers from "./pages/Careers";
 import Insurance from "./pages/Insurance";
 import News from "./pages/News";
 import NewsArticle from "./pages/NewsArticle";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -58,6 +59,7 @@ const App = () => (
           <Route path="/careers" element={<Careers />} />
           <Route path="/news" element={<News />} />
           <Route path="/news/:id" element={<NewsArticle />} />
+          <Route path="/faq" element={<FAQ />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

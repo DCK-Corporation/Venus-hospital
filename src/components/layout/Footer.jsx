@@ -8,6 +8,7 @@ const quickLinks = [
   { name: "About Us", path: "/about" },
   { name: "Services", path: "/services" },
   { name: "Book Appointment", isModal: true },
+  { name: "FAQ", path: "/faq" },
   { name: "Contact Us", path: "/contact" },
 ];
 

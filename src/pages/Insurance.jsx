@@ -1,22 +1,48 @@
 import { Layout } from "@/components/layout/Layout";
-import { Shield, CheckCircle, Phone, Mail } from "lucide-react";
+import { Shield, CheckCircle, Phone, Mail, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
+function FAQItem({ question, answer }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-border rounded-xl overflow-hidden transition-shadow hover:shadow-md">
+      <button
+        className="w-full text-left flex items-center justify-between gap-4 p-5 bg-card hover:bg-muted/40 transition-colors"
+        onClick={() => setOpen((prev) => !prev)}
+        aria-expanded={open}
+      >
+        <span className="font-semibold text-foreground text-sm md:text-base leading-snug">{question}</span>
+        {open ? (
+          <ChevronUp className="h-5 w-5 text-primary flex-shrink-0" />
+        ) : (
+          <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+        )}
+      </button>
+      {open && (
+        <div className="px-5 pb-5 pt-2 bg-card border-t border-border">
+          <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{answer}</p>
+        </div>
+      )}
+    </div>
+  );
+}
 
 const insurancePartners = [
+  // Government / Semi-Government
+  "Agrahara Insurance",
+  "Suraksha Insurance",
+  // Private Providers
   "Softlogic Life Insurance",
   "SLIC (Sri Lanka Insurance Corporation)",
   "Sanasa Life Insurance",
   "Fairfirst Insurance",
-  "Agrahara Insurance",
-  "Suraksha Insurance",
-  "Allianz Insurance Lanka Ltd. (Medilink)",
-  "Ceylinco Insurance (Medilink)",
-  "Continental Insurance Lanka Ltd. (Medilink)",
-  "Janashakthi Insurance PLC (Medilink)",
   "HNB Assurance PLC (Medilink)",
   "AIA Insurance",
   "Union Assurance",
+  "Arpico Insurance",
+  "Orient Insurance",
 ];
 
 const Insurance = () => {
@@ -138,6 +164,32 @@ const Insurance = () => {
               <Button asChild>
                 <Link to="/contact">Contact Us</Link>
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Insurance FAQ */}
+      <section className="py-14 bg-muted/20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-heading font-bold text-foreground">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-muted-foreground mt-2 text-sm">
+                Common questions about our insurance services
+              </p>
+            </div>
+            <div className="space-y-3">
+              <FAQItem
+                question="Do you accept medical insurance?"
+                answer={`Yes, we work with a wide range of partners for both hospital services and optical needs.
+
+Government/Semi-Government: Agrahara and Suraksha.
+
+Private Providers: Softlogic Life, SLIC (Sri Lanka Insurance), Sanasa Life, Fairfirst, HNB Assurance (under Medilink), AIA, Union Assurance, Arpico Insurance, and Orient Insurance.`}
+              />
             </div>
           </div>
         </div>
