@@ -139,13 +139,13 @@ const MainNav = () => {
             {navItems.map((item) => (
               <div key={item.label}>
                 {item.isModal ? (
-                  <div className="px-4 py-3 border-b border-primary/20 flex items-center gap-2">
-                    {item.icon && <item.icon className="w-5 h-5 text-secondary-foreground" />}
+                  <div className="border-b border-primary/20">
                     <BookingModal
                       variant="ghost"
-                      className="w-full justify-start text-sm font-semibold text-secondary-foreground h-auto p-0"
+                      className="w-full justify-start gap-2 px-4 py-3 text-sm font-semibold text-secondary-foreground h-auto rounded-none"
                       triggerText={item.label}
                       showIcon={false}
+                      icon={item.icon}
                     />
                   </div>
                 ) : item.children ? (

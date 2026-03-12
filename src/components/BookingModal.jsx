@@ -17,7 +17,8 @@ export function BookingModal({
     variant = "default",
     className = "",
     triggerText = "Book Appointment",
-    showIcon = true
+    showIcon = true,
+    icon: ExternalIcon = null,
 }) {
     const [open, setOpen] = useState(false);
 
@@ -45,7 +46,8 @@ export function BookingModal({
     const triggerButton = trigger || (
         variant === "ghost" ? (
             <button className={className}>
-                {showIcon && <Calendar className="mr-2 h-5 w-5" />}
+                {ExternalIcon && <ExternalIcon className="w-5 h-5" />}
+                {showIcon && !ExternalIcon && <Calendar className="mr-2 h-5 w-5" />}
                 {triggerText}
             </button>
         ) : (
