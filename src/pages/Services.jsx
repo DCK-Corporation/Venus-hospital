@@ -1,12 +1,15 @@
+import { useState, useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BookingModal } from "@/components/BookingModal";
 import {
   ArrowRight,
+  Loader2,
 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
-const services = [
+const localServices = [
   {
     title: "8 a.m - 8 p.m OPD Services",
     description: "Round-the-clock outpatient care with qualified doctors",
@@ -83,6 +86,35 @@ const services = [
 ];
 
 const Services = () => {
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("services_data")
+          .select("*")
+          .order("title");
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+          setServices(data);
+        } else {
+          setServices(localServices);
+        }
+      } catch (error) {
+        console.error("Error fetching services:", error);
+        setServices(localServices);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
+
   return (
     <Layout>
       {/* Hero Banner */}
@@ -120,37 +152,43 @@ const Services = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <Link
-                key={service.title}
-                to={service.link}
-                className="group relative rounded-2xl overflow-hidden min-h-[380px] flex flex-col justify-end shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
-                {/* Background Image */}
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${service.image})` }}
-                />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+          {loading ? (
+            <div className="flex justify-center items-center py-20">
+              <Loader2 className="h-10 w-10 animate-spin text-primary" />
+            </div>
+          ) : (
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service) => (
+                <Link
+                  key={service.title}
+                  to={service.link}
+                  className="group relative rounded-2xl overflow-hidden min-h-[380px] flex flex-col justify-end shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                >
+                  {/* Background Image */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    style={{ backgroundImage: `url(${service.image})` }}
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
-                {/* Content */}
-                <div className="relative z-10 p-6">
-                  <h3 className="font-heading font-bold text-xl text-white mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm text-white/80 mb-4 line-clamp-2">
-                    {service.description}
-                  </p>
-                  <span className="inline-flex items-center text-sm text-primary font-semibold group-hover:text-white transition-colors">
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
+                  {/* Content */}
+                  <div className="relative z-10 p-6">
+                    <h3 className="font-heading font-bold text-xl text-white mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-white/80 mb-4 line-clamp-2">
+                      {service.description}
+                    </p>
+                    <span className="inline-flex items-center text-sm text-primary font-semibold group-hover:text-white transition-colors">
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

@@ -1,14 +1,68 @@
+import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { Calendar, ArrowLeft, ArrowRight, User } from "lucide-react";
+import { Calendar, ArrowLeft, ArrowRight, User, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getArticleById, getRelatedArticles } from "@/data/newsData";
 import { Layout } from "@/components/layout/Layout";
+import { supabase } from "@/integrations/supabase/client";
 
 export default function NewsArticle() {
     const { id } = useParams();
     const navigate = useNavigate();
-    const article = getArticleById(id);
-    const relatedArticles = article ? getRelatedArticles(id, article.category) : [];
+    const [article, setArticle] = useState(null);
+    const [relatedArticles, setRelatedArticles] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchArticle = async () => {
+            setLoading(true);
+            try {
+                // Try fetching from Supabase first
+                const { data, error } = await supabase
+                    .from("news_posts")
+                    .select("*")
+                    .eq("id", id)
+                    .single();
+
+                if (error) throw error;
+
+                if (data) {
+                    setArticle(data);
+
+                    // Fetch related from Supabase
+                    const { data: relatedData } = await supabase
+                        .from("news_posts")
+                        .select("*")
+                        .eq("category", data.category)
+                        .neq("id", id)
+                        .limit(2);
+
+                    setRelatedArticles(relatedData || []);
+                }
+            } catch (error) {
+                console.log("Supabase fetch failed or returned no result, falling back to local data:", error.message);
+                const localArticle = getArticleById(id);
+                setArticle(localArticle);
+                if (localArticle) {
+                    setRelatedArticles(getRelatedArticles(id, localArticle.category));
+                }
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchArticle();
+    }, [id]);
+
+    if (loading) {
+        return (
+            <Layout>
+                <div className="min-h-screen flex items-center justify-center">
+                    <Loader2 className="h-10 w-10 animate-spin text-primary" />
+                </div>
+            </Layout>
+        );
+    }
 
     if (!article) {
         return (
@@ -84,7 +138,7 @@ export default function NewsArticle() {
             {/* Article Content */}
             <article className="container mx-auto px-4 max-w-4xl pb-16">
                 <div
-                    className="prose prose-lg max-w-none
+                    className="prose prose-lg max-w-none 
             prose-headings:font-heading prose-headings:text-foreground
             prose-h3:text-2xl prose-h3:font-bold prose-h3:mt-8 prose-h3:mb-4
             prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4
@@ -142,7 +196,7 @@ export default function NewsArticle() {
                                         <h3 className="text-xl font-bold text-foreground mb-3 font-heading group-hover:text-primary transition-colors">
                                             {relatedArticle.title}
                                         </h3>
-                                        <p className="text-muted-foreground leading-relaxed mb-4">
+                                        <p className="text-muted-foreground leading-relaxed mb-4 line-clamp-2">
                                             {relatedArticle.excerpt}
                                         </p>
                                         <Link

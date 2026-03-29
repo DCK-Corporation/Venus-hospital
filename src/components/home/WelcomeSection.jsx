@@ -1,6 +1,8 @@
-import { Heart, Shield, Clock, CheckCircle } from "lucide-react";
+import { Heart, Shield, Clock, CheckCircle, Loader2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
-const features = [
+const defaultFeatures = [
   {
     icon: Heart,
     title: "Compassionate Care",
@@ -19,6 +21,32 @@ const features = [
 ];
 
 export function WelcomeSection() {
+  const [settings, setSettings] = useState({
+    founding_year: "2014",
+    operating_hours: "6 AM to 10 PM",
+    tagline: "Trusted Care, Compassionate Healing."
+  });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("site_settings")
+          .select("founding_year, operating_hours, tagline")
+          .single();
+
+        if (error && error.code !== "PGRST116") throw error;
+        if (data) setSettings(data);
+      } catch (error) {
+        console.error("Error fetching settings for welcome section:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchSettings();
+  }, []);
+
   return (
     <section className="py-16 -mt-16 md:py-20 bg-gradient-to-b from-background via-muted/30 to-background">
       <div className="container mx-auto px-4">
@@ -26,10 +54,10 @@ export function WelcomeSection() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold text-primary mb-4">
             <Heart className="h-4 w-4" />
-            <span>Since 2014</span>
+            <span>Since {settings.founding_year}</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 font-heading">
-            Trusted Care, Compassionate Healing.
+            {settings.tagline}
           </h2>
           <div className="max-w-3xl mx-auto">
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
@@ -42,7 +70,7 @@ export function WelcomeSection() {
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {features.map((feature) => (
+          {defaultFeatures.map((feature, idx) => (
             <div
               key={feature.title}
               className="group relative overflow-hidden rounded-xl bg-card border border-border p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
@@ -53,7 +81,9 @@ export function WelcomeSection() {
                   <feature.icon className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2 font-heading">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {idx === 2 ? `Open daily from ${settings.operating_hours} for your convenience` : feature.description}
+                </p>
               </div>
             </div>
           ))}
@@ -64,7 +94,7 @@ export function WelcomeSection() {
           <div className="flex flex-wrap items-center justify-center gap-8 text-sm md:text-base">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500/50" />
-              <span className="font-medium text-foreground">We are available 6 A.M to 10 P.M</span>
+              <span className="font-medium text-foreground text-center">We are available {settings.operating_hours}</span>
             </div>
             <div className="hidden sm:block w-px h-6 bg-border" />
             <div className="flex items-center gap-2 text-foreground">

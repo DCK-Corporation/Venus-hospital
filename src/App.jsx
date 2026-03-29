@@ -25,6 +25,8 @@ import Insurance from "./pages/Insurance";
 import News from "./pages/News";
 import NewsArticle from "./pages/NewsArticle";
 import FAQ from "./pages/FAQ";
+import Dashboard from "./pages/Admin/Dashboard";
+import Login from "./pages/Admin/Login";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -60,6 +62,8 @@ const App = () => (
           <Route path="/news" element={<News />} />
           <Route path="/news/:id" element={<NewsArticle />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/admin/login" element={<Login />} />
+          <Route path="/admin/dashboard" element={<Dashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
