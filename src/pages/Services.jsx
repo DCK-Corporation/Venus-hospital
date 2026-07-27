@@ -7,7 +7,7 @@ import {
   ArrowRight,
   Loader2,
 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { servicesApi } from "@/lib/api";
 
 const localServices = [
   {
@@ -92,18 +92,8 @@ const Services = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const { data, error } = await supabase
-          .from("services_data")
-          .select("*")
-          .order("title");
-
-        if (error) throw error;
-
-        if (data && data.length > 0) {
-          setServices(data);
-        } else {
-          setServices(localServices);
-        }
+        const data = await servicesApi.list();
+        setServices(data && data.length > 0 ? data : localServices);
       } catch (error) {
         console.error("Error fetching services:", error);
         setServices(localServices);

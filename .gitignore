@@ -15,6 +15,10 @@ dist-ssr
 .env
 .env.local
 
+# Uploaded media (served by the backend, not committed to git)
+server/uploads/*
+!server/uploads/.gitkeep
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

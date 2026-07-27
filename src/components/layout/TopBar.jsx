@@ -1,8 +1,13 @@
 import { Phone, Mail, Clock, Facebook, Youtube, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BookingModal } from "@/components/BookingModal";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 const TopBar = () => {
+  const { settings } = useSiteSettings();
+  const telHref = `tel:${settings.phone_primary.replace(/[^+\d]/g, "")}`;
+  const mailHref = `mailto:${settings.email}`;
+
   return (
 
 
@@ -28,17 +33,17 @@ const TopBar = () => {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <Clock className="w-4 h-4" />
-            <span className="font-semibold">6am-10pm Daily</span>
+            <span className="font-semibold">{settings.operating_hours}</span>
           </div>
           <span className="hidden sm:inline">|</span>
           <div className="hidden sm:flex items-center gap-2">
             <Phone className="w-4 h-4" />
-            <a href="tel:+94362222096" className="hover:underline font-semibold">036 2222 096</a>
+            <a href={telHref} className="hover:underline font-semibold">{settings.phone_primary}</a>
           </div>
           <span className="hidden md:inline">|</span>
           <div className="hidden md:flex items-center gap-2">
             <Mail className="w-4 h-4" />
-            <a href="mailto:Venusprivatehospital@gmail.com" className="hover:underline">Venusprivatehospital@gmail.com</a>
+            <a href={mailHref} className="hover:underline">{settings.email}</a>
           </div>
           <span className="hidden lg:inline">|</span>
           <div className="hidden lg:flex items-center gap-3">

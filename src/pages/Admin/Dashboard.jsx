@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
+import { authApi } from "@/lib/api";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -13,36 +13,23 @@ import { SettingsManager } from "@/components/admin/SettingsManager";
 import { toast } from "sonner";
 
 const Dashboard = () => {
-    const [session, setSession] = useState(null);
+    const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
-        supabase.auth.getSession().then(({ data: { session } }) => {
-            if (!session) {
-                navigate("/admin/login");
-            } else {
-                setSession(session);
-            }
-        });
-
-        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-            if (!session) {
-                navigate("/admin/login");
-            } else {
-                setSession(session);
-            }
-        });
-
-        return () => subscription.unsubscribe();
+        authApi
+            .me()
+            .then(setUser)
+            .catch(() => navigate("/admin/login"));
     }, [navigate]);
 
     const handleLogout = async () => {
-        await supabase.auth.signOut();
+        await authApi.logout();
         toast.success("Logged out successfully");
         navigate("/");
     };
 
-    if (!session) return null;
+    if (!user) return null;
 
     return (
         <Layout>
@@ -52,7 +39,7 @@ const Dashboard = () => {
                         <h1 className="text-3xl font-bold font-heading text-foreground">Admin Dashboard</h1>
                         <p className="text-muted-foreground flex items-center gap-2">
                             <UserIcon className="h-4 w-4" />
-                            {session.user.email}
+                            {user.email}
                         </p>
                     </div>
                     <Button variant="destructive" onClick={handleLogout} className="flex items-center gap-2 shadow-md">
