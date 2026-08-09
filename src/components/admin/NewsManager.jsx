@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { newsApi } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -35,18 +35,7 @@ export const NewsManager = () => {
     const fetchNews = async () => {
         setLoading(true);
         try {
-            const { data, error } = await supabase
-                .from("news_posts")
-                .select("*")
-                .order("created_at", { ascending: false });
-
-            if (error) {
-                if (error.code === "PGRST116" || error.message.includes("does not exist")) {
-                    toast.error("Table 'news_posts' not found. Please create it in Supabase.");
-                    return;
-                }
-                throw error;
-            }
+            const data = await newsApi.list();
             setNews(data || []);
         } catch (error) {
             console.error("Error fetching news:", error);
@@ -89,17 +78,10 @@ export const NewsManager = () => {
 
         try {
             if (editingPost) {
-                const { error } = await supabase
-                    .from("news_posts")
-                    .update(formData)
-                    .eq("id", editingPost.id);
-                if (error) throw error;
+                await newsApi.update(editingPost.id, formData);
                 toast.success("Post updated successfully");
             } else {
-                const { error } = await supabase
-                    .from("news_posts")
-                    .insert([formData]);
-                if (error) throw error;
+                await newsApi.create(formData);
                 toast.success("Post created successfully");
             }
             setDialogOpen(false);
@@ -115,11 +97,7 @@ export const NewsManager = () => {
         if (!confirm("Are you sure you want to delete this post?")) return;
 
         try {
-            const { error } = await supabase
-                .from("news_posts")
-                .delete()
-                .eq("id", id);
-            if (error) throw error;
+            await newsApi.remove(id);
             toast.success("Post deleted successfully");
             fetchNews();
         } catch (error) {

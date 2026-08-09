@@ -4,7 +4,7 @@ import { Calendar, ArrowLeft, ArrowRight, User, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getArticleById, getRelatedArticles } from "@/data/newsData";
 import { Layout } from "@/components/layout/Layout";
-import { supabase } from "@/integrations/supabase/client";
+import { newsApi } from "@/lib/api";
 
 export default function NewsArticle() {
     const { id } = useParams();
@@ -17,30 +17,11 @@ export default function NewsArticle() {
         const fetchArticle = async () => {
             setLoading(true);
             try {
-                // Try fetching from Supabase first
-                const { data, error } = await supabase
-                    .from("news_posts")
-                    .select("*")
-                    .eq("id", id)
-                    .single();
-
-                if (error) throw error;
-
-                if (data) {
-                    setArticle(data);
-
-                    // Fetch related from Supabase
-                    const { data: relatedData } = await supabase
-                        .from("news_posts")
-                        .select("*")
-                        .eq("category", data.category)
-                        .neq("id", id)
-                        .limit(2);
-
-                    setRelatedArticles(relatedData || []);
-                }
+                const { post, related } = await newsApi.get(id);
+                setArticle(post);
+                setRelatedArticles(related || []);
             } catch (error) {
-                console.log("Supabase fetch failed or returned no result, falling back to local data:", error.message);
+                console.log("API fetch failed or returned no result, falling back to local data:", error.message);
                 const localArticle = getArticleById(id);
                 setArticle(localArticle);
                 if (localArticle) {

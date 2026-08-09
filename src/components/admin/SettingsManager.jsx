@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { settingsApi } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,10 +14,10 @@ export const SettingsManager = () => {
         hospital_name: "Venus Hospital (Pvt) Ltd",
         founding_year: "2014",
         phone_primary: "+94 36 2222 096",
-        phone_secondary: "+94 77 7123 456",
-        email: "info@venushospital.com",
-        address: "No 12, Main Road, Avissawella",
-        operating_hours: "6 AM to 10 PM",
+        phone_secondary: "+94 36 2222 064",
+        email: "Venusprivatehospital@gmail.com",
+        address: "55A Colombo Road, Avissawella, Sri Lanka",
+        operating_hours: "Hospital: 6am-10pm | OPD: 8am-8pm",
         tagline: "Trusted Care, Compassionate Healing."
     });
 
@@ -28,20 +28,9 @@ export const SettingsManager = () => {
     const fetchSettings = async () => {
         setLoading(true);
         try {
-            const { data, error } = await supabase
-                .from("site_settings")
-                .select("*")
-                .single();
-
-            if (error) {
-                if (error.code === "PGRST116") {
-                    // If no settings found, we'll use defaults and offer to save them
-                    console.log("No settings found, using defaults");
-                } else {
-                    throw error;
-                }
-            } else if (data) {
-                setSettings(data);
+            const data = await settingsApi.get();
+            if (data && Object.keys(data).length > 0) {
+                setSettings((prev) => ({ ...prev, ...data }));
             }
         } catch (error) {
             console.error("Error fetching settings:", error);
@@ -56,11 +45,7 @@ export const SettingsManager = () => {
         setSaving(true);
 
         try {
-            const { error } = await supabase
-                .from("site_settings")
-                .upsert([settings]);
-
-            if (error) throw error;
+            await settingsApi.update(settings);
             toast.success("Settings saved successfully");
         } catch (error) {
             toast.error(error.message);

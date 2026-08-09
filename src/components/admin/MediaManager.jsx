@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { mediaApi } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
 import { Loader2, Upload, Trash2, Copy, Image as ImageIcon } from "lucide-react";
@@ -18,23 +19,11 @@ export const MediaManager = () => {
     const fetchFiles = async () => {
         setLoading(true);
         try {
-            const { data, error } = await supabase.storage.from("site-assets").list("", {
-                limit: 100,
-                offset: 0,
-                sortBy: { column: "name", order: "desc" },
-            });
-
-            if (error) {
-                if (error.message.includes("does not exist")) {
-                    // Bucket might not exist, but we can't create it via API easily without service role
-                    toast.error("Storage bucket 'site-assets' not found. Please create it in Supabase.");
-                } else {
-                    throw error;
-                }
-            }
+            const data = await mediaApi.list();
             setFiles(data || []);
         } catch (error) {
             console.error("Error fetching files:", error);
+            toast.error("Failed to load media library");
         } finally {
             setLoading(false);
         }
@@ -46,22 +35,14 @@ export const MediaManager = () => {
 
         setUploading(true);
         try {
-            const fileExt = file.name.split(".").pop();
-            const fileName = `${Math.random().toString(36).substring(2)}.${fileExt}`;
-            const filePath = `${fileName}`;
-
-            const { error: uploadError } = await supabase.storage
-                .from("site-assets")
-                .upload(filePath, file);
-
-            if (uploadError) throw uploadError;
-
+            await mediaApi.upload(file);
             toast.success("File uploaded successfully");
             fetchFiles();
         } catch (error) {
             toast.error(error.message);
         } finally {
             setUploading(false);
+            e.target.value = "";
         }
     };
 
@@ -69,8 +50,7 @@ export const MediaManager = () => {
         if (!confirm("Are you sure you want to delete this file?")) return;
 
         try {
-            const { error } = await supabase.storage.from("site-assets").remove([fileName]);
-            if (error) throw error;
+            await mediaApi.remove(fileName);
             toast.success("File deleted");
             fetchFiles();
         } catch (error) {
@@ -78,9 +58,8 @@ export const MediaManager = () => {
         }
     };
 
-    const copyUrl = (fileName) => {
-        const { data } = supabase.storage.from("site-assets").getPublicUrl(fileName);
-        navigator.clipboard.writeText(data.publicUrl);
+    const copyUrl = (url) => {
+        navigator.clipboard.writeText(url);
         toast.success("URL copied to clipboard");
     };
 
@@ -121,34 +100,26 @@ export const MediaManager = () => {
                 </div>
             ) : (
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                    {files.map((file) => {
-                        const { data } = supabase.storage.from("site-assets").getPublicUrl(file.name);
-                        return (
-                            <Card key={file.id} className="overflow-hidden group hover:shadow-lg transition-all border-muted">
-                                <div className="aspect-square relative overflow-hidden bg-muted flex items-center justify-center">
-                                    <img src={data.publicUrl} alt={file.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                                        <Button size="icon" variant="secondary" className="h-8 w-8" onClick={() => copyUrl(file.name)}>
-                                            <Copy className="h-4 w-4" />
-                                        </Button>
-                                        <Button size="icon" variant="destructive" className="h-8 w-8" onClick={() => handleDelete(file.name)}>
-                                            <Trash2 className="h-4 w-4" />
-                                        </Button>
-                                    </div>
+                    {files.map((file) => (
+                        <Card key={file.name} className="overflow-hidden group hover:shadow-lg transition-all border-muted">
+                            <div className="aspect-square relative overflow-hidden bg-muted flex items-center justify-center">
+                                <img src={file.url} alt={file.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                                    <Button size="icon" variant="secondary" className="h-8 w-8" onClick={() => copyUrl(file.url)}>
+                                        <Copy className="h-4 w-4" />
+                                    </Button>
+                                    <Button size="icon" variant="destructive" className="h-8 w-8" onClick={() => handleDelete(file.name)}>
+                                        <Trash2 className="h-4 w-4" />
+                                    </Button>
                                 </div>
-                                <CardContent className="p-2">
-                                    <p className="text-[10px] text-muted-foreground truncate" title={file.name}>{file.name}</p>
-                                </CardContent>
-                            </Card>
-                        );
-                    })}
+                            </div>
+                            <CardContent className="p-2">
+                                <p className="text-[10px] text-muted-foreground truncate" title={file.name}>{file.name}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
                 </div>
             )}
         </div>
     );
 };
-
-// Internal label helper to avoid importing from UI
-const Label = ({ htmlFor, children, className }) => (
-    <label htmlFor={htmlFor} className={className}>{children}</label>
-);

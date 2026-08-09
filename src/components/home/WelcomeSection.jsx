@@ -1,6 +1,5 @@
-import { Heart, Shield, Clock, CheckCircle, Loader2 } from "lucide-react";
-import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { Heart, Shield, Clock, CheckCircle } from "lucide-react";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 const defaultFeatures = [
   {
@@ -21,31 +20,7 @@ const defaultFeatures = [
 ];
 
 export function WelcomeSection() {
-  const [settings, setSettings] = useState({
-    founding_year: "2014",
-    operating_hours: "6 AM to 10 PM",
-    tagline: "Trusted Care, Compassionate Healing."
-  });
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchSettings = async () => {
-      try {
-        const { data, error } = await supabase
-          .from("site_settings")
-          .select("founding_year, operating_hours, tagline")
-          .single();
-
-        if (error && error.code !== "PGRST116") throw error;
-        if (data) setSettings(data);
-      } catch (error) {
-        console.error("Error fetching settings for welcome section:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchSettings();
-  }, []);
+  const { settings } = useSiteSettings();
 
   return (
     <section className="py-16 -mt-16 md:py-20 bg-gradient-to-b from-background via-muted/30 to-background">

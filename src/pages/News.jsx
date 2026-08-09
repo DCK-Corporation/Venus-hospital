@@ -4,7 +4,7 @@ import { Calendar, ArrowRight, Search, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { newsArticles as localNewsArticles } from "@/data/newsData";
 import { Layout } from "@/components/layout/Layout";
-import { supabase } from "@/integrations/supabase/client";
+import { newsApi } from "@/lib/api";
 
 export default function News() {
     const [news, setNews] = useState([]);
@@ -13,19 +13,9 @@ export default function News() {
     useEffect(() => {
         const fetchNews = async () => {
             try {
-                const { data, error } = await supabase
-                    .from("news_posts")
-                    .select("*")
-                    .order("created_at", { ascending: false });
-
-                if (error) throw error;
-
-                if (data && data.length > 0) {
-                    setNews(data);
-                } else {
-                    // Fallback to local data if DB is empty
-                    setNews(localNewsArticles);
-                }
+                const data = await newsApi.list();
+                // Fallback to local seed data if the DB has no posts yet
+                setNews(data && data.length > 0 ? data : localNewsArticles);
             } catch (error) {
                 console.error("Error fetching news:", error);
                 setNews(localNewsArticles);

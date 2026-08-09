@@ -1,6 +1,7 @@
 import { Calendar, Stethoscope, Eye, FlaskConical, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BookingModal } from "@/components/BookingModal";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 import logo from "@/assets/venus-hospital-logo.png";
 
 const quickLinks = [
@@ -11,6 +12,8 @@ const quickLinks = [
 ];
 
 const MiddleNav = () => {
+  const { settings } = useSiteSettings();
+
   return (
     <div className="bg-background py-4 border-b border-border">
       <div className="container mx-auto px-4 flex flex-wrap items-center justify-between gap-4">
@@ -49,8 +52,8 @@ const MiddleNav = () => {
         <div className="hidden md:flex items-center gap-3 bg-destructive text-destructive-foreground px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
           <Phone className="w-7 h-7" />
           <div>
-            <p className="font-semibold text-base">6am-10pm Daily</p>
-            <p className="text-xl font-bold">036 2222 096</p>
+            <p className="font-semibold text-base">{settings.operating_hours.split("|")[0].trim() || "6am-10pm Daily"}</p>
+            <p className="text-xl font-bold">{settings.phone_primary}</p>
           </div>
         </div>
       </div>

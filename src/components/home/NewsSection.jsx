@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Calendar, ArrowRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { newsArticles as localNewsArticles } from "@/data/newsData";
-import { supabase } from "@/integrations/supabase/client";
+import { newsApi } from "@/lib/api";
 
 export function NewsSection() {
   const [news, setNews] = useState([]);
@@ -12,19 +12,8 @@ export function NewsSection() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const { data, error } = await supabase
-          .from("news_posts")
-          .select("*")
-          .order("created_at", { ascending: false })
-          .limit(3);
-
-        if (error) throw error;
-
-        if (data && data.length > 0) {
-          setNews(data);
-        } else {
-          setNews(localNewsArticles.slice(0, 3));
-        }
+        const data = await newsApi.list(3);
+        setNews(data && data.length > 0 ? data : localNewsArticles.slice(0, 3));
       } catch (error) {
         console.error("Error fetching news section:", error);
         setNews(localNewsArticles.slice(0, 3));

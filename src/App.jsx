@@ -29,6 +29,7 @@ import Dashboard from "./pages/Admin/Dashboard";
 import Login from "./pages/Admin/Login";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import { RequireAuth } from "./components/admin/RequireAuth";
 
 const queryClient = new QueryClient();
 
@@ -63,7 +64,14 @@ const App = () => (
           <Route path="/news/:id" element={<NewsArticle />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/admin/login" element={<Login />} />
-          <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route
+            path="/admin/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

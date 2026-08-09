@@ -6,7 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+import { contactApi } from "@/lib/api";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 import {
   Phone,
   Mail,
@@ -18,13 +19,10 @@ import {
   MessageSquare
 } from "lucide-react";
 
-const contactInfo = [
-  {
-    icon: Phone,
-    title: "Reception",
-    details: ["036 2222 096", "036 2222 064"],
-    action: "tel:+94362222096",
-  },
+// Extra direct lines beyond the main reception number (managed via Settings).
+// These aren't part of site_settings since they're department-specific
+// and rarely change; edit here directly if they do.
+const extraContactLines = [
   {
     icon: Phone,
     title: "Optical & WhatsApp",
@@ -55,26 +53,38 @@ const contactInfo = [
     details: ["071 071 0007"],
     action: "tel:+94710710007",
   },
-  {
-    icon: Mail,
-    title: "Email",
-    details: ["Venusprivatehospital@gmail.com"],
-    action: "mailto:Venusprivatehospital@gmail.com",
-  },
-  {
-    icon: MapPin,
-    title: "Address",
-    details: ["55A Colombo Road", "Avissawella", "Sri Lanka"],
-  },
-  {
-    icon: Clock,
-    title: "Operating Hours",
-    details: ["Hospital: 6:00 AM - 10:00 PM", "OPD: 8:00 AM - 8:00 PM"],
-  },
 ];
 
 const Contact = () => {
   const { toast } = useToast();
+  const { settings } = useSiteSettings();
+
+  const contactInfo = [
+    {
+      icon: Phone,
+      title: "Reception",
+      details: [settings.phone_primary, settings.phone_secondary].filter(Boolean),
+      action: `tel:${settings.phone_primary.replace(/[^+\d]/g, "")}`,
+    },
+    ...extraContactLines,
+    {
+      icon: Mail,
+      title: "Email",
+      details: [settings.email],
+      action: `mailto:${settings.email}`,
+    },
+    {
+      icon: MapPin,
+      title: "Address",
+      details: settings.address.split(",").map((s) => s.trim()),
+    },
+    {
+      icon: Clock,
+      title: "Operating Hours",
+      details: settings.operating_hours.split("|").map((s) => s.trim()),
+    },
+  ];
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({
@@ -103,16 +113,12 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase.functions.invoke("send-contact-email", {
-        body: {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-        },
+      await contactApi.send({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
       });
-
-      if (error) throw error;
 
       setIsSuccess(true);
       toast({
@@ -122,10 +128,10 @@ const Contact = () => {
     } catch (error) {
       console.error("Error sending message:", error);
       toast({
-        title: "Message Received",
-        description: "Thank you for contacting us. We'll respond shortly.",
+        title: "Something went wrong",
+        description: "We couldn't send your message. Please call us directly instead.",
+        variant: "destructive",
       });
-      setIsSuccess(true);
     } finally {
       setIsSubmitting(false);
     }
