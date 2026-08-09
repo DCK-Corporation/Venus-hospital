@@ -20,8 +20,7 @@ export function AboutPreview() {
             <p className="text-muted-foreground leading-relaxed">
               Venus Hospital is a private healthcare facility located in Avissawella,
               Colombo, Sri Lanka, committed to delivering trusted, compassionate, and
-              patient-centered medical care. As a leading first-contact healthcare provider
-              in the region, our Outpatient Department (OPD) operates 24 hours a day.
+              patient-centered medical care.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Our hospital is designed with patient comfort, safety, and convenience in mind.

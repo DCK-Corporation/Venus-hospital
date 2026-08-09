@@ -1,13 +1,28 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, Menu, X } from "lucide-react";
+import {
+  ChevronDown,
+  Menu,
+  X,
+  Calendar,
+  Stethoscope,
+  Home,
+  Info,
+  Eye,
+  Shield,
+  Phone,
+  Briefcase,
+  HelpCircle
+} from "lucide-react";
 import { cn } from "@/lib/utils";
+import { BookingModal } from "@/components/BookingModal";
 
 const navItems = [
-  { label: "HOME", href: "/" },
+  { label: "HOME", href: "/", icon: Home },
   {
     label: "ABOUT US",
     href: "/about",
+    icon: Info,
     children: [
       { label: "About Venus Hospital", href: "/about" },
       { label: "Our Vision & Mission", href: "/about#vision" },
@@ -18,18 +33,20 @@ const navItems = [
   {
     label: "MEDICAL SERVICES",
     href: "/services",
+    icon: Stethoscope,
     children: [
-      { label: "Doctor Channeling & OPD", href: "/services#opd" },
-      { label: "Operation Theatre", href: "/services#surgery" },
-      { label: "Eye Care Unit", href: "/services#eye-care" },
-      { label: "Hearing Care", href: "/services#hearing" },
-      { label: "Laboratory Services", href: "/services#laboratory" },
       { label: "View All Services", href: "/services" },
+      { label: "Doctor Channeling & OPD", href: "/services/opd" },
+      { label: "Operation Theatre", href: "/services/surgery" },
+      { label: "Eye Care Unit", href: "/services/eye-care" },
+      { label: "Hearing Care", href: "/services/hearing" },
+      { label: "Laboratory Services", href: "/services/laboratory" },
     ],
   },
   {
     label: "EYE CARE & OPTICAL",
     href: "/eye-care",
+    icon: Eye,
     children: [
       { label: "Eye Examinations", href: "/eye-care" },
       { label: "Frames & Sunglasses", href: "/eye-care" },
@@ -37,8 +54,11 @@ const navItems = [
       { label: "Kids Eyewear", href: "/eye-care" },
     ],
   },
-  { label: "BOOK APPOINTMENT", href: "/appointments" },
-  { label: "CONTACT US", href: "/contact" },
+  { label: "BOOK APPOINTMENT", isModal: true, icon: Calendar },
+  { label: "INSURANCE", href: "/insurance", icon: Shield },
+  { label: "FAQ", href: "/faq", icon: HelpCircle },
+  { label: "CONTACT US", href: "/contact", icon: Phone },
+  { label: "CAREERS", href: "/careers", icon: Briefcase },
 ];
 
 const MainNav = () => {
@@ -50,16 +70,23 @@ const MainNav = () => {
   };
 
   return (
-    <nav className="bg-secondary">
+    <nav className="bg-blue-900">
       <div className="container mx-auto px-4">
         {/* Desktop Navigation */}
-        <div className="hidden xl:flex items-center justify-center">
+        <div className="hidden xl:flex items-center justify-center gap-1.5">
           {navItems.map((item) => (
             <div key={item.label} className="relative group">
-              {item.children ? (
+              {item.isModal ? (
+                <BookingModal
+                  variant="ghost"
+                  className="flex items-center gap-1 px-3 py-4 text-xs font-bold text-secondary-foreground hover:bg-primary/20 transition-colors"
+                  triggerText={item.label}
+                  showIcon={false}
+                />
+              ) : item.children ? (
                 <button
                   onClick={() => handleDropdownClick(item.label)}
-                  className="flex items-center gap-1 px-3 py-4 text-xs font-semibold text-secondary-foreground hover:bg-primary/20 transition-colors"
+                  className="flex items-center gap-1 px-3 py-4 text-xs font-bold text-secondary-foreground hover:bg-primary/20 transition-colors"
                 >
                   {item.label}
                   <ChevronDown className={cn(
@@ -111,13 +138,26 @@ const MainNav = () => {
           <div className="xl:hidden bg-secondary border-t border-primary/20 animate-slide-down">
             {navItems.map((item) => (
               <div key={item.label}>
-                {item.children ? (
+                {item.isModal ? (
+                  <div className="border-b border-primary/20">
+                    <BookingModal
+                      variant="ghost"
+                      className="w-full justify-start gap-2 px-4 py-3 text-sm font-semibold text-secondary-foreground h-auto rounded-none"
+                      triggerText={item.label}
+                      showIcon={false}
+                      icon={item.icon}
+                    />
+                  </div>
+                ) : item.children ? (
                   <>
                     <button
                       onClick={() => handleDropdownClick(item.label)}
                       className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-secondary-foreground border-b border-primary/20"
                     >
-                      {item.label}
+                      <div className="flex items-center gap-2">
+                        {item.icon && <item.icon className="w-5 h-5" />}
+                        {item.label}
+                      </div>
                       <ChevronDown className={cn(
                         "w-4 h-4 transition-transform",
                         openDropdown === item.label && "rotate-180"
@@ -125,7 +165,7 @@ const MainNav = () => {
                     </button>
                     {openDropdown === item.label && (
                       <div className="bg-primary/10">
-                        {item.children.map((child) => (
+                        {item.children.map((child, index) => (
                           <Link
                             key={child.label}
                             to={child.href}
@@ -133,8 +173,11 @@ const MainNav = () => {
                               setOpenDropdown(null);
                               setMobileMenuOpen(false);
                             }}
-                            className="block px-6 py-2 text-sm text-secondary-foreground border-b border-primary/10"
+                            className="flex items-center gap-2 px-6 py-2 text-sm text-secondary-foreground border-b border-primary/10"
                           >
+                            {index === 0 && item.label === "MEDICAL SERVICES" && (
+                              <Stethoscope className="w-4 h-4" />
+                            )}
                             {child.label}
                           </Link>
                         ))}
@@ -145,8 +188,9 @@ const MainNav = () => {
                   <Link
                     to={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block px-4 py-3 text-sm font-semibold text-secondary-foreground border-b border-primary/20"
+                    className="flex items-center gap-2 px-4 py-3 text-sm font-semibold text-secondary-foreground border-b border-primary/20"
                   >
+                    {item.icon && <item.icon className="w-5 h-5" />}
                     {item.label}
                   </Link>
                 )}

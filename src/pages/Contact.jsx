@@ -6,7 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
+import { contactApi } from "@/lib/api";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 import {
   Phone,
   Mail,
@@ -18,33 +19,72 @@ import {
   MessageSquare
 } from "lucide-react";
 
-const contactInfo = [
+// Extra direct lines beyond the main reception number (managed via Settings).
+// These aren't part of site_settings since they're department-specific
+// and rarely change; edit here directly if they do.
+const extraContactLines = [
   {
     icon: Phone,
-    title: "Phone",
-    details: ["+94 11 234 5678", "+94 11 234 5679"],
-    action: "tel:+94112345678",
+    title: "Optical & WhatsApp",
+    details: ["075 3222 096"],
+    action: "tel:+94753222096",
   },
   {
-    icon: Mail,
-    title: "Email",
-    details: ["info@venushospital.lk", "appointments@venushospital.lk"],
-    action: "mailto:info@venushospital.lk",
+    icon: Phone,
+    title: "Appointment Bookings",
+    details: ["+94 75 322 2101"],
+    action: "tel:+94753222101",
   },
   {
-    icon: MapPin,
-    title: "Address",
-    details: ["123 Hospital Road", "Avissawella, Colombo", "Sri Lanka"],
+    icon: Phone,
+    title: "Pharmacy",
+    details: ["075 3222 090"],
+    action: "tel:+94753222090",
   },
   {
-    icon: Clock,
-    title: "Operating Hours",
-    details: ["Emergency & OPD: 24/7", "Optical: Mon-Sat 8AM-8PM", "Admin: Mon-Fri 9AM-5PM"],
+    icon: Phone,
+    title: "Hearing Unit",
+    details: ["+94 77 189 9611"],
+    action: "tel:+94771899611",
+  },
+  {
+    icon: Phone,
+    title: "Ward",
+    details: ["071 071 0007"],
+    action: "tel:+94710710007",
   },
 ];
 
 const Contact = () => {
   const { toast } = useToast();
+  const { settings } = useSiteSettings();
+
+  const contactInfo = [
+    {
+      icon: Phone,
+      title: "Reception",
+      details: [settings.phone_primary, settings.phone_secondary].filter(Boolean),
+      action: `tel:${settings.phone_primary.replace(/[^+\d]/g, "")}`,
+    },
+    ...extraContactLines,
+    {
+      icon: Mail,
+      title: "Email",
+      details: [settings.email],
+      action: `mailto:${settings.email}`,
+    },
+    {
+      icon: MapPin,
+      title: "Address",
+      details: settings.address.split(",").map((s) => s.trim()),
+    },
+    {
+      icon: Clock,
+      title: "Operating Hours",
+      details: settings.operating_hours.split("|").map((s) => s.trim()),
+    },
+  ];
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({
@@ -73,16 +113,12 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase.functions.invoke("send-contact-email", {
-        body: {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-        },
+      await contactApi.send({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
       });
-
-      if (error) throw error;
 
       setIsSuccess(true);
       toast({
@@ -92,10 +128,10 @@ const Contact = () => {
     } catch (error) {
       console.error("Error sending message:", error);
       toast({
-        title: "Message Received",
-        description: "Thank you for contacting us. We'll respond shortly.",
+        title: "Something went wrong",
+        description: "We couldn't send your message. Please call us directly instead.",
+        variant: "destructive",
       });
-      setIsSuccess(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -278,7 +314,7 @@ const Contact = () => {
           </div>
           <div className="rounded-xl overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31686.57076856736!2d80.19694!3d6.9533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3a0d5e6f8f1d7%3A0x5e3f9c4d7c8e1a2b!2sAvissawella!5e0!3m2!1sen!2slk!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.4686626049424!2d80.2097051!3d6.9539118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3a998a9cb5517%3A0x7626755bc958c0e2!2sVenus%20Hospital%2C%20Colombo%20-%20Batticaloa%20Hwy%2C%20Avissawella!5e0!3m2!1sen!2slk!4v1770467374561!5m2!1sen!2slk"
               width="100%"
               height="450"
               style={{ border: 0 }}

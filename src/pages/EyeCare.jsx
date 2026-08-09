@@ -4,7 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Eye, Phone, MapPin, Clock, Star } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const bannerImages = [
+  "https://res.cloudinary.com/doqyzcyl5/image/upload/v1770469321/Venus_Hospital_Banner_2_lji3e2.jpg",
+  "https://res.cloudinary.com/doqyzcyl5/image/upload/v1770469320/Venus_Hospital_eye_care_banner_1_nthsrr.jpg"
+];
 
 const categories = [
   { id: "all", label: "All" },
@@ -21,7 +26,7 @@ const products = [
     category: "frames",
     price: "Rs. 4,500",
     originalPrice: "Rs. 5,500",
-    image: "📐",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735968/Classic_Rectangle_Frame_fz2xor.webp",
     rating: 4.8,
     description: "Timeless rectangular design suitable for all face shapes",
     features: ["Lightweight", "Anti-scratch coating", "UV protection ready"],
@@ -32,7 +37,7 @@ const products = [
     name: "Modern Round Frame",
     category: "frames",
     price: "Rs. 5,200",
-    image: "⭕",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735967/Modern_Round_Frame_lxqf8v.avif",
     rating: 4.6,
     description: "Contemporary round design with premium materials",
     features: ["Flexible hinges", "Hypoallergenic", "Durable"],
@@ -42,7 +47,7 @@ const products = [
     name: "Aviator Sunglasses",
     category: "sunglasses",
     price: "Rs. 6,800",
-    image: "🕶️",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735970/Aviator_Sunglasses_yuo3uh.jpg",
     rating: 4.9,
     description: "Classic aviator style with polarized lenses",
     features: ["Polarized", "100% UV protection", "Metal frame"],
@@ -53,7 +58,7 @@ const products = [
     name: "Sporty Wrap Sunglasses",
     category: "sunglasses",
     price: "Rs. 5,500",
-    image: "🏃",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735968/Sporty_Wrap_Sunglasses_tg6ae7.avif",
     rating: 4.7,
     description: "Perfect for outdoor activities and sports",
     features: ["Impact resistant", "Non-slip grip", "Wraparound design"],
@@ -63,7 +68,7 @@ const products = [
     name: "Premium Reading Glasses",
     category: "reading",
     price: "Rs. 3,200",
-    image: "📖",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735968/Premium_Reading_Glasses_ngerfl.webp",
     rating: 4.5,
     description: "Comfortable reading glasses for extended use",
     features: ["Blue light filter", "Spring hinges", "Multiple powers"],
@@ -73,7 +78,7 @@ const products = [
     name: "Compact Folding Readers",
     category: "reading",
     price: "Rs. 2,800",
-    image: "🔍",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735968/Framesvista-Classic-Rectangle-Eyeglasses-For-Men-Gray-2_agvvsm.png",
     rating: 4.4,
     description: "Portable folding design with protective case",
     features: ["Foldable", "Includes case", "Lightweight"],
@@ -83,7 +88,7 @@ const products = [
     name: "Kids Fun Frames",
     category: "kids",
     price: "Rs. 3,500",
-    image: "🎨",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735967/Kids_Fun_Frames_ozjuhj.webp",
     rating: 4.8,
     description: "Colorful and durable frames designed for children",
     features: ["Flexible", "Impact resistant", "Fun colors"],
@@ -94,7 +99,7 @@ const products = [
     name: "Teen Style Frame",
     category: "kids",
     price: "Rs. 4,000",
-    image: "✨",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1768735969/Teen_Style_Frame_ciq0w6.jpg",
     rating: 4.6,
     description: "Trendy designs perfect for teenagers",
     features: ["Trendy", "Durable", "Comfortable fit"],
@@ -103,6 +108,15 @@ const products = [
 
 const EyeCare = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [currentBanner, setCurrentBanner] = useState(0);
+
+  // Auto-advance banner slideshow
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentBanner((prev) => (prev + 1) % bannerImages.length);
+    }, 4000); // Change banner every 4 seconds
+    return () => clearInterval(timer);
+  }, []);
 
   const filteredProducts = selectedCategory === "all"
     ? products
@@ -118,35 +132,85 @@ const EyeCare = () => {
               <span>Home</span> / <span className="text-white">Eye Care & Optical</span>
             </nav>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              Eye Care & Optical Store
+              Visual Eye Optical Services
             </h1>
             <p className="text-lg text-white/90">
-              Quality eyewear solutions at Venus Hospital's in-house optical center
+              Wholly affiliated entity to Venus Hospital with branches across neighboring cities, offering world famous brands at international quality standards
             </p>
           </div>
         </div>
       </section>
 
-      {/* Eye Care Services Info */}
+      {/* Promotional Banner Slideshow */}
+      <section className="py-8 md:py-12 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="relative w-full max-w-7xl mx-auto overflow-hidden rounded-xl md:rounded-2xl shadow-xl bg-gray-100">
+            {/* Banner Images */}
+            <div className="relative aspect-[16/9] md:aspect-[21/9]">
+              {bannerImages.map((banner, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ${index === currentBanner ? 'opacity-100' : 'opacity-0'
+                    }`}
+                >
+                  <img
+                    src={banner}
+                    alt={`Eye Care Promotion ${index + 1}`}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+              {bannerImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentBanner(index)}
+                  className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all ${index === currentBanner
+                    ? 'bg-white w-10 md:w-12'
+                    : 'bg-white/60 hover:bg-white/80'
+                    }`}
+                  aria-label={`Go to banner ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Eye Optical Services Info */}
       <section className="py-12 bg-muted">
         <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto mb-8 text-center">
+            <h2 className="text-2xl font-heading font-bold text-foreground mb-2">
+              About Visual Eye Optical Services
+            </h2>
+            <p className="text-primary font-semibold italic mb-3">
+              Bringing You Clear Vision with 25 Years of Trusted Care and Service.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Visual Eye Optical Services is a wholly affiliated entity to Venus Hospital (Pvt) Ltd with a number of branches in the neighboring cities, with its main branch located within the Venus Hospital premises. Our totally computerized Automated Optical Processing Workshop is ready to provide a range of world famous brands of optical products including frames, lenses, contact lenses, Sunglasses etc, at international quality and standards with a guarantee of continuous service.
+            </p>
+          </div>
           <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-card p-6 rounded-xl border border-border flex items-start gap-4">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                <MapPin className="h-6 w-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-heading font-semibold mb-1">Multiple Branches</h3>
+                <p className="text-sm text-muted-foreground">Main branch at Venus Hospital with branches in neighboring cities</p>
+              </div>
+            </div>
             <div className="bg-card p-6 rounded-xl border border-border flex items-start gap-4">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
                 <Eye className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-heading font-semibold mb-1">Eye Examinations</h3>
-                <p className="text-sm text-muted-foreground">Complete eye check-ups before eyewear selection</p>
-              </div>
-            </div>
-            <div className="bg-card p-6 rounded-xl border border-border flex items-start gap-4">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                <Clock className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-heading font-semibold mb-1">Quick Service</h3>
-                <p className="text-sm text-muted-foreground">Same-day lens fitting for most prescriptions</p>
+                <h3 className="font-heading font-semibold mb-1">Computerized Workshop</h3>
+                <p className="text-sm text-muted-foreground">Totally computerized Automated Optical Processing Workshop</p>
               </div>
             </div>
             <div className="bg-card p-6 rounded-xl border border-border flex items-start gap-4">
@@ -154,8 +218,8 @@ const EyeCare = () => {
                 <Star className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-heading font-semibold mb-1">Quality Guaranteed</h3>
-                <p className="text-sm text-muted-foreground">Warranty on all frames and lenses</p>
+                <h3 className="font-heading font-semibold mb-1">International Quality</h3>
+                <p className="text-sm text-muted-foreground">World famous brands at international standards with service guarantee</p>
               </div>
             </div>
           </div>
@@ -192,8 +256,12 @@ const EyeCare = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredProducts.map((product) => (
               <Card key={product.id} className="group overflow-hidden">
-                <div className="relative bg-muted p-8 flex items-center justify-center text-6xl">
-                  {product.image}
+                <div className="relative bg-muted aspect-square flex items-center justify-center overflow-hidden p-4">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
                   <div className="absolute top-3 left-3 flex gap-2">
                     {product.isNew && (
                       <Badge className="bg-primary">New</Badge>
@@ -228,10 +296,10 @@ const EyeCare = () => {
                   </div>
                   <div className="flex items-center justify-between pt-2">
                     <div>
-                      <span className="text-lg font-bold text-primary">{product.price}</span>
+                      <span className="text-lg font-bold text-primary">{ }</span>
                       {product.originalPrice && (
                         <span className="text-sm text-muted-foreground line-through ml-2">
-                          {product.originalPrice}
+                          { }
                         </span>
                       )}
                     </div>

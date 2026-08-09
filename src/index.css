@@ -6,41 +6,45 @@
 
 @layer base {
   :root {
+
+    min-height: 100vh;
+    background-color: #0f172a;
+
     /* Venus Hospital Brand Colors */
     --background: 210 20% 98%;
     --foreground: 0 0% 18%;
-    
+
     --card: 0 0% 100%;
     --card-foreground: 0 0% 18%;
-    
+
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 18%;
-    
+
     /* Venus Blue-Purple #4B2C82 */
     --primary: 265 50% 34%;
     --primary-foreground: 0 0% 100%;
-    
+
     /* Medical Blue #1F6FB2 */
     --secondary: 206 70% 41%;
     --secondary-foreground: 0 0% 100%;
-    
+
     /* Light backgrounds */
     --muted: 210 20% 96%;
     --muted-foreground: 0 0% 45%;
-    
+
     --accent: 210 20% 94%;
     --accent-foreground: 265 50% 34%;
-    
+
     /* Healing Red #E63946 */
     --destructive: 355 80% 56%;
     --destructive-foreground: 0 0% 100%;
-    
+
     --border: 210 20% 88%;
     --input: 210 20% 88%;
     --ring: 265 50% 34%;
-    
+
     --radius: 0.5rem;
-    
+
     /* Custom Venus Hospital tokens */
     --venus-purple: 265 50% 34%;
     --venus-blue: 206 70% 41%;
@@ -48,17 +52,19 @@
     --venus-light-gray: 210 20% 97%;
     --venus-medium-gray: 0 0% 54%;
     --venus-dark-gray: 0 0% 18%;
-    
+
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(265 50% 34%) 0%, hsl(206 70% 41%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 20% 98%) 100%);
-    
+
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1),
+      0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1),
+      0 4px 6px -4px hsl(0 0% 0% / 0.1);
     --shadow-card: 0 4px 20px -2px hsl(265 50% 34% / 0.08);
-    
+
     /* Sidebar */
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 18%;
@@ -73,32 +79,32 @@
   .dark {
     --background: 0 0% 8%;
     --foreground: 210 20% 98%;
-    
+
     --card: 0 0% 12%;
     --card-foreground: 210 20% 98%;
-    
+
     --popover: 0 0% 12%;
     --popover-foreground: 210 20% 98%;
-    
+
     --primary: 265 50% 50%;
     --primary-foreground: 0 0% 100%;
-    
+
     --secondary: 206 70% 50%;
     --secondary-foreground: 0 0% 100%;
-    
+
     --muted: 0 0% 15%;
     --muted-foreground: 210 20% 70%;
-    
+
     --accent: 0 0% 18%;
     --accent-foreground: 265 50% 60%;
-    
+
     --destructive: 355 80% 50%;
     --destructive-foreground: 0 0% 100%;
-    
+
     --border: 0 0% 20%;
     --input: 0 0% 20%;
     --ring: 265 50% 50%;
-    
+
     --sidebar-background: 0 0% 10%;
     --sidebar-foreground: 210 20% 98%;
     --sidebar-primary: 265 50% 50%;
@@ -114,12 +120,17 @@
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-background text-foreground font-body antialiased;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading;
   }
 }
@@ -128,11 +139,11 @@
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .gradient-hero {
     background: var(--gradient-hero);
   }
-  
+
   .shadow-card {
     box-shadow: var(--shadow-card);
   }

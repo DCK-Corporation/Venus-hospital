@@ -1,104 +1,110 @@
+import { useState, useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { BookingModal } from "@/components/BookingModal";
 import {
-  Stethoscope,
-  Eye,
-  Ear,
-  Glasses,
-  Activity,
-  FlaskConical,
-  Pill,
-  Bed,
-  Scissors,
-  Accessibility,
-  Smile,
-  Calendar,
-  CheckCircle
+  ArrowRight,
+  Loader2,
 } from "lucide-react";
+import { servicesApi } from "@/lib/api";
 
-const services = [
+const localServices = [
   {
-    id: "opd",
-    icon: Stethoscope,
-    title: "Doctor Channeling & 24/7 OPD Services",
-    description: "Our Outpatient Department (OPD) operates 24 hours a day, making Venus Hospital a dependable first point of contact for medical care. Patients can consult qualified General Practitioners and specialist doctors for prompt diagnosis, treatment, and follow-up care.",
-    features: ["24/7 availability", "Qualified doctors", "Minimal waiting time", "Walk-in & appointments"],
+    title: "8 a.m - 8 p.m OPD Services",
+    description: "Round-the-clock outpatient care with qualified doctors",
+    link: "/services/opd",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678737/IMG_6030_ibrvko.jpg",
   },
   {
-    id: "surgery",
-    icon: Scissors,
-    title: "Modern Operation Theatre",
-    description: "Venus Hospital features a fully equipped, modern operation theatre designed to meet strict medical and safety standards. Our surgical team follows internationally accepted protocols, supported by advanced equipment and a sterile environment.",
-    features: ["Cataract surgeries", "Cesarean sections", "General surgical procedures", "Sterile environment"],
+    title: "Operation Theatre",
+    description: "Modern surgical facilities for various procedures",
+    link: "/services/surgery",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1770487301/Operation_T_2_gclq2x.jpg",
   },
   {
-    id: "rooms",
-    icon: Bed,
-    title: "Comfortable Rooms & Wards",
-    description: "Patient comfort and recovery are at the heart of our inpatient care. Venus Hospital provides clean, well-maintained rooms and wards designed to create a calm and healing environment.",
-    features: ["Comfortable bedding", "Clean surroundings", "Attentive nursing care", "Visitor access"],
+    title: "Rooms & Wards",
+    description: "Comfortable inpatient care facilities",
+    link: "/services/rooms",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767677162/IMG_5988_xixvdk.jpg",
   },
   {
-    id: "eye-care",
-    icon: Eye,
-    title: "Complete Eye Care Unit",
-    description: "Our comprehensive Eye Unit delivers advanced diagnostic and treatment services for a wide range of eye conditions. Equipped with modern technology, the unit supports accurate diagnosis and effective treatment.",
-    features: ["Visual Field Testing", "OCT", "Biometry", "Cataract management"],
+    title: "Eye Care Unit",
+    description: "Comprehensive eye diagnostics and treatments",
+    link: "/services/eye-care",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678731/IMG_5709_nkjcnb.jpg",
   },
   {
-    id: "hearing",
-    icon: Ear,
-    title: "Hearing Care Unit",
-    description: "The Hearing Unit at Venus Hospital provides professional hearing assessments and support services. We assist patients in identifying hearing-related conditions and guide them toward appropriate treatment.",
-    features: ["Hearing assessments", "Professional consultation", "Treatment guidance", "All ages welcome"],
+    title: "Hearing Unit",
+    description: "Professional hearing assessments and support",
+    link: "/services/hearing",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1770487879/AdobeStock_1822017679_lzxzjx.jpg",
   },
   {
-    id: "optical",
-    icon: Glasses,
     title: "Optical Services",
-    description: "Our in-house optical services provide convenient access to vision correction solutions following eye examinations. Patients can receive guidance on suitable eyewear, ensuring comfort, clarity, and eye protection.",
-    features: ["Vision correction", "Eyewear guidance", "Complete care", "Quality products"],
+    description: "Vision correction and eyewear solutions",
     link: "/eye-care",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678739/IMG_6062_bext85.jpg",
   },
   {
-    id: "diagnostics",
-    icon: Activity,
-    title: "Advanced Diagnostic Services",
-    description: "Venus Hospital offers reliable diagnostic facilities to support accurate medical evaluations. Our diagnostic services assist doctors in early detection, monitoring, and effective treatment planning.",
-    features: ["Digital X-ray", "ECG", "2D Echocardiography", "Accurate results"],
+    title: "Diagnostics",
+    description: "X-ray, ECG, and 2D Echo services",
+    link: "/services/diagnostics",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678731/IMG_5728_qguyl3.jpg",
   },
   {
-    id: "laboratory",
-    icon: FlaskConical,
-    title: "Laboratory Services",
-    description: "Our fully equipped laboratory provides a wide range of medical tests with accuracy and efficiency. We adhere to strict quality standards to ensure reliable test results that support timely clinical decisions.",
-    features: ["Wide test range", "Quality standards", "Timely results", "OPD & inpatient"],
+    title: "Laboratory",
+    description: "Wide range of medical tests with accuracy",
+    link: "/services/laboratory",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678731/IMG_5764_bmwnho.jpg",
   },
   {
-    id: "dental",
-    icon: Smile,
-    title: "Complete Dental Care",
-    description: "Venus Hospital offers comprehensive dental services delivered by qualified dental professionals. Our dental care focuses on both preventive and restorative treatments to maintain oral health.",
-    features: ["Routine check-ups", "Dental treatments", "Oral hygiene education", "Qualified dentists"],
+    title: "Dental Care",
+    description: "Complete dental health services",
+    link: "/services/dental",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678732/IMG_5778_h08sjs.jpg",
   },
   {
-    id: "pharmacy",
-    icon: Pill,
-    title: "In-House Pharmacy",
-    description: "Our on-site pharmacy ensures easy access to prescribed medications for both OPD and inpatient care. The pharmacy is managed by trained professionals and stocked with essential medicines.",
-    features: ["Essential medicines", "Trained pharmacists", "OPD & inpatient", "Convenient access"],
+    title: "Pharmacy",
+    description: "On-site pharmacy for prescribed medications",
+    link: "/services/pharmacy",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678733/IMG_5876_xjlmsd.jpg",
   },
   {
-    id: "accessibility",
-    icon: Accessibility,
-    title: "Patient-Friendly Accessibility",
-    description: "Venus Hospital is designed to be accessible and convenient for all patients. We provide wheelchair access throughout the hospital and dedicated parking facilities for a stress-free visit.",
-    features: ["Wheelchair access", "Dedicated parking", "Elderly-friendly", "Easy navigation"],
+    title: "Accessibility",
+    description: "Wheelchair access and dedicated parking",
+    link: "/services/accessibility",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1767678739/IMG_6006_qtowem.jpg",
+  },
+
+  {
+    title: "Skin Clinic",
+    description: "The best skin care services in Avissawella",
+    link: "/services/skinclinic",
+    image: "https://res.cloudinary.com/doqyzcyl5/image/upload/v1770487300/skin-care-routine-2-scaled_pvntyt.webp",
   },
 ];
 
 const Services = () => {
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const data = await servicesApi.list();
+        setServices(data && data.length > 0 ? data : localServices);
+      } catch (error) {
+        console.error("Error fetching services:", error);
+        setServices(localServices);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
+
   return (
     <Layout>
       {/* Hero Banner */}
@@ -106,7 +112,9 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <nav className="text-sm text-white/70 mb-4">
-              <span>Home</span> / <span className="text-white">Our Services</span>
+              <Link to="/" className="hover:text-white transition-colors">Home</Link>
+              <span> / </span>
+              <span className="text-white">Our Services</span>
             </nav>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
               Our Medical Services
@@ -118,54 +126,87 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services List */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="space-y-16">
-            {services.map((service, index) => (
-              <div
-                key={service.id}
-                id={service.id}
-                className={`scroll-mt-32 ${index % 2 === 0 ? '' : ''}`}
-              >
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
-                  <div className={`space-y-6 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center">
-                      <service.icon className="h-8 w-8 text-primary" />
-                    </div>
-                    <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
+      {/* Services Grid */}
+      <section className="py-20 bg-muted">
+        <div className="mx-16 px-4">
+          <div className="text-center mb-12">
+            <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+              Our Services
+            </span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mt-4">
+              Complete Healthcare Solutions
+            </h2>
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              Venus Hospital offers a wide range of medical services under one roof—designed
+              to meet everyday healthcare needs as well as specialized medical care.
+            </p>
+          </div>
+
+          {loading ? (
+            <div className="flex justify-center items-center py-20">
+              <Loader2 className="h-10 w-10 animate-spin text-primary" />
+            </div>
+          ) : (
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service) => (
+                <Link
+                  key={service.title}
+                  to={service.link}
+                  className="group relative rounded-2xl overflow-hidden min-h-[380px] flex flex-col justify-end shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                >
+                  {/* Background Image */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                    style={{ backgroundImage: `url(${service.image})` }}
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+
+                  {/* Content */}
+                  <div className="relative z-10 p-6">
+                    <h3 className="font-heading font-bold text-xl text-white mb-2">
                       {service.title}
-                    </h2>
-                    <p className="text-muted-foreground leading-relaxed">
+                    </h3>
+                    <p className="text-sm text-white/80 mb-4 line-clamp-2">
                       {service.description}
                     </p>
-                    <ul className="grid sm:grid-cols-2 gap-3">
-                      {service.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-foreground">
-                          <CheckCircle className="h-5 w-5 text-primary shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    {service.link && (
-                      <Button asChild>
-                        <Link to={service.link}>
-                          View Optical Products
-                        </Link>
-                      </Button>
-                    )}
+                    <span className="inline-flex items-center text-sm text-primary font-semibold group-hover:text-white transition-colors">
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
+                    </span>
                   </div>
-                  <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-12 flex items-center justify-center">
-                      <service.icon className="h-32 w-32 text-primary/30" />
-                    </div>
-                  </div>
-                </div>
-                {index < services.length - 1 && (
-                  <div className="border-t border-border mt-16" />
-                )}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">
+              Why Choose Venus Hospital?
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              We combine modern facilities with compassionate care to deliver healthcare services
+              that prioritize your well-being and comfort.
+            </p>
+            <div className="grid sm:grid-cols-3 gap-6">
+              <div className="p-6 bg-muted/50 rounded-xl">
+                <div className="text-3xl font-bold text-primary mb-2">24/7</div>
+                <p className="text-sm text-muted-foreground">Emergency & OPD Services</p>
               </div>
-            ))}
+              <div className="p-6 bg-muted/50 rounded-xl">
+                <div className="text-3xl font-bold text-primary mb-2">11+</div>
+                <p className="text-sm text-muted-foreground">Medical Services</p>
+              </div>
+              <div className="p-6 bg-muted/50 rounded-xl">
+                <div className="text-3xl font-bold text-primary mb-2">Expert</div>
+                <p className="text-sm text-muted-foreground">Medical Professionals</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -180,12 +221,7 @@ const Services = () => {
             Book an appointment or visit our 24/7 OPD for immediate assistance.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button asChild size="lg">
-              <Link to="/appointments">
-                <Calendar className="mr-2 h-5 w-5" />
-                Book Appointment
-              </Link>
-            </Button>
+            <BookingModal size="lg" />
             <Button asChild variant="outline" size="lg">
               <Link to="/contact">
                 Contact Us

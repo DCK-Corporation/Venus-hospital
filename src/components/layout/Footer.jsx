@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { BookingModal } from "@/components/BookingModal";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 import logo from "@/assets/venus-hospital-logo.png";
 
 const quickLinks = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
   { name: "Services", path: "/services" },
-  { name: "Book Appointment", path: "/appointments" },
+  { name: "Book Appointment", isModal: true },
+  { name: "FAQ", path: "/faq" },
   { name: "Contact Us", path: "/contact" },
 ];
 
@@ -26,6 +29,10 @@ const socialLinks = [
 ];
 
 export function Footer() {
+  const { settings } = useSiteSettings();
+  const telHref = `tel:${settings.phone_primary.replace(/[^+\d]/g, "")}`;
+  const mailHref = `mailto:${settings.email}`;
+
   return (
     <footer className="bg-foreground text-background">
       {/* Main Footer */}
@@ -59,12 +66,21 @@ export function Footer() {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-sm text-background/70 hover:text-primary transition-colors"
-                  >
-                    {link.name}
-                  </Link>
+                  {link.isModal ? (
+                    <BookingModal
+                      variant="link"
+                      className="p-0 h-auto text-sm text-background/70 hover:text-primary font-normal justify-start"
+                      triggerText={link.name}
+                      showIcon={false}
+                    />
+                  ) : (
+                    <Link
+                      to={link.path}
+                      className="text-sm text-background/70 hover:text-primary transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -94,25 +110,25 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                 <span className="text-sm text-background/70">
-                  123 Hospital Road, Avissawella,<br />Colombo, Sri Lanka
+                  {settings.address}
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-primary shrink-0" />
-                <a href="tel:+94112345678" className="text-sm text-background/70 hover:text-primary transition-colors">
-                  +94 11 234 5678
+                <a href={telHref} className="text-sm text-background/70 hover:text-primary transition-colors">
+                  {settings.phone_primary}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary shrink-0" />
-                <a href="mailto:info@venushospital.lk" className="text-sm text-background/70 hover:text-primary transition-colors">
-                  info@venushospital.lk
+                <a href={mailHref} className="text-sm text-background/70 hover:text-primary transition-colors">
+                  {settings.email}
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Clock className="h-5 w-5 text-primary shrink-0" />
                 <span className="text-sm text-background/70">
-                  Open 24/7 - Emergency & OPD
+                  {settings.operating_hours}
                 </span>
               </li>
             </ul>
@@ -124,8 +140,8 @@ export function Footer() {
       <div className="border-t border-background/10">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-background/60">
-            <p>© {new Date().getFullYear()} Venus Hospital (Pvt) Ltd. All rights reserved.</p>
-            <p className="font-medium text-primary">Trusted Care. Compassionate Healing.</p>
+            <p>© {new Date().getFullYear()} {settings.hospital_name}. All rights reserved.</p>
+            <p className="text-background/60 shrink-0">{settings.tagline}</p>
           </div>
         </div>
       </div>

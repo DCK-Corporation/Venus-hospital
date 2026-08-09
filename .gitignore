@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+.env
+.env.local
+
+# Uploaded media (served by the backend, not committed to git)
+server/uploads/*
+!server/uploads/.gitkeep
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -23,3 +30,9 @@ dist-ssr
 *.sln
 *.sw?
 config.toml
+src/assets/*.jpg
+src/assets/*.jpeg
+src/assets/*.jpg
+src/assets/*.jpeg
+src/assets/*.jpg
+src/assets/*.jpeg
