@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cookieParser from "cookie-parser";
 import path from "path";
+import fs from "fs";
 import { fileURLToPath } from "url";
 
 import authRoutes from "./routes/auth.js";
@@ -36,7 +37,14 @@ app.use(express.static(distDir));
 
 // SPA fallback: anything not matched above (and not /api or /uploads) returns index.html
 app.get(/^(?!\/api|\/uploads).*/, (req, res) => {
-  res.sendFile(path.join(distDir, "index.html"));
+  const indexPath = path.join(distDir, "index.html");
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    res.status(404).send(
+      "Frontend build not found. Please run 'npm run build' and ensure the 'dist' directory is present in your deployment."
+    );
+  }
 });
 
 // Central error handler (e.g. multer file-type/size errors)
