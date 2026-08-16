@@ -15,6 +15,7 @@
     "build:dev": "vite build --mode development",
     "start": "npm run build && node server/index.js",
     "seed:admin": "node server/seedAdmin.js",
+    "test:db": "node server/testDb.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
